@@ -46,8 +46,8 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis": "workspace:~",
-    "js-yaml": "^4.2.0"
+    "@orochi-network/cordis-plugin-include": "workspace:~",
+    "js-yaml": "^4.3.2"
   }
 }

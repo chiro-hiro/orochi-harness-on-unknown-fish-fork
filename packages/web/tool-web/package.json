@@ -34,26 +34,26 @@
     "@orochi-network/oh-web": "workspace:*"
   },
   "dependencies": {
+    "@joplin/turndown-plugin-gfm": "^1.0.68",
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "@joplin/turndown-plugin-gfm": "^1.0.67",
     "turndown": "^7.2.4"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-spill-local": "workspace:*",
     "@orochi-network/oh-spill-policy": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
+    "@orochi-network/oh-token-meter": "workspace:*",
     "@orochi-network/oh-tool-call-timeout-policy": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
     "@orochi-network/oh-web": "workspace:*",
     "@orochi-network/oh-web-fetch-http": "workspace:*",
     "@orochi-network/oh-web-search-exa": "workspace:*",
-    "@types/turndown": "^5.0.6",
-    "@orochi-network/oh-scope": "workspace:*",
-    "@orochi-network/oh-token-meter": "workspace:*"
+    "@types/turndown": "^5.0.6"
   }
 }

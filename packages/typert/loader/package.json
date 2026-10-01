@@ -27,18 +27,18 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/oh-typert-registry": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-typert-registry": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~"
   },
   "devDependencies": {
-    "@orochi-network/oh-app-boot": "workspace:*",
-    "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/oh-typert-registry": "workspace:*",
     "@orochi-network/cordis": "workspace:~",
-    "zod": "^4.4.3"
+    "@orochi-network/cordis-plugin-loader": "workspace:~",
+    "@orochi-network/oh-app-boot": "workspace:*",
+    "@orochi-network/oh-typert-registry": "workspace:*",
+    "zod": "^4.6.5"
   }
 }

@@ -42,7 +42,7 @@
     "@orochi-network/oh-session-projection": "workspace:*"
   },
   "dependencies": {
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",

@@ -41,19 +41,19 @@
     }
   },
   "peerDependencies": {
-    "@orochi-network/cordis-plugin-timer": "workspace:~",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/cordis": "workspace:~",
+    "@orochi-network/cordis-plugin-timer": "workspace:~"
   },
   "dependencies": {
-    "@babel/code-frame": "^7.29.0",
-    "chokidar": "^4.0.3",
+    "@babel/code-frame": "^7.29.7",
     "@orochi-network/cosmokit": "workspace:~",
-    "picomatch": "^4.0.3",
-    "@orochi-network/schemastery": "workspace:~"
+    "@orochi-network/schemastery": "workspace:~",
+    "chokidar": "^4.0.3",
+    "picomatch": "^4.0.7"
   },
   "devDependencies": {
     "@types/babel__code-frame": "^7.27.0",
     "@types/picomatch": "^3.0.2",
-    "esbuild": "^0.28.1"
+    "esbuild": "^0.28.2"
   }
 }

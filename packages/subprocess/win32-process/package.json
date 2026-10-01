@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@orochi-network/oh-lazy-require": "workspace:*",
-    "koffi": "^3.1.0"
+    "koffi": "^3.3.2"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~"

@@ -44,6 +44,6 @@
     "@orochi-network/oh-skill": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
     "@types/js-yaml": "^4.0.9",
-    "js-yaml": "^4.2.0"
+    "js-yaml": "^4.3.2"
   }
 }

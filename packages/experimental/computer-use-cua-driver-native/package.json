@@ -38,7 +38,7 @@
     "@orochi-network/oh-mcp-client": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
     "@trycua/cua-driver": "0.28.0",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",

@@ -64,17 +64,17 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "dependencies": {
-    "@orochi-network/oh-util-crypto": "workspace:*",
-    "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-timeout": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
+    "@orochi-network/oh-timeout": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*",
+    "@orochi-network/oh-util-crypto": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*"
+    "@orochi-network/schemastery": "workspace:~",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-attachment": "workspace:*",
-    "@orochi-network/oh-invariants": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-invariants": "workspace:*"
   }
 }

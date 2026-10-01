@@ -33,10 +33,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@orochi-network/oh-experimental-speech-to-text": "workspace:*",
-    "@orochi-network/oh-experimental-speech-to-text-sensevoice": "workspace:*",
     "@orochi-network/oh-experimental-api-speech-to-text": "workspace:*",
-    "@orochi-network/oh-experimental-client-ui-voice-input": "workspace:*"
+    "@orochi-network/oh-experimental-client-ui-voice-input": "workspace:*",
+    "@orochi-network/oh-experimental-speech-to-text": "workspace:*",
+    "@orochi-network/oh-experimental-speech-to-text-sensevoice": "workspace:*"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~"
@@ -44,7 +44,7 @@
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
-    "js-yaml": "^4.2.0"
+    "js-yaml": "^4.3.2"
   },
   "oh": {
     "bundle": {

@@ -27,7 +27,7 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@agentclientprotocol/sdk": "1.4.0",
+    "@agentclientprotocol/sdk": "1.5.1",
     "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/schemastery": "workspace:~"
   },

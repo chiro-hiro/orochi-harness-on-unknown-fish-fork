@@ -47,7 +47,7 @@
     "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -89,8 +89,8 @@
     "@orochi-network/oh-session-query-sqlite": "workspace:*",
     "@orochi-network/oh-session-title": "workspace:*",
     "@orochi-network/oh-spill": "workspace:*",
-    "@orochi-network/oh-subagent": "workspace:*",
     "@orochi-network/oh-spill-local": "workspace:*",
+    "@orochi-network/oh-subagent": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-tool-fs": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",

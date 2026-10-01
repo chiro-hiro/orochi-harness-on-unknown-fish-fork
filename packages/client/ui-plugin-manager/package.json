@@ -61,18 +61,18 @@
     "@orochi-network/oh-client-ui-layout": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
     "@orochi-network/oh-client-ui-renderer": "workspace:*",
+    "@orochi-network/oh-client-ui-settings": "workspace:*",
     "@orochi-network/oh-client-ui-sidebar": "workspace:*",
     "@orochi-network/oh-client-ui-slots": "workspace:*",
     "@orochi-network/oh-package-manifest": "workspace:*",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
-    "clsx": "^2.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@orochi-network/oh-plugin-manager": "workspace:*",
     "@orochi-network/oh-util-crypto": "workspace:*",
-    "@orochi-network/oh-client-ui-settings": "workspace:*",
-    "@orochi-network/oh-plugin-manager": "workspace:*"
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "~18.3.31",
+    "@types/react-dom": "~18.3.7",
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "files": [
     "lib/index.js",
@@ -85,8 +85,8 @@
   ],
   "dependencies": {
     "@orochi-network/oh-timeout": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-typert-protocol": "workspace:*"
+    "zod": "^4.6.5"
   }
 }

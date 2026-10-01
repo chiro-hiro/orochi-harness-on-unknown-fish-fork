@@ -51,6 +51,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-api-session-controller": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
@@ -62,15 +63,15 @@
     "@orochi-network/oh-storage-domain": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-workspace": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-workspace": "workspace:*"
   },
   "dependencies": {
-    "@orochi-network/schemastery": "workspace:~",
     "@js-temporal/polyfill": "0.5.1",
-    "zod": "^4.4.3"
+    "@orochi-network/schemastery": "workspace:~",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-agent-loop": "workspace:*",
@@ -89,7 +90,6 @@
     "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-workspace": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-workspace": "workspace:*"
   }
 }

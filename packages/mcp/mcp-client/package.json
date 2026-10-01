@@ -27,38 +27,38 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-attachment": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-mcp-resources": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-timeout": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-mcp-resources": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*"
+    "@orochi-network/oh-tools": "workspace:*"
   },
   "dependencies": {
-    "@orochi-network/schemastery": "workspace:~",
-    "@modelcontextprotocol/client": "2.0.0",
-    "@orochi-network/oh-util-values": "workspace:*"
+    "@modelcontextprotocol/client": "2.2.0",
+    "@orochi-network/oh-util-values": "workspace:*",
+    "@orochi-network/schemastery": "workspace:~"
   },
   "devDependencies": {
+    "@modelcontextprotocol/node": "2.1.0",
+    "@modelcontextprotocol/server": "2.2.0",
+    "@modelcontextprotocol/server-everything": "^2026.8.31",
+    "@modelcontextprotocol/server-filesystem": "^2026.8.31",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-attachment": "workspace:*",
     "@orochi-network/oh-attachment-local": "workspace:*",
+    "@orochi-network/oh-http-proxy": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-mcp-resources": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-timeout": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
-    "@modelcontextprotocol/server-everything": "^2026.7.4",
-    "@modelcontextprotocol/server-filesystem": "^2026.7.4",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-http-proxy": "workspace:*",
-    "@modelcontextprotocol/server": "2.0.0",
-    "@modelcontextprotocol/node": "2.0.0",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-mcp-resources": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*"
+    "zod": "^4.6.5"
   },
   "peerDependenciesMeta": {
     "@orochi-network/oh-mcp-resources": {

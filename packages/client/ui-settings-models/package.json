@@ -44,20 +44,20 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
-    "@orochi-network/oh-host-webserver": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-api-remotes": "workspace:*",
     "@orochi-network/oh-client-locale": "workspace:*",
     "@orochi-network/oh-client-store": "workspace:*",
     "@orochi-network/oh-client-test-runtime": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
+    "@orochi-network/oh-client-ui-renderer": "workspace:*",
     "@orochi-network/oh-client-ui-settings": "workspace:*",
     "@orochi-network/oh-client-ui-slots": "workspace:*",
-    "@types/react": "~18.3.1",
-    "@orochi-network/cordis": "workspace:~",
-    "react": "^18.2.0",
-    "@orochi-network/oh-client-ui-renderer": "workspace:*",
+    "@orochi-network/oh-host-webserver": "workspace:*",
+    "@orochi-network/oh-remote-mock": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
-    "@orochi-network/oh-remote-mock": "workspace:*"
+    "@types/react": "~18.3.31",
+    "react": "^18.3.1"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~"

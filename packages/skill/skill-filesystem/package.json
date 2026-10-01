@@ -27,20 +27,20 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
-    "@orochi-network/oh-skill": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-skill": "workspace:*"
   },
   "dependencies": {
-    "chokidar": "^5.0.0",
     "@orochi-network/schemastery": "workspace:~",
-    "yaml": "^2.4.2"
+    "chokidar": "^5.0.0",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
-    "@orochi-network/oh-skill": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-skill": "workspace:*"
   }
 }

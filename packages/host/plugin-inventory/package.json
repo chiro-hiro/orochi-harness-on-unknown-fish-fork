@@ -44,14 +44,14 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent-preset-registry": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-typert-protocol": "workspace:*"
   },
   "peerDependenciesMeta": {
     "@orochi-network/oh-agent-preset-registry": {
@@ -59,12 +59,12 @@
     }
   },
   "devDependencies": {
-    "@orochi-network/oh-app-boot": "workspace:*",
-    "@orochi-network/oh-package-manifest": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent-preset-registry": "workspace:*",
+    "@orochi-network/oh-app-boot": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-package-manifest": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*"
   }
 }

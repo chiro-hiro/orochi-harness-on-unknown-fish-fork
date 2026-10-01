@@ -28,23 +28,23 @@
   "license": "MIT",
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
-    "@orochi-network/oh-agent": "workspace:*",
-    "@orochi-network/oh-shell": "workspace:*",
-    "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-agent": "workspace:*",
+    "@orochi-network/oh-session": "workspace:*",
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-shell": "workspace:*"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-agent-loop-testkit": "workspace:*",
-    "@orochi-network/oh-shell": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-shell": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*"
   }
 }

@@ -44,6 +44,7 @@
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-api-remotes": "workspace:*",
+    "@orochi-network/oh-client-connection": "workspace:*",
     "@orochi-network/oh-client-store": "workspace:*",
     "@orochi-network/oh-client-test-runtime": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
@@ -51,10 +52,9 @@
     "@orochi-network/oh-client-ui-settings": "workspace:*",
     "@orochi-network/oh-client-ui-slots": "workspace:*",
     "@orochi-network/oh-package-manifest": "workspace:*",
-    "@types/react": "~18.3.1",
-    "react": "^18.2.0",
-    "@orochi-network/oh-client-connection": "workspace:*",
-    "@orochi-network/oh-settings": "workspace:*"
+    "@orochi-network/oh-settings": "workspace:*",
+    "@types/react": "~18.3.31",
+    "react": "^18.3.1"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~"

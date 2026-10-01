@@ -52,7 +52,7 @@
   "dependencies": {
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",

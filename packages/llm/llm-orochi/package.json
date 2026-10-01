@@ -28,48 +28,48 @@
   "license": "MIT",
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
+    "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-atomic-write": "workspace:*",
     "@orochi-network/oh-attachment": "workspace:*",
-    "@orochi-network/oh-orochi-llm-api-extensions": "workspace:*",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
     "@orochi-network/oh-launch-environment": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
-    "@orochi-network/oh-timeout": "workspace:*",
-    "@orochi-network/cordis-plugin-loader": "workspace:~"
+    "@orochi-network/oh-orochi-llm-api-extensions": "workspace:*",
+    "@orochi-network/oh-timeout": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/cosmokit": "workspace:~",
     "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "eventsource-parser": "^3.1.0"
+    "eventsource-parser": "^3.1.1"
   },
   "devDependencies": {
-    "@orochi-network/oh-llm-orochi-api-key": "workspace:*",
     "@orochi-network/cordis": "workspace:~",
+    "@orochi-network/cordis-plugin-include": "workspace:~",
+    "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
+    "@orochi-network/oh-agent-loop": "workspace:*",
     "@orochi-network/oh-atomic-write": "workspace:*",
     "@orochi-network/oh-attachment": "workspace:*",
     "@orochi-network/oh-attachment-local": "workspace:*",
     "@orochi-network/oh-credentials": "workspace:*",
-    "@orochi-network/oh-orochi-llm-api-extensions": "workspace:*",
+    "@orochi-network/oh-credentials-local": "workspace:*",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
+    "@orochi-network/oh-http-proxy": "workspace:*",
     "@orochi-network/oh-launch-environment": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-llm-orochi-api-key": "workspace:*",
+    "@orochi-network/oh-orochi-llm-api-extensions": "workspace:*",
     "@orochi-network/oh-plugin-package-inventory-orochi": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-timeout": "workspace:*",
-    "@orochi-network/oh-http-proxy": "workspace:*",
-    "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/cordis-plugin-include": "workspace:~",
-    "@orochi-network/oh-agent-loop": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-settings": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/oh-credentials-local": "workspace:*",
-    "@orochi-network/oh-settings": "workspace:*"
+    "@orochi-network/oh-timeout": "workspace:*",
+    "@orochi-network/oh-tools": "workspace:*"
   },
   "peerDependenciesMeta": {
     "@orochi-network/cordis-plugin-loader": {

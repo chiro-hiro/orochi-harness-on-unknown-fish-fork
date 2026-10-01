@@ -20,7 +20,7 @@ macOS 仅向独立 Node 可执行文件授予 `com.apple.security.cs.allow-jit`�
 
 Windows 签名打包通过受监督的签名阶段覆盖第一方运行时和应用生产依赖，将文件准备与执行分开。PE 检查独立于扩展名识别文件内容，排除其他平台的非 PE Node 原生插件，并拒绝目录链接。公钥验签每个进程处理最多 32 个文件，同时最多运行四个进程，返回失败前等待当前批次全部结束；硬件操作仍串行执行。有效的上游签名保持不变；仅未签名文件使用配置的 EV 证书签名。已有签名无效时，在访问硬件前失败；每个新签名通过有效性、时间戳和证书身份检查后，才处理下一个文件。electron-builder 复制阶段的签名钩子仅在逐字节比对和验签通过后保留运行时可执行文件；保留验证失败时，同一串行队列拒绝后续任务。硬件调用复用现有的用户级互锁、串行签名器和脱敏日志；硬件失败不允许重试或继续后续阶段。公开时间戳尝试遵循[签名完成规则](../process/2026-09-17-windows-signature-completion.zh.md)。运行时执行不接收签名凭据，并在完整验签后进行。开发和未签名准备保留本机 smoke，不自动访问硬件。运行时清单记录签名后的字节。electron-builder 将检测到的依赖 PE 文件放在归档外，并保留已签名的副本。发布完成前，最终签名检查以及 ASAR 载荷和 Host 冒烟检查使用私有原生缓存。
 
-Desktop ZIP 解压通过定向依赖覆盖为 `extract-zip` 固定 `yauzl` 3.4.0。2.x 读取器在 Node 26 上可能无法完成较大 deflate 条目的读取（[上游问题](https://github.com/thejoshwolfe/yauzl/issues/176)）；保留现有解压器可保留其路径校验和 wheel 条目检查。开发启动器使用顶层 await，避免准备未完成却成功退出。大压缩 wheel 回归测试检查完整的解压字节。
+Desktop ZIP 解压改用 Electron 项目加固的原生解压器 `@electron-internal/extract-zip`，`extract-zip@2.0.1`、其 `@types/yauzl` 类型包与 `extract-zip>yauzl` 覆盖一并退出依赖图。上游将该包标记为 Electron 项目内部使用，并保留不为外部使用者提供支持而变更 API 的权利，因此 devDependency 固定精确版本 `1.0.5`——与 `electron@44` 已解析的同一 tarball，不向依赖图新增任何包。wheel 安装方案检查改为先用 `fflate` 遍历条目名、在解压前拒绝不受支持的 `.data` 方案，条目路径由解压器的路径约束规则负责。开发启动器使用顶层 await，避免准备未完成却成功退出。大压缩 wheel 回归测试检查完整的解压字节，使原 yauzl 2.x 读取器在 Node 26 上出现的截断（[上游问题](https://github.com/thejoshwolfe/yauzl/issues/176)）不会无声回归；`yauzl` 现在只作为 `@puppeteer/browsers` 的可选对等依赖进入依赖图（范围 `^2.10.0 || ^3.4.0`），该下载路径不进行 wheel 解压。
 
 [共享运行时决策](../architecture/2026-09-17-shared-office-runtime.zh.md)持有 Desktop 与 SDK 载体的构建器、锁文件和查询包归属，覆盖 GNU/Linux x64 与 Python-only payload。Desktop 保留本文的安装与签名行为，并要求完整的 Python、Node.js 和 pnpm payload。
 

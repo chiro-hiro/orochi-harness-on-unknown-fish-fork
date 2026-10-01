@@ -32,35 +32,35 @@
   ],
   "license": "MIT",
   "dependencies": {
+    "@eslint-community/regexpp": "^4.12.2",
     "@orochi-network/oh-atomic-write": "workspace:*",
     "@orochi-network/oh-package-manifest": "workspace:*",
-    "@eslint-community/regexpp": "^4.12.2",
     "ajv": "^8.20.0",
-    "js-yaml": "^4.2.0",
+    "js-yaml": "^4.3.2",
     "node-addon-require-builtin": "^0.1.6",
     "resolve.exports": "^2.0.3",
     "semver": "^7.8.5"
   },
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-group": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/oh-launch-environment": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-launch-environment": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*"
   },
   "devDependencies": {
-    "@orochi-network/schemastery": "workspace:~",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-group": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/cordis-plugin-timer": "workspace:~",
-    "@orochi-network/oh-launch-environment": "workspace:*",
     "@orochi-network/oh-home-paths": "workspace:*",
+    "@orochi-network/oh-launch-environment": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
+    "@orochi-network/schemastery": "workspace:~",
     "@types/js-yaml": "^4.0.9",
-    "@types/semver": "^7.8.0",
-    "@orochi-network/cordis": "workspace:~"
+    "@types/semver": "^7.8.0"
   }
 }

@@ -28,16 +28,16 @@
   "license": "MIT",
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-ssh": "workspace:*",
-    "@orochi-network/oh-sandbox": "workspace:*"
+    "@orochi-network/oh-sandbox": "workspace:*",
+    "@orochi-network/oh-ssh": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-ssh": "workspace:*",
-    "@orochi-network/oh-sandbox": "workspace:*"
+    "@orochi-network/oh-sandbox": "workspace:*",
+    "@orochi-network/oh-ssh": "workspace:*"
   }
 }

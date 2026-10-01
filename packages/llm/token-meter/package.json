@@ -38,24 +38,24 @@
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-compaction": "workspace:*",
+    "@orochi-network/oh-compaction-image-offload": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-llm-retry": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-compaction-image-offload": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-compaction": "workspace:*",
+    "@orochi-network/oh-compaction-image-offload": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-llm-retry": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-compaction-image-offload": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*"
   }
 }

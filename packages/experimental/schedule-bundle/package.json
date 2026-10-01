@@ -43,7 +43,7 @@
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
-    "js-yaml": "^4.2.0"
+    "js-yaml": "^4.3.2"
   },
   "oh": {
     "bundle": {

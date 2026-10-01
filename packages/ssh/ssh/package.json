@@ -46,38 +46,38 @@
   "license": "MIT",
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
+    "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-fs-local": "workspace:*",
     "@orochi-network/oh-fs-sandbox": "workspace:*",
-    "@orochi-network/oh-subprocess": "workspace:*",
-    "@orochi-network/oh-subprocess-local": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-local": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-brand": "workspace:*"
+    "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-subprocess-local": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
+    "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-fs-local": "workspace:*",
     "@orochi-network/oh-fs-sandbox": "workspace:*",
-    "@orochi-network/oh-subprocess": "workspace:*",
-    "@orochi-network/oh-subprocess-local": "workspace:*",
+    "@orochi-network/oh-fs-ssh": "workspace:*",
+    "@orochi-network/oh-lsp": "workspace:*",
+    "@orochi-network/oh-lsp-stdio": "workspace:*",
+    "@orochi-network/oh-ptc-runtime-node": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-local": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
-    "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-ptc-runtime-node": "workspace:*",
-    "@orochi-network/oh-fs-ssh": "workspace:*",
-    "@orochi-network/oh-subprocess-ssh": "workspace:*",
     "@orochi-network/oh-sandbox-ssh": "workspace:*",
-    "@orochi-network/oh-lsp": "workspace:*",
-    "@orochi-network/oh-lsp-stdio": "workspace:*",
-    "@orochi-network/oh-brand": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-subprocess-local": "workspace:*",
+    "@orochi-network/oh-subprocess-ssh": "workspace:*"
   }
 }
