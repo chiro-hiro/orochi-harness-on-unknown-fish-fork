@@ -14,7 +14,7 @@ Messages 以原生协议字段表示思考、签名、工具调用、工具结�
 
 适配器遵循 [Orochi 兼容文档](https://api-docs.deepseek.com/zh-cn/guides/anthropic_api) 和 [Anthropic 流协议](https://platform.claude.com/docs/en/build-with-claude/streaming)。pi-ai 的 Anthropic 实现为相邻用户消息、累计用量、工具参数分片和可选思考签名的处理提供参考。Orochi 通过 `output_config.effort` 设置思考强度；Anthropic 思考 token 预算不控制 Orochi 思考强度。适配器转发显式 `temperature` 值；Orochi 在启用思考时接受该参数但忽略其值，因此调用方可以保留已有思考配置。
 
-助手内容块保留持久化的模型可见内容。带版本的 `ReplayEnvelope` 仅保存协议格式、模型标识、对齐的块类型以及内容块未包含的签名。同模型续接原样恢复签名，包括空签名；外部历史不生成虚构签名。不可用的元数据遵循现有[回放降级规则](../architecture/2026-07-14-provider-routed-llm-adapters.zh.md)：请求省略签名并记录警告，保留持久化内容；Messages 无法表示历史工具参数时使用[空输入兜底](../bug-fix/2026-09-16-messages-historical-tool-input.zh.md)。提供者回放数据对循环保持不透明，同时能够随 Session 持久化和内容块裁剪保留。
+助手内容块保留持久化的模型可见内容。带版本的 `ReplayEnvelope` 仅保存协议格式、模型标识、对齐的块类型以及内容块未包含的签名。同模型续接原样恢复已回放的签名；外部历史不生成虚构签名。请求 `thinking` 块必须携带签名，因此序列化时仍缺少签名的推理按[无签名思考规则](../bug-fix/2026-10-01-messages-unsigned-thinking-history.zh.md)以 assistant 文本发送。不可用的元数据遵循现有[回放降级规则](../architecture/2026-07-14-provider-routed-llm-adapters.zh.md)并记录警告，保留持久化内容；Messages 无法表示历史工具参数时使用[空输入兜底](../bug-fix/2026-09-16-messages-historical-tool-input.zh.md)。提供者回放数据对循环保持不透明，同时能够随 Session 持久化和内容块裁剪保留。
 
 适配器优先使用确定性请求图片的 Files 引用，并管理上传缓存、刷新、配额恢复与附件省略。Files 客户端遵循[精确 `/v1` 根地址规则](../bug-fix/2026-09-15-messages-v1-base-url.zh.md)并发送必需的 beta 标头。缓存 id 按解析后的 Files 根地址与凭据限定作用域，因此等价的 `/v1` 与无版本根地址共用上传。元数据不含过期时间，因此本地复用以原始上传时间为界，不断言远端删除。Files 解析失败会按独立内联图片预算重建完整请求；调用方取消会停止它。图片策略在请求和 token 计量中保留 128 MiB 保留图片预算、20 MiB 内联 base64 预算及最旧前缀省略。
 

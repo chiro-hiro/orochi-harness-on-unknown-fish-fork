@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for 2026-10-01-messages-unsigned-thinking-history.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write .agents/notes/implemented/bug-fix/2026-10-01-messages-unsigned-thinking-history.md
+/agent-note-send-unsigned-history-thinking-as-text-through-messages:
+  en: ae89b7cbd80eeb1b
+  zh: e4ffa197b26605b2
+/agent-note-send-unsigned-history-thinking-as-text-through-messages/problem:
+  en: fec897f86f4dd14d
+  zh: db9c85f1d818d9d7
+/agent-note-send-unsigned-history-thinking-as-text-through-messages/decision:
+  en: db2efb9d89c0f0c3
+  zh: a616d68e90b8b34d
+/agent-note-send-unsigned-history-thinking-as-text-through-messages/alternatives-considered:
+  en: b1b6b7a2a3a833ed
+  zh: 4a6a4206f285e5dc
+/agent-note-send-unsigned-history-thinking-as-text-through-messages/consequences:
+  en: 63586db3f326d407
+  zh: 17c60703cc42820f
