@@ -12,8 +12,8 @@
     "role": "assistant",
     "content": [
       {
-        "type": "thinking",
-        "thinking": "Read the file."
+        "type": "text",
+        "text": "Read the file."
       },
       {
         "type": "text",

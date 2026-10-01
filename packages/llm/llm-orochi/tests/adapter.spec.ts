@@ -459,7 +459,7 @@ describe('Cordis provider composition', () => {
     expect(http.requests[0]?.body.messages).toEqual([
       { role: 'user', content: [{ type: 'text', text: 'hello' }] },
       { role: 'assistant', content: [
-        { type: 'thinking', thinking: 'The user wants me to run a simple bash command and then reply with "DONE".' },
+        { type: 'text', text: 'The user wants me to run a simple bash command and then reply with "DONE".' },
         { type: 'tool_use', id: 'call_00_fkbBRJsUrGKd1pWVc4Gn8233', name: 'bash', input: { command: 'echo TERMINAL_OK', description: 'Echo TERMINAL_OK to verify terminal access' } },
       ] },
       { role: 'user', content: [{ type: 'tool_result', tool_use_id: 'call_00_fkbBRJsUrGKd1pWVc4Gn8233', content: [{ type: 'text', text: 'TERMINAL_OK\n' }], is_error: false }] },

@@ -220,7 +220,7 @@ describe('Messages request conversion', () => {
 
     expect(body(history).messages).toEqual([
       { role: 'assistant', content: [
-        { type: 'thinking', thinking: 'tool reasoning' },
+        { type: 'text', text: 'tool reasoning' },
         ...['a', 'b'].map(id => ({ type: 'tool_use', id, name: 'read', input: { path: 'a' } })),
       ] },
       { role: 'user', content: [
@@ -328,14 +328,42 @@ describe('Messages request conversion', () => {
     expect(JSON.stringify(restored)).toBe(saved)
   })
 
-  it('preserves own signed thinking, omits absent signatures and validates durable metadata', () => {
+  it('preserves signed thinking and degrades unsigned reasoning to text while validating durable metadata', () => {
     const content: ContentBlock[] = [{ type: 'reasoning', text: '' }, { type: 'text', text: 'answer' }]
     const source = { provider: 'orochi-official', model: MODEL, replayState: replayState(MODEL, [{ type: 'reasoning', signature: 'signed' }, { type: 'text' }]) }
     const message = createAssistantMessage({ content, source })
     expect(body([user(), message, user()]).messages[1]?.content).toEqual([{ type: 'thinking', thinking: '', signature: 'signed' }, { type: 'text', text: 'answer' }])
-    expect(body([assistant([{ type: 'reasoning', text: 'foreign thought' }])]).messages[0]?.content).toEqual([{ type: 'thinking', thinking: 'foreign thought' }])
+    expect(body([assistant([{ type: 'reasoning', text: 'foreign thought' }])]).messages[0]?.content).toEqual([{ type: 'text', text: 'foreign thought' }])
+    const emptySignature = createAssistantMessage({ content: [{ type: 'reasoning', text: 'empty-signed' }], source: {
+      provider: 'orochi-official', model: MODEL, replayState: replayState(MODEL, [{ type: 'reasoning', signature: '' }]),
+    } })
+    expect(body([emptySignature]).messages[0]?.content).toEqual([{ type: 'text', text: 'empty-signed' }])
+    expect(body([message], { model: 'different-model' }).messages[0]?.content).toEqual([{ type: 'text', text: 'answer' }])
     expect(readReplay(message, 'different-model')).toBeUndefined()
     expect(readReplay(user(), MODEL)).toBeUndefined()
+  })
+
+  it('keeps a stopped turn\'s unsigned reasoning as text so the follow-up request stays valid', () => {
+    // A turn the user stops persists its streamed prefix without replay state:
+    // the terminal finish carrying the thinking signatures never arrived.
+    const interrupted = createAssistantMessage({
+      content: [{ type: 'reasoning', text: 'partial thought' }, { type: 'text', text: 'partial answer' }],
+      source: { provider: 'orochi-official', model: MODEL },
+    })
+    expect(body([user(), interrupted, user('next')]).messages).toEqual([
+      { role: 'user', content: [{ type: 'text', text: 'hello' }] },
+      { role: 'assistant', content: [{ type: 'text', text: 'partial thought' }, { type: 'text', text: 'partial answer' }] },
+      { role: 'user', content: [{ type: 'text', text: 'next' }] },
+    ])
+  })
+
+  it('omits empty assistant blocks and turns that no wire block survives', () => {
+    expect(body([assistant([{ type: 'text', text: '' }, { type: 'text', text: 'kept' }, { type: 'reasoning', text: '' }])]).messages)
+      .toEqual([{ role: 'assistant', content: [{ type: 'text', text: 'kept' }] }])
+    const emptyTurn = assistant([{ type: 'text', text: '' }, { type: 'reasoning', text: '' }])
+    expect(body([user(), emptyTurn, user('next')]).messages).toEqual([
+      { role: 'user', content: [{ type: 'text', text: 'hello' }, { type: 'text', text: 'next' }] },
+    ])
   })
 
   it.each([
@@ -355,7 +383,7 @@ describe('Messages request conversion', () => {
     const onDegrade = vi.fn()
     expect(readReplay(message, MODEL, onDegrade)).toBeUndefined()
     expect(onDegrade).toHaveBeenCalledExactlyOnceWith(expect.any(String))
-    expect(body([message]).messages[0]?.content).toEqual([{ type: 'thinking', thinking: 'think' }])
+    expect(body([message]).messages[0]?.content).toEqual([{ type: 'text', text: 'think' }])
   })
 
   it.each([MODEL, 'different-model'])('keeps durable content when replay degrades for %s', async (model) => {
