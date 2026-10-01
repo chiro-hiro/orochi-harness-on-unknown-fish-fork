@@ -18,11 +18,11 @@
   en: d27394968c60072a
   zh: 8854cb95db7d45a3
 /agent-note-installed-wheel-python-runtime-pull-request-validation/decision/real-orochi-api:
-  en: 6634c72952eb405b
-  zh: d4ddd65b17f7c05c
+  en: 5c3607a47b2863a5
+  zh: d6cadc0bf3ef130e
 /agent-note-installed-wheel-python-runtime-pull-request-validation/decision/required-targets:
-  en: e4814ac66933bb7b
-  zh: fdd45adcd181653c
+  en: a999ee9ba6fca009
+  zh: d8233d2800cf181f
 /agent-note-installed-wheel-python-runtime-pull-request-validation/existing-decisions-and-supersession:
   en: 5f07fb6e85da2471
   zh: 067b7c8297f53081
@@ -30,5 +30,5 @@
   en: 360a7e4cd0f6e1ec
   zh: 53beb38864ff052d
 /agent-note-installed-wheel-python-runtime-pull-request-validation/consequences:
-  en: 6843a0bc6b3cc735
-  zh: d0a9a163070f0880
+  en: 32c64b3b360d3105
+  zh: e022e76227bfcee5

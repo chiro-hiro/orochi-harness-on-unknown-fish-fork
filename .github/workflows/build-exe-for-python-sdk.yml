@@ -366,13 +366,12 @@ jobs:
             Pop-Location
           }
 
+      # The four real API steps below are off (orochi-network/orochi-harness#23):
+      # the fork carries no OROCHI_API_KEY_EXTERNAL and the preflight fails loud
+      # without one. Bodies stay as written; restore each `if` to `inputs.ci` plus
+      # the fork/Dependabot untrusted-PR gate recorded in the issue to re-enable.
       - name: Preflight installed-wheel real API test (POSIX)
-        if: >-
-          inputs.ci
-          && runner.os != 'Windows'
-          && (github.event_name != 'pull_request'
-              || !(github.event.pull_request.head.repo.fork
-                   || github.event.pull_request.user.login == 'dependabot[bot]'))
+        if: false
         env:
           OROCHI_API_KEY: ${{ secrets.OROCHI_API_KEY_EXTERNAL }}
         run: |
@@ -383,12 +382,7 @@ jobs:
           fi
 
       - name: Preflight installed-wheel real API test (Windows)
-        if: >-
-          inputs.ci
-          && runner.os == 'Windows'
-          && (github.event_name != 'pull_request'
-              || !(github.event.pull_request.head.repo.fork
-                   || github.event.pull_request.user.login == 'dependabot[bot]'))
+        if: false
         shell: pwsh
         env:
           OROCHI_API_KEY: ${{ secrets.OROCHI_API_KEY_EXTERNAL }}
@@ -398,12 +392,7 @@ jobs:
           }
 
       - name: Run installed-wheel real API black-box test (POSIX)
-        if: >-
-          inputs.ci
-          && runner.os != 'Windows'
-          && (github.event_name != 'pull_request'
-              || !(github.event.pull_request.head.repo.fork
-                   || github.event.pull_request.user.login == 'dependabot[bot]'))
+        if: false
         env:
           OROCHI_API_KEY: ${{ secrets.OROCHI_API_KEY_EXTERNAL }}
           OROCHI_BASE_URL: https://api.deepseek.com/anthropic
@@ -418,12 +407,7 @@ jobs:
             --installed-wheel
 
       - name: Run installed-wheel real API black-box test (Windows)
-        if: >-
-          inputs.ci
-          && runner.os == 'Windows'
-          && (github.event_name != 'pull_request'
-              || !(github.event.pull_request.head.repo.fork
-                   || github.event.pull_request.user.login == 'dependabot[bot]'))
+        if: false
         shell: pwsh
         env:
           OROCHI_API_KEY: ${{ secrets.OROCHI_API_KEY_EXTERNAL }}

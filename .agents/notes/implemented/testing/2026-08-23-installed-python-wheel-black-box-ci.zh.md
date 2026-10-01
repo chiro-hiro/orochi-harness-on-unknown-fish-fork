@@ -24,13 +24,13 @@ Linux 另外保留 manylinux 2.28 干净安装冒烟测试与 GLIBC 检查。mac
 
 ### 真实 Orochi API
 
-可信拉取请求与 master 推送会在各自选定的原生目标上运行第二项安装后 wheel 检查，并且只在预检与 live 测试步骤中把 `OROCHI_API_KEY_EXTERNAL` 映射进去。密钥为空时预检失败，因此提供方测试不能通过自行 skip 产生假绿。该测试通过公开 SDK 访问 `https://api.deepseek.com`，要求模型通过当前平台 shell 写入内容精确的 sentinel 文件，再在同一 session 的第二个轮次中读取它，并校验外部文件行内容、最终响应、已完成的轮次结束原因、模型请求的工具调用，以及 session 日志存在且采用 Zstandard framing。解码后的记录内容与已完成轮次的持久性是由 restart 快照负责的确定性 keyless 要求，不从压缩后的 live 提供方字节推断。
+可信拉取请求与 master 推送会在各自选定的原生目标上运行第二项安装后 wheel 检查，并且只在预检与 live 测试步骤中把 `OROCHI_API_KEY_EXTERNAL` 映射进去。密钥为空时预检失败，因此提供方测试不能通过自行 skip 产生假绿；正因为这种显式失败立场，在 fork 没有该密钥期间这两个步骤当前处于关闭状态（`if: false`；恢复步骤见 [issue #23](https://github.com/orochi-network/orochi-harness/issues/23)）。该测试通过公开 SDK 访问 `https://api.deepseek.com`，要求模型通过当前平台 shell 写入内容精确的 sentinel 文件，再在同一 session 的第二个轮次中读取它，并校验外部文件行内容、最终响应、已完成的轮次结束原因、模型请求的工具调用，以及 session 日志存在且采用 Zstandard framing。解码后的记录内容与已完成轮次的持久性是由 restart 快照负责的确定性 keyless 要求，不从压缩后的 live 提供方字节推断。
 
 Fork 与 Dependabot 拉取请求永远不会获得仓库密钥。它们的原生 job 运行完整 keyless 路径并跳过两个带密钥的步骤；禁止使用 `pull_request_target`，因为它会让不可信代码带着密钥执行。
 
 ### 必需目标
 
-拉取请求的 `python-runtime` job 针对 Linux x64 与 Windows x64 调用可复用构建器；master 推送根据[仅 master 平台策略](../process/2026-09-06-master-only-platform-ci.zh.md)选择 Linux arm64 与两种 macOS 架构。其聚合结果仍是 `all checks passed` 的依赖项，因此任一原生载体失败、取消或缺失都会阻止必需判定通过。[sdk-runtime README](../../../../python/sdk-runtime/README.zh.md) 负责 Windows 目标及其 PowerShell 专属极简快照。
+拉取请求的 `python-runtime` job 针对 Linux x64 调用可复用构建器，Windows x64 目标处于关闭状态（见 [issue #13](https://github.com/orochi-network/orochi-harness/issues/13)）；master 推送根据[仅 master 平台策略](../process/2026-09-06-master-only-platform-ci.zh.md)选择 Linux arm64 与两种 macOS 架构。其聚合结果仍是 `all checks passed` 的依赖项，因此任一原生载体失败、取消或缺失都会阻止必需判定通过。[sdk-runtime README](../../../../python/sdk-runtime/README.zh.md) 负责 Windows 目标及其 PowerShell 专属极简快照。
 
 ## Existing decisions and supersession
 
@@ -48,4 +48,4 @@ Fork 与 Dependabot 拉取请求永远不会获得仓库密钥。它们的原生
 
 ## Consequences
 
-每个拉取请求都会承担两个原生可执行文件及 wheel 包构建，并运行确定性的安装后产物场景。可信的同仓库拉取请求还会在每个目标上承担一次双轮 Orochi 任务。相应地，必需结果描述 Python 用户实际安装的文件，在合并前证明选定载体，并且不能通过导入 checkout 或静默跳过真实提供方而通过。
+每个拉取请求都会承担所选原生可执行文件及 wheel 包构建，并运行确定性的安装后产物场景。在真实 API 步骤开启时，可信的同仓库拉取请求还会在每个目标上承担一次双轮 Orochi 任务；这些步骤当前处于关闭状态（见 [issue #23](https://github.com/orochi-network/orochi-harness/issues/23)）。相应地，必需结果描述 Python 用户实际安装的文件，在合并前证明选定载体，并且不能通过导入 checkout 而通过；真实 API 步骤开启时，它同样不能通过静默跳过真实提供方而通过。
