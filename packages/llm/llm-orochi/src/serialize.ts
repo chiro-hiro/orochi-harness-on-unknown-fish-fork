@@ -30,17 +30,22 @@ function usableSignature(signature: string | undefined): signature is string {
 
 function assistant(message: Message, model: string, onReplayDegrade?: (reason: string) => void): WireBlock[] {
   const replay = readReplay(message, model, onReplayDegrade)
+  // A turn's thinking travels whole or not at all: the request protocol rejects
+  // a partially dropped or edited thinking sequence, so one unsigned block
+  // degrades every reasoning block of this turn to text. A request `thinking`
+  // block must present the signature that proves the thinking unmodified, and a
+  // stopped turn never received its signature_delta, while foreign, cross-model,
+  // or degraded replay carries none — that reasoning travels as assistant text,
+  // the same degrade the pi-ai route applies to the same history.
+  const wholeTurnSigned = message.content.every(
+    (block, index) => block.type !== 'reasoning' || usableSignature(replay?.[index]?.signature),
+  )
   return message.content.flatMap((block, index): WireBlock[] => {
     switch (block.type) {
       case 'text': return block.text ? [{ type: 'text', text: block.text }] : []
       case 'reasoning': {
-        // A request `thinking` block must present the signature that proves the
-        // thinking unmodified. A stopped turn never received its signature_delta,
-        // and foreign, cross-model, or degraded replay carries none, so that
-        // reasoning travels as assistant text — the same degrade the pi-ai route
-        // applies to the same history.
         const signature = replay?.[index]?.signature
-        if (!usableSignature(signature)) return block.text ? [{ type: 'text', text: block.text }] : []
+        if (!wholeTurnSigned || !usableSignature(signature)) return block.text ? [{ type: 'text', text: block.text }] : []
         return [{ type: 'thinking', thinking: block.text, signature }]
       }
       case 'tool-call': return [{ type: 'tool_use', id: block.id, name: block.name, input: toolInput(block.arguments) }]
@@ -51,9 +56,11 @@ function assistant(message: Message, model: string, onReplayDegrade?: (reason: s
 
 /** Serialize one complete request using already prepared image bytes.
  * User and tool-result content omits reasoning and tool-call blocks.
- * Assistant reasoning travels as a `thinking` block only when its replay
- * signature is usable, and as text otherwise; empty text blocks are omitted.
- * Turns left empty are skipped, while empty tool results retain their call ids.
+ * Assistant reasoning travels as `thinking` blocks only when every reasoning
+ * block of its turn carries a usable replay signature, and as text otherwise;
+ * a turn never carries a partial thinking sequence. Empty text blocks are
+ * omitted. Turns left empty are skipped, while empty tool results retain their
+ * call ids.
  * Developer messages, already projected for this route by `LlmRuntime`, become
  * system-role updates after the preceding user turn, with tool changes as
  * `tool_addition` and `tool_removal` references to the declared tool.

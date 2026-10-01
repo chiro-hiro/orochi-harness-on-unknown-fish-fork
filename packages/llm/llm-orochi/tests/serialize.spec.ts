@@ -343,6 +343,30 @@ describe('Messages request conversion', () => {
     expect(readReplay(user(), MODEL)).toBeUndefined()
   })
 
+  it('degrades a turn whose thinking is only partly signed as a whole', () => {
+    // The protocol rejects a partially dropped thinking sequence, so one
+    // unsigned block degrades every reasoning block of the turn to text.
+    const partial = createAssistantMessage({
+      content: [{ type: 'reasoning', text: 'signed part' }, { type: 'reasoning', text: 'unsigned part' }, call()],
+      source: { provider: 'orochi-official', model: MODEL, replayState: replayState(MODEL, [
+        { type: 'reasoning', signature: 'signed' }, { type: 'reasoning' }, { type: 'tool-call' },
+      ]) },
+    })
+    expect(body([user(), partial, result()]).messages[1]?.content).toEqual([
+      { type: 'text', text: 'signed part' }, { type: 'text', text: 'unsigned part' },
+      { type: 'tool_use', id: 'a', name: 'read', input: { path: 'a' } },
+    ])
+    const whole = createAssistantMessage({
+      content: [{ type: 'reasoning', text: 'first' }, { type: 'reasoning', text: 'second' }],
+      source: { provider: 'orochi-official', model: MODEL, replayState: replayState(MODEL, [
+        { type: 'reasoning', signature: 'one' }, { type: 'reasoning', signature: 'two' },
+      ]) },
+    })
+    expect(body([whole]).messages[0]?.content).toEqual([
+      { type: 'thinking', thinking: 'first', signature: 'one' }, { type: 'thinking', thinking: 'second', signature: 'two' },
+    ])
+  })
+
   it('keeps a stopped turn\'s unsigned reasoning as text so the follow-up request stays valid', () => {
     // A turn the user stops persists its streamed prefix without replay state:
     // the terminal finish carrying the thinking signatures never arrived.

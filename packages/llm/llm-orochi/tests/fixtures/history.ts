@@ -15,20 +15,35 @@ interface CheckedBlock {
   signature?: string
 }
 
+/** One serialized turn read as the wire fields this gate checks. */
+interface CheckedTurn {
+  role: string
+  content: CheckedBlock[]
+}
+
 /**
- * Refuse the request forms the Messages protocol rejects, which an endpoint
- * answers with `INVALID_REQUEST`: a `thinking` block without its proof
- * signature, an empty text block, and a turn left with no content.
+ * Refuse the request forms this serializer's degrade must never emit: a
+ * `thinking` block without its proof signature, an empty text block, a turn
+ * left with no content, and — under manual-style `thinking.type: enabled`,
+ * whose contract makes the final assistant turn begin with a thinking block —
+ * a final assistant turn leading with something else. The degrade relies on
+ * the request's `thinking.type: adaptive` contract, under which no assistant
+ * turn needs such a lead, which is what lets a degraded tool turn carry text.
  * @param request - the serialized Messages body for one model call.
  */
 function assertWireRequest(request: WireRequest): void {
-  const turns = JSON.parse(JSON.stringify(request.messages)) as { content: CheckedBlock[] }[]
+  const turns = JSON.parse(JSON.stringify(request.messages)) as CheckedTurn[]
   assert.ok(turns.every(turn => turn.content.length > 0), `${name}: Messages turn has no content`)
   const blocks = turns.flatMap(turn => turn.content)
   assert.ok(blocks.every(block => block.type !== 'text' || (block.text ?? '').length > 0), `${name}: Messages text block is empty`)
   assert.ok(
     blocks.every(block => block.type !== 'thinking' || (block.signature ?? '').trim().length > 0),
     `${name}: Messages thinking block has no usable signature`,
+  )
+  const finalAssistant = turns.filter(turn => turn.role === 'assistant').at(-1)
+  assert.ok(
+    request.thinking.type !== 'enabled' || finalAssistant === undefined || finalAssistant.content[0]?.type === 'thinking',
+    `${name}: manual thinking requires the final assistant turn to begin with a thinking block`,
   )
 }
 
