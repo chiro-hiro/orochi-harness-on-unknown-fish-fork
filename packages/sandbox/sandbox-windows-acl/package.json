@@ -39,12 +39,12 @@
   "dependencies": {
     "@orochi-network/oh-lazy-require": "workspace:*",
     "@orochi-network/oh-win32-process": "workspace:*",
-    "koffi": "^3.1.0"
+    "koffi": "^3.3.2"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-pwsh-local": "workspace:*",
     "@orochi-network/oh-sandbox-local": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-subprocess": "workspace:*",
     "@orochi-network/oh-subprocess-local": "workspace:*"
   }

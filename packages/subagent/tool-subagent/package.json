@@ -37,39 +37,39 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
+    "@orochi-network/oh-jobs": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-subagent": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/oh-jobs": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-tools": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
+    "@orochi-network/oh-jobs": "workspace:*",
+    "@orochi-network/oh-jobs-local": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
-    "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
+    "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-persistence": "workspace:*",
     "@orochi-network/oh-session-persistence-jsonl": "workspace:*",
+    "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-subagent": "workspace:*",
     "@orochi-network/oh-subagent-spawn-in-process": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/oh-jobs": "workspace:*",
-    "@orochi-network/oh-jobs-local": "workspace:*",
     "@orochi-network/oh-tool-jobs": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-tools": "workspace:*"
   }
 }

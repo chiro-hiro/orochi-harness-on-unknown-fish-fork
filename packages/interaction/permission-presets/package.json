@@ -53,32 +53,32 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@orochi-network/oh-shell": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-commands": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-shell": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-user-approval": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-user-approval": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@orochi-network/oh-shell": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-commands": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-settings": "workspace:*",
+    "@orochi-network/oh-shell": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-user-approval": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-settings": "workspace:*"
+    "@orochi-network/oh-user-approval": "workspace:*"
   }
 }

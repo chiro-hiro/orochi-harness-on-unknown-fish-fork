@@ -1,9 +1,9 @@
 {
   "package": "@orochi-network/oh",
-  "version": "0.1.7-rc.2",
+  "version": "0.2.0-rc.2",
   "requested": "@orochi-network/oh@npm:@deepseek-ai/dsh@latest",
   "resolution": {
-    "capturedAt": "2026-09-29T02:27:35.039Z",
+    "capturedAt": "2026-10-01T10:30:34.988Z",
     "npm": "11.16.0",
     "node": "24.18.0",
     "platform": "linux",
@@ -26,7 +26,7 @@
     },
     {
       "name": "@anthropic-ai/sdk",
-      "version": "0.123.0",
+      "version": "0.124.0",
       "installations": [
         {
           "location": "node_modules/@anthropic-ai/sdk",
@@ -37,56 +37,8 @@
       ]
     },
     {
-      "name": "@aws-crypto/sha256-browser",
-      "version": "5.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@aws-crypto/sha256-browser",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@aws-crypto/sha256-js",
-      "version": "5.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@aws-crypto/sha256-js",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@aws-crypto/supports-web-crypto",
-      "version": "5.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@aws-crypto/supports-web-crypto",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@aws-crypto/util",
-      "version": "5.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@aws-crypto/util",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
       "name": "@aws-sdk/client-bedrock-runtime",
-      "version": "3.1048.0",
+      "version": "3.1127.0",
       "installations": [
         {
           "location": "node_modules/@aws-sdk/client-bedrock-runtime",
@@ -266,7 +218,7 @@
     },
     {
       "name": "@aws-sdk/token-providers",
-      "version": "3.1048.0",
+      "version": "3.1127.0",
       "installations": [
         {
           "location": "node_modules/@aws-sdk/token-providers",
@@ -294,18 +246,6 @@
       "installations": [
         {
           "location": "node_modules/@aws-sdk/types",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@aws-sdk/util-locate-window",
-      "version": "3.965.10",
-      "installations": [
-        {
-          "location": "node_modules/@aws-sdk/util-locate-window",
           "direct": false,
           "optional": false,
           "peer": false
@@ -446,7 +386,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-acp",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-acp",
@@ -458,7 +398,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-acp-app",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-acp-app",
@@ -470,7 +410,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent",
@@ -482,7 +422,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-default-model",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-default-model",
@@ -494,7 +434,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-instructions",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-instructions",
@@ -506,7 +446,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-loop",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-loop",
@@ -518,7 +458,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-preset",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-preset",
@@ -530,7 +470,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-preset-registry",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-preset-registry",
@@ -542,7 +482,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-agent-tool-presentation",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-agent-tool-presentation",
@@ -554,7 +494,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-anonymous-user-id",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-anonymous-user-id",
@@ -566,7 +506,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-account-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-account-controller",
@@ -578,7 +518,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-gateway",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-gateway",
@@ -590,7 +530,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-job-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-job-controller",
@@ -602,7 +542,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-remotes",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-remotes",
@@ -614,7 +554,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-session-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-session-controller",
@@ -626,7 +566,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-settings-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-settings-controller",
@@ -638,7 +578,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-terminal-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-terminal-controller",
@@ -650,7 +590,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-workspace-controller",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-workspace-controller",
@@ -662,7 +602,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-api-workspace-files",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-api-workspace-files",
@@ -674,7 +614,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-app-boot",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-app-boot",
@@ -686,7 +626,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-atomic-write",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-atomic-write",
@@ -698,7 +638,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-attachment",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-attachment",
@@ -710,7 +650,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-attachment-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-attachment-local",
@@ -722,7 +662,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-authorization",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-authorization",
@@ -734,7 +674,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-base",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-base",
@@ -746,7 +686,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-bash-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-bash-local",
@@ -758,7 +698,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-bash-sandbox",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-bash-sandbox",
@@ -770,7 +710,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-brand",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-brand",
@@ -782,7 +722,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-chunked-list",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-chunked-list",
@@ -794,7 +734,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-connection",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-connection",
@@ -806,7 +746,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-file-upload",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-file-upload",
@@ -818,7 +758,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-hmr",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-hmr",
@@ -830,7 +770,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-locale",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-locale",
@@ -842,7 +782,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-modules",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-modules",
@@ -853,8 +793,20 @@
       ]
     },
     {
+      "name": "@deepseek-ai/dsh-client-product-analytics",
+      "version": "0.2.0-rc.2",
+      "installations": [
+        {
+          "location": "node_modules/@deepseek-ai/dsh-client-product-analytics",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@deepseek-ai/dsh-client-resources",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-resources",
@@ -866,7 +818,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-shortcuts",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-shortcuts",
@@ -878,7 +830,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-store",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-store",
@@ -890,7 +842,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-agent-preset",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-agent-preset",
@@ -902,7 +854,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-approval",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-approval",
@@ -914,7 +866,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-attachment",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-attachment",
@@ -926,7 +878,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-brand-official",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-brand-official",
@@ -938,7 +890,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-chat",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-chat",
@@ -950,7 +902,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-commands",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-commands",
@@ -962,7 +914,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-conversation",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-conversation",
@@ -974,7 +926,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-cordis",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-cordis",
@@ -986,7 +938,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-deliverables",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-deliverables",
@@ -998,7 +950,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-directory-picker-browse",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-directory-picker-browse",
@@ -1010,7 +962,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-directory-picker-native",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-directory-picker-native",
@@ -1022,7 +974,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-goal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-goal",
@@ -1034,7 +986,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-input-trigger",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-input-trigger",
@@ -1046,7 +998,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-jobs",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-jobs",
@@ -1058,7 +1010,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-layout",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-layout",
@@ -1070,7 +1022,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-message-feedback",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-message-feedback",
@@ -1082,7 +1034,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-model-selection",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-model-selection",
@@ -1094,7 +1046,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-open-in-app",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-open-in-app",
@@ -1106,7 +1058,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-permission-presets",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-permission-presets",
@@ -1118,7 +1070,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-plan",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-plan",
@@ -1130,7 +1082,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-plugin-manager",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-plugin-manager",
@@ -1142,7 +1094,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-primitives",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-primitives",
@@ -1154,7 +1106,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-reference",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-reference",
@@ -1166,7 +1118,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-renderer",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-renderer",
@@ -1178,7 +1130,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-schedule",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-schedule",
@@ -1190,7 +1142,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-session",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-session",
@@ -1202,7 +1154,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings",
@@ -1214,7 +1166,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-account",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-account",
@@ -1226,7 +1178,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-agent-loop",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-agent-loop",
@@ -1238,7 +1190,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-general",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-general",
@@ -1250,7 +1202,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-models",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-models",
@@ -1262,7 +1214,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-plugin-inventory",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-plugin-inventory",
@@ -1274,7 +1226,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-plugins",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-plugins",
@@ -1285,8 +1237,20 @@
       ]
     },
     {
+      "name": "@deepseek-ai/dsh-client-ui-settings-session-log",
+      "version": "0.2.0-rc.2",
+      "installations": [
+        {
+          "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-session-log",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@deepseek-ai/dsh-client-ui-settings-shell",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-shell",
@@ -1298,7 +1262,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-subagent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-subagent",
@@ -1310,7 +1274,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-settings-web-search",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-settings-web-search",
@@ -1322,7 +1286,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-shortcuts",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-shortcuts",
@@ -1334,7 +1298,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar",
@@ -1346,7 +1310,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar-browser",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar-browser",
@@ -1358,7 +1322,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar-documentpreview",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar-documentpreview",
@@ -1370,7 +1334,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar-files",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar-files",
@@ -1382,7 +1346,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar-right",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar-right",
@@ -1394,7 +1358,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-sidebar-terminal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-sidebar-terminal",
@@ -1406,7 +1370,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-skill",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-skill",
@@ -1418,7 +1382,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-slots",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-slots",
@@ -1430,7 +1394,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-subagent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-subagent",
@@ -1442,7 +1406,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-theme",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-theme",
@@ -1454,7 +1418,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-tool",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-tool",
@@ -1466,7 +1430,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-trajectory",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-trajectory",
@@ -1478,7 +1442,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-user-questions",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-user-questions",
@@ -1490,7 +1454,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-workflow-run",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-workflow-run",
@@ -1502,7 +1466,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-client-ui-workspace",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-client-ui-workspace",
@@ -1514,7 +1478,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-cmdline",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-cmdline",
@@ -1526,7 +1490,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-command-compact",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-command-compact",
@@ -1538,7 +1502,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-command-feedback",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-command-feedback",
@@ -1550,7 +1514,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-command-goal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-command-goal",
@@ -1562,7 +1526,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-commands",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-commands",
@@ -1574,7 +1538,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-compaction",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-compaction",
@@ -1586,7 +1550,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-compaction-basic",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-compaction-basic",
@@ -1598,7 +1562,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-compaction-image-offload",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-compaction-image-offload",
@@ -1610,7 +1574,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-compaction-tool-result-pruner",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-compaction-tool-result-pruner",
@@ -1622,7 +1586,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-config-editor",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-config-editor",
@@ -1634,7 +1598,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-cordis-client-runner",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-cordis-client-runner",
@@ -1646,7 +1610,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-cordis-host-runner",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-cordis-host-runner",
@@ -1658,7 +1622,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-credentials",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-credentials",
@@ -1670,7 +1634,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-credentials-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-credentials-local",
@@ -1682,7 +1646,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-deepseek-account",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-deepseek-account",
@@ -1694,7 +1658,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-deepseek-account-platform",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-deepseek-account-platform",
@@ -1706,7 +1670,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-deepseek-llm-api-extensions",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-deepseek-llm-api-extensions",
@@ -1718,7 +1682,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-deque",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-deque",
@@ -1730,7 +1694,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-agent-team",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-agent-team",
@@ -1742,7 +1706,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-agent-team-profile",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-agent-team-profile",
@@ -1754,7 +1718,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-api-speech-to-text",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-api-speech-to-text",
@@ -1766,7 +1730,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-auto-review",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-auto-review",
@@ -1778,7 +1742,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-client-ui-agent-team",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-client-ui-agent-team",
@@ -1790,7 +1754,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-client-ui-voice-input",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-client-ui-voice-input",
@@ -1801,8 +1765,20 @@
       ]
     },
     {
+      "name": "@deepseek-ai/dsh-experimental-schedule-bundle",
+      "version": "0.2.0-rc.2",
+      "installations": [
+        {
+          "location": "node_modules/@deepseek-ai/dsh-experimental-schedule-bundle",
+          "direct": true,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@deepseek-ai/dsh-experimental-speech-to-text",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-speech-to-text",
@@ -1814,7 +1790,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-speech-to-text-sensevoice",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-speech-to-text-sensevoice",
@@ -1826,7 +1802,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-tool-agent-team",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-tool-agent-team",
@@ -1838,7 +1814,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-experimental-voice-input-bundle",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-experimental-voice-input-bundle",
@@ -1850,7 +1826,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-file-reference",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-file-reference",
@@ -1862,7 +1838,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-file-reference-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-file-reference-local",
@@ -1874,7 +1850,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-fs",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-fs",
@@ -1886,7 +1862,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-fs-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-fs-local",
@@ -1898,7 +1874,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-fs-observation-policy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-fs-observation-policy",
@@ -1910,7 +1886,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-fs-sandbox",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-fs-sandbox",
@@ -1922,7 +1898,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-goal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-goal",
@@ -1934,7 +1910,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-goal-round-driver",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-goal-round-driver",
@@ -1946,7 +1922,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-headless",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-headless",
@@ -1958,7 +1934,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-hmr",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-hmr",
@@ -1970,7 +1946,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-home-paths",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-home-paths",
@@ -1982,7 +1958,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-hook-protocol",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-hook-protocol",
@@ -1994,7 +1970,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-hooks-claude-code",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-hooks-claude-code",
@@ -2006,7 +1982,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-hooks-codex",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-hooks-codex",
@@ -2018,7 +1994,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-directory-picker",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-directory-picker",
@@ -2030,7 +2006,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-directory-picker-auto",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-directory-picker-auto",
@@ -2042,7 +2018,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-directory-picker-browse",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-directory-picker-browse",
@@ -2054,7 +2030,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-directory-picker-native",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-directory-picker-native",
@@ -2066,7 +2042,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-frontend-static",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-frontend-static",
@@ -2078,7 +2054,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-open-in-app",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-open-in-app",
@@ -2090,7 +2066,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-host-plugin-inventory",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-plugin-inventory",
@@ -2101,8 +2077,20 @@
       ]
     },
     {
+      "name": "@deepseek-ai/dsh-host-product-telemetry-otel",
+      "version": "0.2.0-rc.2",
+      "installations": [
+        {
+          "location": "node_modules/@deepseek-ai/dsh-host-product-telemetry-otel",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@deepseek-ai/dsh-host-webserver",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-host-webserver",
@@ -2114,7 +2102,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-http-proxy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-http-proxy",
@@ -2126,7 +2114,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-invariants",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-invariants",
@@ -2138,7 +2126,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-jobs",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-jobs",
@@ -2150,7 +2138,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-jobs-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-jobs-local",
@@ -2162,7 +2150,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-launch-environment",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-launch-environment",
@@ -2174,7 +2162,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-lazy-require",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-lazy-require",
@@ -2186,7 +2174,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm",
@@ -2198,7 +2186,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm-deepseek",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm-deepseek",
@@ -2210,7 +2198,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm-deepseek-account",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm-deepseek-account",
@@ -2222,7 +2210,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm-deepseek-api-key",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm-deepseek-api-key",
@@ -2234,7 +2222,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm-pi-ai",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm-pi-ai",
@@ -2246,7 +2234,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-llm-retry",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-llm-retry",
@@ -2258,7 +2246,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-mcp-client",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-mcp-client",
@@ -2270,7 +2258,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-mcp-resources",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-mcp-resources",
@@ -2282,7 +2270,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-message-feedback",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-message-feedback",
@@ -2294,7 +2282,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-native-command",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-native-command",
@@ -2306,7 +2294,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-office-to-pdf",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-office-to-pdf",
@@ -2317,8 +2305,20 @@
       ]
     },
     {
+      "name": "@deepseek-ai/dsh-otel",
+      "version": "0.2.0-rc.2",
+      "installations": [
+        {
+          "location": "node_modules/@deepseek-ai/dsh-otel",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@deepseek-ai/dsh-output-retention",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-output-retention",
@@ -2330,7 +2330,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-package-manifest",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-package-manifest",
@@ -2342,7 +2342,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-permission-presets",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-permission-presets",
@@ -2354,7 +2354,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-persona",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-persona",
@@ -2366,7 +2366,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-plan-mode",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-plan-mode",
@@ -2378,7 +2378,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-plugin-manager",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-plugin-manager",
@@ -2390,7 +2390,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-plugin-package-inventory-deepseek",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-plugin-package-inventory-deepseek",
@@ -2402,7 +2402,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-ptc-runtime",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-ptc-runtime",
@@ -2414,7 +2414,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-ptc-runtime-node",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-ptc-runtime-node",
@@ -2426,7 +2426,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-pwsh-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-pwsh-local",
@@ -2438,7 +2438,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-pwsh-sandbox",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-pwsh-sandbox",
@@ -2450,7 +2450,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-repeat-tool-reminder",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-repeat-tool-reminder",
@@ -2462,7 +2462,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sandbox",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sandbox",
@@ -2474,7 +2474,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sandbox-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sandbox-local",
@@ -2486,7 +2486,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sandbox-policy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sandbox-policy",
@@ -2498,7 +2498,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sandbox-windows-acl",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sandbox-windows-acl",
@@ -2510,7 +2510,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-schedule",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-schedule",
@@ -2522,7 +2522,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-scope",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-scope",
@@ -2534,7 +2534,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sdk-app",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sdk-app",
@@ -2546,7 +2546,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sdk-jsonrpc-server",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sdk-jsonrpc-server",
@@ -2558,7 +2558,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sdk-minimal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sdk-minimal",
@@ -2570,7 +2570,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-sdk-protocol",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-sdk-protocol",
@@ -2582,7 +2582,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session",
@@ -2594,7 +2594,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-checkpoint-policy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-checkpoint-policy",
@@ -2606,7 +2606,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format",
@@ -2618,7 +2618,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format-catalog",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format-catalog",
@@ -2630,7 +2630,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format-v0-to-v1",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format-v0-to-v1",
@@ -2642,7 +2642,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format-v1-to-v2",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format-v1-to-v2",
@@ -2654,7 +2654,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format-v2-to-v3",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format-v2-to-v3",
@@ -2666,7 +2666,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-format-v3-to-v4",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-format-v3-to-v4",
@@ -2678,7 +2678,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-log-deepseek",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-log-deepseek",
@@ -2690,7 +2690,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-log-export",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-log-export",
@@ -2702,7 +2702,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-persistence",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-persistence",
@@ -2714,7 +2714,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-persistence-jsonl",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-persistence-jsonl",
@@ -2726,7 +2726,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-projection",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-projection",
@@ -2738,7 +2738,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-projection-cache",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-projection-cache",
@@ -2750,7 +2750,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-query",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-query",
@@ -2762,7 +2762,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-query-sqlite",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-query-sqlite",
@@ -2774,7 +2774,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-reference",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-reference",
@@ -2786,7 +2786,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-stats",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-stats",
@@ -2798,7 +2798,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-telemetry",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-telemetry",
@@ -2810,7 +2810,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-telemetry-otel",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-telemetry-otel",
@@ -2822,7 +2822,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-title",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-title",
@@ -2834,7 +2834,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-title-first-prompt-llm",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-title-first-prompt-llm",
@@ -2846,7 +2846,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-title-llm",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-title-llm",
@@ -2858,7 +2858,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-session-turn-outline",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-session-turn-outline",
@@ -2870,7 +2870,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-settings",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-settings",
@@ -2882,7 +2882,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-shell",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-shell",
@@ -2894,7 +2894,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-shell-env",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-shell-env",
@@ -2906,7 +2906,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-skill",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-skill",
@@ -2918,7 +2918,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-skill-badge",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-skill-badge",
@@ -2930,7 +2930,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-skill-filesystem",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-skill-filesystem",
@@ -2942,7 +2942,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-skill-office",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-skill-office",
@@ -2954,7 +2954,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-spill",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-spill",
@@ -2966,7 +2966,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-spill-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-spill-local",
@@ -2978,7 +2978,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-spill-policy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-spill-policy",
@@ -2990,7 +2990,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-storage",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-storage",
@@ -3002,7 +3002,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-storage-domain",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-storage-domain",
@@ -3014,7 +3014,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-storage-json",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-storage-json",
@@ -3026,7 +3026,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subagent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subagent",
@@ -3038,7 +3038,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subagent-fork-in-process",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subagent-fork-in-process",
@@ -3050,7 +3050,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subagent-in-process-driver",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subagent-in-process-driver",
@@ -3062,7 +3062,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subagent-spawn-in-process",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subagent-spawn-in-process",
@@ -3074,7 +3074,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subprocess",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subprocess",
@@ -3086,7 +3086,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-subprocess-local",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-subprocess-local",
@@ -3098,7 +3098,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-system-prompt",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-system-prompt",
@@ -3110,7 +3110,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-terminal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-terminal",
@@ -3122,7 +3122,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-terminal-bash",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-terminal-bash",
@@ -3134,7 +3134,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-time-context",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-time-context",
@@ -3146,7 +3146,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-timeout",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-timeout",
@@ -3158,7 +3158,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tmux-context",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tmux-context",
@@ -3170,7 +3170,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-token-meter",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-token-meter",
@@ -3182,7 +3182,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-ask-user",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-ask-user",
@@ -3194,7 +3194,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-bash",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-bash",
@@ -3206,7 +3206,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-bash-persistent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-bash-persistent",
@@ -3218,7 +3218,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-call-timeout-policy",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-call-timeout-policy",
@@ -3230,7 +3230,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-cordis",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-cordis",
@@ -3242,7 +3242,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-fs",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-fs",
@@ -3254,7 +3254,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-fs-search",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-fs-search",
@@ -3266,7 +3266,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-goal",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-goal",
@@ -3278,7 +3278,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-jobs",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-jobs",
@@ -3290,7 +3290,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-present",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-present",
@@ -3302,7 +3302,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-pwsh",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-pwsh",
@@ -3314,7 +3314,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-pwsh-persistent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-pwsh-persistent",
@@ -3326,7 +3326,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-ralph",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-ralph",
@@ -3338,7 +3338,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-skill",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-skill",
@@ -3350,7 +3350,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-str-replace-editor",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-str-replace-editor",
@@ -3362,7 +3362,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-subagent",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-subagent",
@@ -3374,7 +3374,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-subagent-control",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-subagent-control",
@@ -3386,7 +3386,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-todo",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-todo",
@@ -3398,7 +3398,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-web",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-web",
@@ -3410,7 +3410,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-workflow",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-workflow",
@@ -3422,7 +3422,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tool-workspace-dependencies",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tool-workspace-dependencies",
@@ -3434,7 +3434,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-tools",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-tools",
@@ -3446,7 +3446,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-typert-loader",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-typert-loader",
@@ -3458,7 +3458,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-typert-protocol",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-typert-protocol",
@@ -3470,7 +3470,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-typert-registry",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-typert-registry",
@@ -3482,7 +3482,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-user-approval",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-user-approval",
@@ -3494,7 +3494,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-user-questions",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-user-questions",
@@ -3506,7 +3506,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-util-code-language",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-util-code-language",
@@ -3518,7 +3518,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-util-crypto",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-util-crypto",
@@ -3530,7 +3530,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-util-time",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-util-time",
@@ -3542,7 +3542,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-util-values",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-util-values",
@@ -3554,7 +3554,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-util-workspace-path",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-util-workspace-path",
@@ -3566,7 +3566,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-web",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-web",
@@ -3578,7 +3578,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-web-app",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-web-app",
@@ -3590,7 +3590,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-web-fetch-http",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-web-fetch-http",
@@ -3602,7 +3602,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-web-frontend",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-web-frontend",
@@ -3614,7 +3614,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-web-search-deepseek",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-web-search-deepseek",
@@ -3626,7 +3626,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-webhook",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-webhook",
@@ -3638,7 +3638,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-webhook-github",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-webhook-github",
@@ -3650,7 +3650,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-win32-process",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-win32-process",
@@ -3662,7 +3662,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-workflow",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-workflow",
@@ -3674,7 +3674,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-workflow-ptc",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-workflow-ptc",
@@ -3686,7 +3686,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-workspace",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-workspace",
@@ -3698,7 +3698,7 @@
     },
     {
       "name": "@deepseek-ai/dsh-workspace-changes",
-      "version": "0.1.7-rc.2",
+      "version": "0.2.0-rc.2",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/dsh-workspace-changes",
@@ -3710,7 +3710,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit",
-      "version": "0.1.2",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit",
@@ -3722,7 +3722,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit-darwin-arm64",
-      "version": "0.1.1",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit-darwin-arm64",
@@ -3740,7 +3740,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit-darwin-x64",
-      "version": "0.1.1",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit-darwin-x64",
@@ -3758,7 +3758,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit-wasm",
-      "version": "0.1.1",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit-wasm",
@@ -3773,7 +3773,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit-win32-arm64",
-      "version": "0.1.2",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit-win32-arm64",
@@ -3791,7 +3791,7 @@
     },
     {
       "name": "@deepseek-ai/libreoffice-kit-win32-x64",
-      "version": "0.1.2",
+      "version": "0.1.5",
       "installations": [
         {
           "location": "node_modules/@deepseek-ai/libreoffice-kit-win32-x64",
@@ -3905,7 +3905,7 @@
     },
     {
       "name": "@earendil-works/pi-ai",
-      "version": "0.85.1",
+      "version": "0.87.1",
       "installations": [
         {
           "location": "node_modules/@earendil-works/pi-ai",
@@ -3917,7 +3917,7 @@
     },
     {
       "name": "@earendil-works/pi-telemetry",
-      "version": "0.85.1",
+      "version": "0.87.1",
       "installations": [
         {
           "location": "node_modules/@earendil-works/pi-telemetry",
@@ -3953,7 +3953,7 @@
     },
     {
       "name": "@google/genai",
-      "version": "1.52.0",
+      "version": "2.21.0",
       "installations": [
         {
           "location": "node_modules/@google/genai",
@@ -4504,44 +4504,20 @@
       ]
     },
     {
-      "name": "@koromix/koffi-android-arm64",
-      "version": "3.3.2",
+      "name": "@keyv/serialize",
+      "version": "1.1.1",
       "installations": [
         {
-          "location": "node_modules/@koromix/koffi-android-arm64",
+          "location": "node_modules/@keyv/serialize",
           "direct": false,
-          "optional": true,
-          "peer": false,
-          "os": [
-            "android"
-          ],
-          "cpu": [
-            "arm64"
-          ]
-        }
-      ]
-    },
-    {
-      "name": "@koromix/koffi-android-x64",
-      "version": "3.3.2",
-      "installations": [
-        {
-          "location": "node_modules/@koromix/koffi-android-x64",
-          "direct": false,
-          "optional": true,
-          "peer": false,
-          "os": [
-            "android"
-          ],
-          "cpu": [
-            "x64"
-          ]
+          "optional": false,
+          "peer": false
         }
       ]
     },
     {
       "name": "@koromix/koffi-darwin-arm64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-darwin-arm64",
@@ -4559,7 +4535,7 @@
     },
     {
       "name": "@koromix/koffi-darwin-x64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-darwin-x64",
@@ -4577,7 +4553,7 @@
     },
     {
       "name": "@koromix/koffi-freebsd-arm64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-freebsd-arm64",
@@ -4595,7 +4571,7 @@
     },
     {
       "name": "@koromix/koffi-freebsd-ia32",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-freebsd-ia32",
@@ -4613,7 +4589,7 @@
     },
     {
       "name": "@koromix/koffi-freebsd-x64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-freebsd-x64",
@@ -4630,26 +4606,8 @@
       ]
     },
     {
-      "name": "@koromix/koffi-linux-arm",
-      "version": "3.3.2",
-      "installations": [
-        {
-          "location": "node_modules/@koromix/koffi-linux-arm",
-          "direct": false,
-          "optional": true,
-          "peer": false,
-          "os": [
-            "linux"
-          ],
-          "cpu": [
-            "arm"
-          ]
-        }
-      ]
-    },
-    {
       "name": "@koromix/koffi-linux-arm64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-linux-arm64",
@@ -4667,7 +4625,7 @@
     },
     {
       "name": "@koromix/koffi-linux-ia32",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-linux-ia32",
@@ -4685,7 +4643,7 @@
     },
     {
       "name": "@koromix/koffi-linux-loong64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-linux-loong64",
@@ -4702,26 +4660,8 @@
       ]
     },
     {
-      "name": "@koromix/koffi-linux-ppc64",
-      "version": "3.3.2",
-      "installations": [
-        {
-          "location": "node_modules/@koromix/koffi-linux-ppc64",
-          "direct": false,
-          "optional": true,
-          "peer": false,
-          "os": [
-            "linux"
-          ],
-          "cpu": [
-            "ppc64"
-          ]
-        }
-      ]
-    },
-    {
       "name": "@koromix/koffi-linux-riscv64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-linux-riscv64",
@@ -4739,7 +4679,7 @@
     },
     {
       "name": "@koromix/koffi-linux-x64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-linux-x64",
@@ -4756,26 +4696,8 @@
       ]
     },
     {
-      "name": "@koromix/koffi-openbsd-arm64",
-      "version": "3.3.2",
-      "installations": [
-        {
-          "location": "node_modules/@koromix/koffi-openbsd-arm64",
-          "direct": false,
-          "optional": true,
-          "peer": false,
-          "os": [
-            "openbsd"
-          ],
-          "cpu": [
-            "arm64"
-          ]
-        }
-      ]
-    },
-    {
       "name": "@koromix/koffi-openbsd-ia32",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-openbsd-ia32",
@@ -4793,7 +4715,7 @@
     },
     {
       "name": "@koromix/koffi-openbsd-x64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-openbsd-x64",
@@ -4811,7 +4733,7 @@
     },
     {
       "name": "@koromix/koffi-win32-arm64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-win32-arm64",
@@ -4829,7 +4751,7 @@
     },
     {
       "name": "@koromix/koffi-win32-ia32",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-win32-ia32",
@@ -4847,7 +4769,7 @@
     },
     {
       "name": "@koromix/koffi-win32-x64",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/@koromix/koffi-win32-x64",
@@ -5013,18 +4935,6 @@
       "installations": [
         {
           "location": "node_modules/@opentelemetry/core",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@opentelemetry/exporter-logs-otlp-http",
-      "version": "0.220.0",
-      "installations": [
-        {
-          "location": "node_modules/@opentelemetry/exporter-logs-otlp-http",
           "direct": false,
           "optional": false,
           "peer": false
@@ -5266,6 +5176,18 @@
       ]
     },
     {
+      "name": "@sindresorhus/is",
+      "version": "7.2.0",
+      "installations": [
+        {
+          "location": "node_modules/@sindresorhus/is",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "@sindresorhus/merge-streams",
       "version": "4.0.0",
       "installations": [
@@ -5279,7 +5201,7 @@
     },
     {
       "name": "@smithy/core",
-      "version": "3.35.0",
+      "version": "3.35.1",
       "installations": [
         {
           "location": "node_modules/@smithy/core",
@@ -5314,38 +5236,8 @@
       ]
     },
     {
-      "name": "@smithy/is-array-buffer",
-      "version": "2.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@smithy/is-array-buffer",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
       "name": "@smithy/node-http-handler",
       "version": "4.12.1",
-      "installations": [
-        {
-          "location": "node_modules/@aws-sdk/credential-provider-http/node_modules/@smithy/node-http-handler",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        },
-        {
-          "location": "node_modules/@aws-sdk/nested-clients/node_modules/@smithy/node-http-handler",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@smithy/node-http-handler",
-      "version": "4.7.3",
       "installations": [
         {
           "location": "node_modules/@smithy/node-http-handler",
@@ -5373,30 +5265,6 @@
       "installations": [
         {
           "location": "node_modules/@smithy/types",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@smithy/util-buffer-from",
-      "version": "2.2.0",
-      "installations": [
-        {
-          "location": "node_modules/@smithy/util-buffer-from",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "@smithy/util-utf8",
-      "version": "2.3.0",
-      "installations": [
-        {
-          "location": "node_modules/@smithy/util-utf8",
           "direct": false,
           "optional": false,
           "peer": false
@@ -5433,6 +5301,18 @@
       "installations": [
         {
           "location": "node_modules/@swc/helpers",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "@types/http-cache-semantics",
+      "version": "4.2.0",
+      "installations": [
+        {
+          "location": "node_modules/@types/http-cache-semantics",
           "direct": false,
           "optional": false,
           "peer": false
@@ -5720,6 +5600,18 @@
       "version": "7.1.4",
       "installations": [
         {
+          "location": "node_modules/gaxios/node_modules/agent-base",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "agent-base",
+      "version": "9.0.0",
+      "installations": [
+        {
           "location": "node_modules/agent-base",
           "direct": false,
           "optional": false,
@@ -5824,11 +5716,47 @@
       ]
     },
     {
+      "name": "byte-counter",
+      "version": "0.1.0",
+      "installations": [
+        {
+          "location": "node_modules/byte-counter",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "bytes",
       "version": "3.1.2",
       "installations": [
         {
           "location": "node_modules/bytes",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "cacheable-lookup",
+      "version": "7.0.0",
+      "installations": [
+        {
+          "location": "node_modules/cacheable-lookup",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "cacheable-request",
+      "version": "13.0.19",
+      "installations": [
+        {
+          "location": "node_modules/cacheable-request",
           "direct": false,
           "optional": false,
           "peer": false
@@ -5960,6 +5888,12 @@
       "version": "4.4.3",
       "installations": [
         {
+          "location": "node_modules/gaxios/node_modules/debug",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        },
+        {
           "location": "node_modules/http-proxy-agent/node_modules/debug",
           "direct": false,
           "optional": false,
@@ -5967,6 +5901,18 @@
         },
         {
           "location": "node_modules/https-proxy-agent/node_modules/debug",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "decompress-response",
+      "version": "10.0.0",
+      "installations": [
+        {
+          "location": "node_modules/decompress-response",
           "direct": false,
           "optional": false,
           "peer": false
@@ -6214,6 +6160,18 @@
       ]
     },
     {
+      "name": "form-data-encoder",
+      "version": "4.1.0",
+      "installations": [
+        {
+          "location": "node_modules/form-data-encoder",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "formdata-polyfill",
       "version": "4.0.10",
       "installations": [
@@ -6286,8 +6244,32 @@
       ]
     },
     {
+      "name": "got",
+      "version": "14.6.6",
+      "installations": [
+        {
+          "location": "node_modules/got",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "http-cache-semantics",
+      "version": "4.2.0",
+      "installations": [
+        {
+          "location": "node_modules/http-cache-semantics",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "http-proxy-agent",
-      "version": "7.0.2",
+      "version": "9.1.0",
       "installations": [
         {
           "location": "node_modules/http-proxy-agent",
@@ -6298,8 +6280,32 @@
       ]
     },
     {
+      "name": "http2-wrapper",
+      "version": "2.2.1",
+      "installations": [
+        {
+          "location": "node_modules/http2-wrapper",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "https-proxy-agent",
       "version": "7.0.6",
+      "installations": [
+        {
+          "location": "node_modules/gaxios/node_modules/https-proxy-agent",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "https-proxy-agent",
+      "version": "9.1.0",
       "installations": [
         {
           "location": "node_modules/https-proxy-agent",
@@ -6538,8 +6544,20 @@
       ]
     },
     {
+      "name": "keyv",
+      "version": "5.6.0",
+      "installations": [
+        {
+          "location": "node_modules/keyv",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "koffi",
-      "version": "3.3.2",
+      "version": "3.1.1",
       "installations": [
         {
           "location": "node_modules/koffi",
@@ -6555,6 +6573,18 @@
       "installations": [
         {
           "location": "node_modules/long",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "lowercase-keys",
+      "version": "3.0.0",
+      "installations": [
+        {
+          "location": "node_modules/lowercase-keys",
           "direct": false,
           "optional": false,
           "peer": false
@@ -6586,6 +6616,18 @@
       ]
     },
     {
+      "name": "mimic-response",
+      "version": "4.0.0",
+      "installations": [
+        {
+          "location": "node_modules/mimic-response",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "ms",
       "version": "2.0.0",
       "installations": [
@@ -6601,6 +6643,12 @@
       "name": "ms",
       "version": "2.1.3",
       "installations": [
+        {
+          "location": "node_modules/gaxios/node_modules/ms",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        },
         {
           "location": "node_modules/http-proxy-agent/node_modules/ms",
           "direct": false,
@@ -6653,7 +6701,7 @@
     },
     {
       "name": "node-addon-native-custom-loader",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-native-custom-loader",
@@ -6665,7 +6713,7 @@
     },
     {
       "name": "node-addon-require-builtin",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin",
@@ -6677,7 +6725,7 @@
     },
     {
       "name": "node-addon-require-builtin-darwin-arm64",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-darwin-arm64",
@@ -6695,7 +6743,7 @@
     },
     {
       "name": "node-addon-require-builtin-darwin-x64",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-darwin-x64",
@@ -6713,7 +6761,7 @@
     },
     {
       "name": "node-addon-require-builtin-linux-arm64-gnu",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-linux-arm64-gnu",
@@ -6733,8 +6781,29 @@
       ]
     },
     {
+      "name": "node-addon-require-builtin-linux-arm64-musl",
+      "version": "0.1.7",
+      "installations": [
+        {
+          "location": "node_modules/node-addon-require-builtin-linux-arm64-musl",
+          "direct": false,
+          "optional": true,
+          "peer": false,
+          "os": [
+            "linux"
+          ],
+          "cpu": [
+            "arm64"
+          ],
+          "libc": [
+            "musl"
+          ]
+        }
+      ]
+    },
+    {
       "name": "node-addon-require-builtin-linux-x64-gnu",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-linux-x64-gnu",
@@ -6754,8 +6823,29 @@
       ]
     },
     {
+      "name": "node-addon-require-builtin-linux-x64-musl",
+      "version": "0.1.7",
+      "installations": [
+        {
+          "location": "node_modules/node-addon-require-builtin-linux-x64-musl",
+          "direct": false,
+          "optional": true,
+          "peer": false,
+          "os": [
+            "linux"
+          ],
+          "cpu": [
+            "x64"
+          ],
+          "libc": [
+            "musl"
+          ]
+        }
+      ]
+    },
+    {
       "name": "node-addon-require-builtin-win32-arm64-msvc",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-win32-arm64-msvc",
@@ -6773,7 +6863,7 @@
     },
     {
       "name": "node-addon-require-builtin-win32-ia32-msvc",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-win32-ia32-msvc",
@@ -6791,7 +6881,7 @@
     },
     {
       "name": "node-addon-require-builtin-win32-x64-msvc",
-      "version": "0.1.6",
+      "version": "0.1.7",
       "installations": [
         {
           "location": "node_modules/node-addon-require-builtin-win32-x64-msvc",
@@ -6844,6 +6934,18 @@
       ]
     },
     {
+      "name": "normalize-url",
+      "version": "8.1.1",
+      "installations": [
+        {
+          "location": "node_modules/normalize-url",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "npm-run-path",
       "version": "6.0.0",
       "installations": [
@@ -6885,6 +6987,18 @@
       "installations": [
         {
           "location": "node_modules/openai",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "p-cancelable",
+      "version": "4.0.1",
+      "installations": [
+        {
+          "location": "node_modules/p-cancelable",
           "direct": false,
           "optional": false,
           "peer": false
@@ -7001,18 +7115,6 @@
     },
     {
       "name": "powershell-utils",
-      "version": "0.1.0",
-      "installations": [
-        {
-          "location": "node_modules/wsl-utils/node_modules/powershell-utils",
-          "direct": false,
-          "optional": false,
-          "peer": false
-        }
-      ]
-    },
-    {
-      "name": "powershell-utils",
       "version": "0.2.1",
       "installations": [
         {
@@ -7041,6 +7143,30 @@
       "installations": [
         {
           "location": "node_modules/protobufjs",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "proxy-agent-negotiate",
+      "version": "1.1.0",
+      "installations": [
+        {
+          "location": "node_modules/proxy-agent-negotiate",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "quick-lru",
+      "version": "5.1.1",
+      "installations": [
+        {
+          "location": "node_modules/quick-lru",
           "direct": false,
           "optional": false,
           "peer": false
@@ -7084,11 +7210,35 @@
       ]
     },
     {
+      "name": "resolve-alpn",
+      "version": "1.2.1",
+      "installations": [
+        {
+          "location": "node_modules/resolve-alpn",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "resolve.exports",
       "version": "2.0.3",
       "installations": [
         {
           "location": "node_modules/resolve.exports",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
+      "name": "responselike",
+      "version": "4.0.2",
+      "installations": [
+        {
+          "location": "node_modules/responselike",
           "direct": false,
           "optional": false,
           "peer": false
@@ -7408,8 +7558,20 @@
       ]
     },
     {
+      "name": "type-fest",
+      "version": "4.41.0",
+      "installations": [
+        {
+          "location": "node_modules/type-fest",
+          "direct": false,
+          "optional": false,
+          "peer": false
+        }
+      ]
+    },
+    {
       "name": "typebox",
-      "version": "1.3.7",
+      "version": "1.3.27",
       "installations": [
         {
           "location": "node_modules/typebox",
@@ -7541,7 +7703,7 @@
     },
     {
       "name": "wsl-utils",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "installations": [
         {
           "location": "node_modules/wsl-utils",

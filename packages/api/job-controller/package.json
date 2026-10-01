@@ -67,7 +67,7 @@
   "dependencies": {
     "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~"

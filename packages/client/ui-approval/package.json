@@ -51,6 +51,7 @@
     "@orochi-network/oh-api-remotes": "workspace:*",
     "@orochi-network/oh-api-session-controller": "workspace:*",
     "@orochi-network/oh-client-locale": "workspace:*",
+    "@orochi-network/oh-client-shortcuts": "workspace:*",
     "@orochi-network/oh-client-ui-conversation": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
     "@orochi-network/oh-client-ui-renderer": "workspace:*",
@@ -59,9 +60,8 @@
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@types/react": "~18.3.1",
-    "react": "^18.2.0",
-    "@orochi-network/oh-client-shortcuts": "workspace:*"
+    "@types/react": "~18.3.31",
+    "react": "^18.3.1"
   },
   "files": [
     "lib/index.js",

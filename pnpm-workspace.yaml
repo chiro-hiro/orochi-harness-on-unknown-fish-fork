@@ -15,9 +15,31 @@ packages:
   - python/sdk-runtime
 
 overrides:
-  'extract-zip>yauzl': '3.4.0'
+  # vitepress 1.6.4 declares vite ^5, and the 5.x line has no release fixing
+  # CVE-2026-39365, CVE-2026-53571, or CVE-2026-53632. The website builds on
+  # vite 6.4.3, where they are fixed; vitepress 1.6.4 runs against it unchanged.
+  'vitepress>vite': '^6.4.3'
+  # exceljs and @fortune-sheet/core declare uuid ^8, and the 8.x line has no
+  # release fixing CVE-2026-41907. Both only call `v4()` and run on uuid 11,
+  # which keeps the CJS entry they require.
+  'exceljs>uuid': '^11.1.1'
+  '@fortune-sheet/core>uuid': '^11.1.1'
   '@orochi-network/cosmokit': 'link:vendor/cosmokit'
   '@orochi-network/schemastery': 'link:vendor/schemastery'
+  # Security floors below the published advisory fix (`pnpm audit --fix`
+  # output): parents keep declaring the vulnerable ranges, so every request
+  # below the fixed version resolves to it instead. Each key is scoped to the
+  # affected version line, so parallel major lines keep their own resolution.
+  '@hono/node-server@<1.19.15': '^1.19.15'
+  'brace-expansion@>=3.0.0 <5.0.7': '^5.0.7'
+  'brace-expansion@>=4.0.0 <5.0.12': '^5.0.12'
+  'fflate@>=0.8.0 <0.8.3': '^0.8.3'
+  'hono@<4.13.7': '^4.13.7'
+  'ip-address@<=10.7.0': '^10.7.1'
+  'js-yaml@>=4.0.0 <4.3.2': '^4.3.2'
+  'nanoid@<3.3.18': '^3.3.18'
+  'postcss@<=8.5.22': '^8.5.23'
+  'qs@>=2.2.5 <6.16.0': '^6.16.0'
 
 peerDependencyRules:
   allowedVersions:

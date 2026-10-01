@@ -57,7 +57,7 @@
     "@orochi-network/oh-chunked-list": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -67,6 +67,7 @@
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-jobs": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-permission-presets": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
@@ -79,7 +80,6 @@
     "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-user-approval": "workspace:*",
     "@orochi-network/oh-util-time": "workspace:*",
-    "@orochi-network/oh-permission-presets": "workspace:*",
     "@orochi-network/oh-workspace": "workspace:*"
   },
   "peerDependenciesMeta": {
@@ -125,6 +125,7 @@
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-jobs": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-permission-presets": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-schedule": "workspace:*",
@@ -141,7 +142,6 @@
     "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-user-approval": "workspace:*",
     "@orochi-network/oh-util-time": "workspace:*",
-    "@orochi-network/oh-permission-presets": "workspace:*",
     "@orochi-network/oh-workspace": "workspace:*"
   }
 }

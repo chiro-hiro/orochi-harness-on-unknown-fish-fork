@@ -39,9 +39,9 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-tool-cordis": "workspace:*",
     "@orochi-network/oh-typert-registry": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   }
 }

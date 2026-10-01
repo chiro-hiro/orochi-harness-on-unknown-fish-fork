@@ -27,20 +27,20 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-client-modules": "workspace:*",
     "@orochi-network/oh-client-store": "workspace:*",
     "@orochi-network/oh-client-ui-dockkit": "workspace:*",
-    "@orochi-network/oh-client-ui-renderer": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
+    "@orochi-network/oh-client-ui-renderer": "workspace:*",
     "@orochi-network/oh-client-ui-slots": "workspace:*",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
-    "@orochi-network/cordis": "workspace:~",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "typescript": "^6.0.3",
-    "@orochi-network/oh-host-webserver": "workspace:*"
+    "@orochi-network/oh-host-webserver": "workspace:*",
+    "@types/react": "~18.3.31",
+    "@types/react-dom": "~18.3.7",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~"

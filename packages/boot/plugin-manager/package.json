@@ -58,23 +58,23 @@
   "dependencies": {
     "@orochi-network/oh-app-boot": "workspace:*",
     "@orochi-network/oh-atomic-write": "workspace:*",
+    "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "execa": "^10.0.0",
-    "yaml": "^2.9.0",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-util-values": "workspace:*"
+    "execa": "^10.0.1",
+    "yaml": "^2.9.1",
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/oh-host-plugin-inventory": "workspace:*",
-    "@orochi-network/oh-subprocess": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/oh-hmr": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
-    "@orochi-network/oh-sandbox-policy": "workspace:*",
+    "@orochi-network/oh-hmr": "workspace:*",
+    "@orochi-network/oh-host-plugin-inventory": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
+    "@orochi-network/oh-sandbox-policy": "workspace:*",
+    "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-tools": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-user-approval": "workspace:*"
   },
   "peerDependenciesMeta": {
@@ -86,22 +86,22 @@
     }
   },
   "devDependencies": {
-    "@orochi-network/oh-package-manifest": "workspace:*",
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
-    "@orochi-network/oh-host-plugin-inventory": "workspace:*",
-    "@orochi-network/oh-subprocess": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/oh-hmr": "workspace:*",
     "@orochi-network/cordis-plugin-timer": "workspace:~",
-    "@orochi-network/oh-brand": "workspace:*",
-    "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-agent": "workspace:*",
+    "@orochi-network/oh-brand": "workspace:*",
+    "@orochi-network/oh-hmr": "workspace:*",
+    "@orochi-network/oh-host-plugin-inventory": "workspace:*",
+    "@orochi-network/oh-package-manifest": "workspace:*",
+    "@orochi-network/oh-sandbox": "workspace:*",
+    "@orochi-network/oh-sandbox-policy": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-sandbox": "workspace:*",
+    "@orochi-network/oh-subprocess": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*",
+    "@orochi-network/oh-tools": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-user-approval": "workspace:*"
   }
 }

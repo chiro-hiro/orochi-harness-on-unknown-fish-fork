@@ -38,8 +38,8 @@
     "@orochi-network/oh-home-paths": "workspace:*",
     "@orochi-network/oh-session-format": "workspace:*",
     "@orochi-network/oh-session-format-catalog": "workspace:*",
-    "js-yaml": "^4.2.0",
-    "picomatch": "^4.0.4"
+    "js-yaml": "^4.3.2",
+    "picomatch": "^4.0.7"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",

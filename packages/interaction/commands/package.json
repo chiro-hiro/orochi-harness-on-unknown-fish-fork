@@ -53,6 +53,7 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-attachment": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
@@ -60,14 +61,14 @@
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-typert-protocol": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/oh-util-crypto": "workspace:*",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-attachment": "workspace:*",
     "@orochi-network/oh-brand": "workspace:*",
@@ -75,7 +76,6 @@
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-typert-protocol": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-typert-protocol": "workspace:*"
   }
 }

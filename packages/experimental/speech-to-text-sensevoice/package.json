@@ -33,10 +33,10 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@orochi-network/schemastery": "workspace:~",
     "@orochi-network/oh-timeout": "workspace:*",
-    "zod": "^4.4.3",
-    "sherpa-onnx-node": "1.13.8"
+    "@orochi-network/schemastery": "workspace:~",
+    "sherpa-onnx-node": "1.13.8",
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -48,6 +48,6 @@
     "@orochi-network/oh-experimental-speech-to-text": "workspace:*",
     "@orochi-network/oh-subprocess": "workspace:*",
     "@orochi-network/oh-subprocess-local": "workspace:*",
-    "tsx": "^4.22.4"
+    "tsx": "^4.23.15"
   }
 }

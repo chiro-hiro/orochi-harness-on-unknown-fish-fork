@@ -1,5 +1,7 @@
 {
-  "//": ["Dependency '@orochi-network/libreoffice-kit' resolves through an npm alias to the previously published '@deepseek-ai/libreoffice-kit' until the kit family (github.com/deepseek-harness/libreoffice-kit) is republished under @orochi-network; drop the 'npm:@deepseek-ai/libreoffice-kit@' alias then."],
+  "//": [
+    "Dependency '@orochi-network/libreoffice-kit' resolves through an npm alias to the previously published '@deepseek-ai/libreoffice-kit' until the kit family (github.com/deepseek-harness/libreoffice-kit) is republished under @orochi-network; drop the 'npm:@deepseek-ai/libreoffice-kit@' alias then."
+  ],
   "name": "@orochi-network/oh-office-to-pdf",
   "description": "Shared Office-to-PDF conversion with bounded queues and caching",
   "version": "0.1.7-rc.2",
@@ -49,17 +51,17 @@
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
+    "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-api-workspace-files": "workspace:*",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-session": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/libreoffice-kit": "npm:@deepseek-ai/libreoffice-kit@0.1.1",
-    "@orochi-network/schemastery": "workspace:~",
     "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
-    "zod": "^4.4.3"
+    "@orochi-network/schemastery": "workspace:~",
+    "zod": "^4.6.5"
   }
 }

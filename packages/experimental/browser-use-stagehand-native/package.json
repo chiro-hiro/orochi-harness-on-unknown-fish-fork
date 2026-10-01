@@ -42,11 +42,11 @@
     "@browserbasehq/stagehand": "4.1.0",
     "@orochi-network/oh-experimental-browser-use-runtime": "workspace:*",
     "@orochi-network/oh-mcp-client": "workspace:*",
+    "@orochi-network/oh-subprocess": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-subprocess": "workspace:*",
-    "@puppeteer/browsers": "3.2.2"
+    "@puppeteer/browsers": "3.2.2",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -63,6 +63,6 @@
     "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
-    "tsx": "^4.19.2"
+    "tsx": "^4.23.15"
   }
 }

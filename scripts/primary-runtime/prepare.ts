@@ -8,7 +8,8 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 import { parseArgs } from 'node:util'
-import extractZip from 'extract-zip'
+import extractZip from '@electron-internal/extract-zip'
+import { unzipSync } from 'fflate'
 import { x as extractTar } from 'tar'
 import { parsePrimaryRuntime, workspaceDependencyPaths, type PrimaryRuntimeManifest } from '../../packages/skill/tool-workspace-dependencies/src/index.ts'
 import lock from './lock.json' with { type: 'json' }
@@ -63,18 +64,19 @@ export function primaryRuntimePayloadDigest(
  * Unpack a locked library wheel, retaining auxiliary scripts in its distribution data directory.
  * @param archive - Hash-verified wheel archive.
  * @param destination - Absolute site-packages directory.
- * @returns Resolves after extraction without command wrappers; rejects other wheel installation schemes.
+ * @returns Resolves after extraction without command wrappers; rejects other wheel installation schemes before extraction.
  */
 export async function unpackPrimaryRuntimeWheel(archive: string, destination: string): Promise<void> {
-  await extractZip(archive, {
-    dir: destination,
-    onEntry: (entry) => {
-      const [directory, scheme] = entry.fileName.split('/')
+  unzipSync(new Uint8Array(readFileSync(archive)), {
+    filter: (file) => {
+      const [directory, scheme] = file.name.split('/')
       if (directory?.endsWith('.data') && scheme !== '' && scheme !== 'scripts') {
-        throw new Error(`primary runtime: wheel requires unsupported installation paths: ${entry.fileName}`)
+        throw new Error(`primary runtime: wheel requires unsupported installation paths: ${file.name}`)
       }
+      return false
     },
   })
+  await extractZip(archive, { dir: destination })
 }
 
 /**

@@ -1,5 +1,7 @@
 {
-  "//": ["Dependency '@orochi-network/libreoffice-kit' resolves through an npm alias to the previously published '@deepseek-ai/libreoffice-kit' until the kit family (github.com/deepseek-harness/libreoffice-kit) is republished under @orochi-network; drop the 'npm:@deepseek-ai/libreoffice-kit@' alias then."],
+  "//": [
+    "Dependency '@orochi-network/libreoffice-kit' resolves through an npm alias to the previously published '@deepseek-ai/libreoffice-kit' until the kit family (github.com/deepseek-harness/libreoffice-kit) is republished under @orochi-network; drop the 'npm:@deepseek-ai/libreoffice-kit@' alias then."
+  ],
   "name": "@orochi-network/oh-web-app",
   "description": "The oh browser-surface bundle: the web patch layer over oh-base plus the runtime glue plugin (frontend dist serving, web-surface prompt, bash runtime variables, URL line)",
   "version": "0.1.7-rc.2",
@@ -69,6 +71,7 @@
     "@orochi-network/oh-client-locale": "workspace:*",
     "@orochi-network/oh-client-modules": "workspace:*",
     "@orochi-network/oh-client-resources": "workspace:*",
+    "@orochi-network/oh-client-shortcuts": "workspace:*",
     "@orochi-network/oh-client-ui-agent-preset": "workspace:*",
     "@orochi-network/oh-client-ui-approval": "workspace:*",
     "@orochi-network/oh-client-ui-attachment": "workspace:*",
@@ -94,14 +97,15 @@
     "@orochi-network/oh-client-ui-renderer": "workspace:*",
     "@orochi-network/oh-client-ui-session": "workspace:*",
     "@orochi-network/oh-client-ui-settings": "workspace:*",
+    "@orochi-network/oh-client-ui-settings-agent-loop": "workspace:*",
     "@orochi-network/oh-client-ui-settings-general": "workspace:*",
     "@orochi-network/oh-client-ui-settings-models": "workspace:*",
     "@orochi-network/oh-client-ui-settings-plugin-inventory": "workspace:*",
     "@orochi-network/oh-client-ui-settings-plugins": "workspace:*",
     "@orochi-network/oh-client-ui-settings-shell": "workspace:*",
-    "@orochi-network/oh-client-ui-settings-agent-loop": "workspace:*",
     "@orochi-network/oh-client-ui-settings-subagent": "workspace:*",
     "@orochi-network/oh-client-ui-settings-web-search": "workspace:*",
+    "@orochi-network/oh-client-ui-shortcuts": "workspace:*",
     "@orochi-network/oh-client-ui-sidebar": "workspace:*",
     "@orochi-network/oh-client-ui-sidebar-browser": "workspace:*",
     "@orochi-network/oh-client-ui-sidebar-documentpreview": "workspace:*",
@@ -170,9 +174,7 @@
     "@orochi-network/oh-workspace-changes": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
     "commander": "^15.0.0",
-    "open": "^11.0.0",
-    "@orochi-network/oh-client-shortcuts": "workspace:*",
-    "@orochi-network/oh-client-ui-shortcuts": "workspace:*"
+    "open": "^11.0.4"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -184,6 +186,7 @@
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
+    "@orochi-network/libreoffice-kit": "npm:@deepseek-ai/libreoffice-kit@0.1.1",
     "@orochi-network/oh-fs": "workspace:*",
     "@orochi-network/oh-fs-local": "workspace:*",
     "@orochi-network/oh-sandbox-policy": "workspace:*",
@@ -191,7 +194,6 @@
     "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-shell-env": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/oh-typert-registry": "workspace:*",
-    "@orochi-network/libreoffice-kit": "npm:@deepseek-ai/libreoffice-kit@0.1.1"
+    "@orochi-network/oh-typert-registry": "workspace:*"
   }
 }

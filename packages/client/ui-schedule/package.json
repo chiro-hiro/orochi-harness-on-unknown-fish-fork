@@ -54,6 +54,7 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-api-remotes": "workspace:*",
     "@orochi-network/oh-api-session-controller": "workspace:*",
     "@orochi-network/oh-api-workspace-controller": "workspace:*",
@@ -73,13 +74,12 @@
     "@orochi-network/oh-schedule": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "~18.3.31",
+    "@types/react-dom": "~18.3.7",
     "clsx": "^2.1.1",
-    "@orochi-network/cordis": "workspace:~",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "files": [
     "locale/*.json",

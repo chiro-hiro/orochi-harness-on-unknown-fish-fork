@@ -53,7 +53,7 @@
     "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-util-crypto": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "ws": "^8.21.0"
+    "ws": "^8.22.0"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
@@ -66,8 +66,8 @@
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-host-webserver": "workspace:*",
-    "@types/ws": "^8.18.1",
-    "playwright": "^1.49.0",
-    "tsx": "^4.19.2"
+    "@types/ws": "^8.18.2",
+    "playwright": "^1.63.0",
+    "tsx": "^4.23.15"
   }
 }

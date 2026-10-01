@@ -45,15 +45,15 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-api-remotes": "workspace:*",
     "@orochi-network/oh-client-modules": "workspace:*",
     "@orochi-network/oh-client-ui-renderer": "workspace:*",
     "@orochi-network/oh-client-ui-theme": "workspace:*",
-    "@types/react": "~18.3.1",
-    "@orochi-network/cordis": "workspace:~",
-    "react": "^18.2.0",
-    "@orochi-network/oh-util-values": "workspace:*"
+    "@orochi-network/oh-util-values": "workspace:*",
+    "@types/react": "~18.3.31",
+    "react": "^18.3.1"
   },
   "files": [
     "lib/index.js",

@@ -50,6 +50,7 @@
     "@orochi-network/oh-api-remotes": "workspace:*",
     "@orochi-network/oh-api-workspace-files": "workspace:*",
     "@orochi-network/oh-client-locale": "workspace:*",
+    "@orochi-network/oh-client-shortcuts": "workspace:*",
     "@orochi-network/oh-client-store": "workspace:*",
     "@orochi-network/oh-client-test-runtime": "workspace:*",
     "@orochi-network/oh-client-ui-dockkit": "workspace:*",
@@ -61,13 +62,12 @@
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-util-workspace-path": "workspace:*",
-    "@testing-library/react": "^16.1.0",
-    "@types/react": "~18.3.1",
-    "@types/react-dom": "~18.3.0",
-    "react": "^18.2.0",
-    "clsx": "^2.0.0",
-    "react-dom": "^18.2.0",
-    "@orochi-network/oh-client-shortcuts": "workspace:*"
+    "@testing-library/react": "^16.3.3",
+    "@types/react": "~18.3.31",
+    "@types/react-dom": "~18.3.7",
+    "clsx": "^2.1.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "files": [
     "lib/index.js",

@@ -57,24 +57,24 @@
   "dependencies": {
     "@orochi-network/oh-deque": "workspace:*",
     "@orochi-network/oh-timeout": "workspace:*",
+    "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/schemastery": "workspace:~",
-    "ws": "^8.21.0",
-    "@orochi-network/oh-typert-protocol": "workspace:*"
+    "ws": "^8.22.0"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-client-connection": "workspace:*"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-brand": "workspace:*",
-    "@orochi-network/oh-cmdline": "workspace:*",
     "@orochi-network/oh-client-connection": "workspace:*",
+    "@orochi-network/oh-cmdline": "workspace:*",
     "@orochi-network/oh-host-webserver": "workspace:*",
     "@orochi-network/oh-remote-mock": "workspace:*",
     "@orochi-network/oh-typert-registry": "workspace:*",
     "@orochi-network/oh-util-crypto": "workspace:*",
-    "@types/ws": "^8.18.1",
-    "@orochi-network/cordis": "workspace:~",
-    "zod": "^4.4.3"
+    "@types/ws": "^8.18.2",
+    "zod": "^4.6.5"
   }
 }

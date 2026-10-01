@@ -59,16 +59,20 @@
     "@orochi-network/oh-scope": "workspace:*"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-agent-preset-registry": "workspace:*",
     "@orochi-network/oh-api-gateway": "workspace:*",
     "@orochi-network/oh-api-job-controller": "workspace:*",
     "@orochi-network/oh-api-session-controller": "workspace:*",
     "@orochi-network/oh-api-settings-controller": "workspace:*",
+    "@orochi-network/oh-api-terminal-controller": "workspace:*",
     "@orochi-network/oh-api-workspace-controller": "workspace:*",
     "@orochi-network/oh-api-workspace-files": "workspace:*",
     "@orochi-network/oh-client-connection": "workspace:*",
     "@orochi-network/oh-client-file-upload": "workspace:*",
+    "@orochi-network/oh-client-ui-plugin-manager": "workspace:*",
+    "@orochi-network/oh-command-feedback": "workspace:*",
     "@orochi-network/oh-commands": "workspace:*",
     "@orochi-network/oh-cordis-host-runner": "workspace:*",
     "@orochi-network/oh-credentials": "workspace:*",
@@ -77,7 +81,9 @@
     "@orochi-network/oh-host-plugin-inventory": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-message-feedback": "workspace:*",
+    "@orochi-network/oh-office-to-pdf": "workspace:*",
     "@orochi-network/oh-permission-presets": "workspace:*",
+    "@orochi-network/oh-plugin-manager": "workspace:*",
     "@orochi-network/oh-schedule": "workspace:*",
     "@orochi-network/oh-scope": "workspace:*",
     "@orochi-network/oh-session-reference": "workspace:*",
@@ -86,12 +92,6 @@
     "@orochi-network/oh-typert-protocol": "workspace:*",
     "@orochi-network/oh-user-approval": "workspace:*",
     "@orochi-network/oh-user-questions": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "zod": "^4.4.3",
-    "@orochi-network/oh-command-feedback": "workspace:*",
-    "@orochi-network/oh-api-terminal-controller": "workspace:*",
-    "@orochi-network/oh-plugin-manager": "workspace:*",
-    "@orochi-network/oh-client-ui-plugin-manager": "workspace:*",
-    "@orochi-network/oh-office-to-pdf": "workspace:*"
+    "zod": "^4.6.5"
   }
 }

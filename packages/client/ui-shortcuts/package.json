@@ -46,19 +46,19 @@
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-client-shortcuts": "workspace:*",
+    "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-client-locale": "workspace:*",
+    "@orochi-network/oh-client-shortcuts": "workspace:*",
     "@orochi-network/oh-client-store": "workspace:*",
-    "@orochi-network/oh-client-ui-slots": "workspace:*",
+    "@orochi-network/oh-client-test-runtime": "workspace:*",
+    "@orochi-network/oh-client-ui-layout": "workspace:*",
     "@orochi-network/oh-client-ui-primitives": "workspace:*",
     "@orochi-network/oh-client-ui-renderer": "workspace:*",
-    "@orochi-network/oh-client-ui-layout": "workspace:*",
     "@orochi-network/oh-client-ui-settings": "workspace:*",
-    "@orochi-network/oh-brand": "workspace:*",
-    "@types/react": "~18.3.1",
+    "@orochi-network/oh-client-ui-slots": "workspace:*",
+    "@types/react": "~18.3.31",
     "clsx": "^2.1.1",
-    "react": "^18.2.0",
-    "@orochi-network/oh-client-test-runtime": "workspace:*"
+    "react": "^18.3.1"
   },
   "files": [
     "lib/index.js",

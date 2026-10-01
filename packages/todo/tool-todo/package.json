@@ -38,17 +38,18 @@
   "license": "MIT",
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-session-projection": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-tools": "workspace:*"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
@@ -60,7 +61,6 @@
     "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/oh-user-questions": "workspace:*",
-    "@orochi-network/cordis": "workspace:~"
+    "@orochi-network/oh-user-questions": "workspace:*"
   }
 }

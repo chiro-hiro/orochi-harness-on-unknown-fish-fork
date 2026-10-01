@@ -32,25 +32,25 @@
   ],
   "license": "MIT",
   "peerDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-sandbox": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-system-prompt": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-system-prompt": "workspace:*"
   }
 }

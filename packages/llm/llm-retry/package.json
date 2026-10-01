@@ -36,38 +36,37 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@orochi-network/oh-brand": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
+    "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-timeout": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-session-projection": "workspace:*",
+    "@orochi-network/oh-timeout": "workspace:*"
   },
   "dependencies": {
     "@orochi-network/schemastery": "workspace:~",
-    "zod": "^4.4.3"
+    "zod": "^4.6.5"
   },
   "devDependencies": {
-    "@orochi-network/oh-brand": "workspace:*",
+    "@orochi-network/cordis": "workspace:~",
     "@orochi-network/cordis-plugin-include": "workspace:~",
     "@orochi-network/cordis-plugin-loader": "workspace:~",
     "@orochi-network/oh-agent": "workspace:*",
     "@orochi-network/oh-agent-loop": "workspace:*",
     "@orochi-network/oh-agent-loop-testkit": "workspace:*",
+    "@orochi-network/oh-brand": "workspace:*",
     "@orochi-network/oh-invariants": "workspace:*",
     "@orochi-network/oh-llm": "workspace:*",
+    "@orochi-network/oh-llm-mock-server": "workspace:*",
     "@orochi-network/oh-llm-orochi": "workspace:*",
     "@orochi-network/oh-llm-orochi-api-key": "workspace:*",
-    "@orochi-network/oh-llm-mock-server": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
-    "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-session-persistence-jsonl": "workspace:*",
+    "@orochi-network/oh-session-projection": "workspace:*",
     "@orochi-network/oh-system-prompt": "workspace:*",
     "@orochi-network/oh-timeout": "workspace:*",
-    "@orochi-network/oh-tools": "workspace:*",
-    "@orochi-network/cordis": "workspace:~",
-    "@orochi-network/oh-session-projection": "workspace:*"
+    "@orochi-network/oh-tools": "workspace:*"
   }
 }

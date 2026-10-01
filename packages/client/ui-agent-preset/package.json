@@ -66,8 +66,8 @@
     "@orochi-network/oh-client-ui-workspace": "workspace:*",
     "@orochi-network/oh-session": "workspace:*",
     "@orochi-network/oh-util-values": "workspace:*",
-    "@types/react": "~18.3.1",
-    "react": "^18.2.0"
+    "@types/react": "~18.3.31",
+    "react": "^18.3.1"
   },
   "files": [
     "lib/index.js",

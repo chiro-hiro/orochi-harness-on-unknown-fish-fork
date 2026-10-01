@@ -34,13 +34,13 @@
   "dependencies": {
     "@orochi-network/oh-host-directory-picker": "workspace:*",
     "@orochi-network/oh-native-command": "workspace:*",
-    "koffi": "^3.1.0"
+    "koffi": "^3.3.2"
   },
   "peerDependencies": {
     "@orochi-network/cordis": "workspace:~"
   },
   "devDependencies": {
     "@orochi-network/cordis": "workspace:~",
-    "tsx": "^4.19.2"
+    "tsx": "^4.23.15"
   }
 }
