@@ -8,6 +8,7 @@ overrides:
   vitepress>vite: ^6.4.3
   exceljs>uuid: ^11.1.1
   '@fortune-sheet/core>uuid': ^11.1.1
+  '@browserbasehq/stagehand>zod': ^4.6.5
   '@orochi-network/cosmokit': link:vendor/cosmokit
   '@orochi-network/schemastery': link:vendor/schemastery
   '@hono/node-server@<1.19.15': ^1.19.15
@@ -21115,9 +21116,6 @@ packages:
     peerDependencies:
       zod: ^3.25.28 || ^4
 
-  zod@4.4.3:
-    resolution: {integrity: sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ==}
-
   zod@4.6.5:
     resolution: {integrity: sha512-v5l/aFXZQeai4awLbOpSoHecE9UiMrnfx75tEXLjNonXVARxQ5mOeipTjROUchszUNCqnE+hqAMujRsRHsut2Q==}
 
@@ -21690,7 +21688,7 @@ snapshots:
       '@browserbasehq/sdk': 2.21.0
       '@opentelemetry/api': 1.9.1
       '@opentelemetry/core': 2.9.0(@opentelemetry/api@1.9.1)
-      zod: 4.4.3
+      zod: 4.6.5
     transitivePeerDependencies:
       - encoding
 
@@ -28689,8 +28687,6 @@ snapshots:
   zod-to-json-schema@3.25.2(zod@4.6.5):
     dependencies:
       zod: 4.6.5
-
-  zod@4.4.3: {}
 
   zod@4.6.5: {}
 

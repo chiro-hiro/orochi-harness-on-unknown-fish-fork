@@ -24,6 +24,10 @@ overrides:
   # which keeps the CJS entry they require.
   'exceljs>uuid': '^11.1.1'
   '@fortune-sheet/core>uuid': '^11.1.1'
+  # @browserbasehq/stagehand pins zod 4.4.3 exactly while the workspace carries
+  # 4.6.5, and zod types embed version literals: a split instance makes every
+  # schema passed into stagehand's API unassignable. One instance, one version.
+  '@browserbasehq/stagehand>zod': '^4.6.5'
   '@orochi-network/cosmokit': 'link:vendor/cosmokit'
   '@orochi-network/schemastery': 'link:vendor/schemastery'
   # Security floors below the published advisory fix (`pnpm audit --fix`
