@@ -1,0 +1,46 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/util/prompt-template/README.md
+/:
+  en: 885a8cd44db77b89
+  zh: 9f013f611577d43f
+/orochi-network-oh-util-prompt-template:
+  en: 10df7437a699ad90
+  zh: 9350cb8316db6746
+/orochi-network-oh-util-prompt-template/summary:
+  en: b7e6b05f3c868c1a
+  zh: 5c3848b3dbb2faa7
+/orochi-network-oh-util-prompt-template/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/orochi-network-oh-util-prompt-template/use-this-package:
+  en: bbff250eba0f1b89
+  zh: 0a618f05cc88ee2b
+/orochi-network-oh-util-prompt-template/use-this-package/scan-a-template:
+  en: 181605a6ced559c4
+  zh: ebf0ce9fb90a9ec5
+/orochi-network-oh-util-prompt-template/use-this-package/validate-a-reference-name:
+  en: f8b990760bb042b2
+  zh: db9704d66d182b76
+/orochi-network-oh-util-prompt-template/understand-the-implementation:
+  en: 8e7196f4672b20b6
+  zh: 38a6d42f7acc7907
+/orochi-network-oh-util-prompt-template/understand-the-implementation/source-map:
+  en: ec242972c0c8579c
+  zh: a9f10440d9730362
+/orochi-network-oh-util-prompt-template/further-exploration:
+  en: 1e555b2c0b22b916
+  zh: 326b478b5706ca8e
+/orochi-network-oh-util-prompt-template/model-experience:
+  en: d2fc096fc28c1674
+  zh: 623ee5bd1f8daa35
+/orochi-network-oh-util-prompt-template/model-experience/kv-cache-effect:
+  en: ca75c51c89c2c9b0
+  zh: 9ddc299362df3aba
+/orochi-network-oh-util-prompt-template/known-limitations-and-deferred-work:
+  en: 29b74e5ad6c6d31c
+  zh: 4721ab118b79bf9f
+/orochi-network-oh-util-prompt-template/known-limitations-and-deferred-work/dev-note:
+  en: e67f633dc6fe7773
+  zh: fdc5500d0da0e0a6

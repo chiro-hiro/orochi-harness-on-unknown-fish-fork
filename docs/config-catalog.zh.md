@@ -96,7 +96,7 @@ export interface Config {
 
 - `inject`: `agents` · `sessions` · `llm` · `tools` · `systemPrompt` · `sessionProjections`
 - `refs`: [`AgentOptions`](subsystems/core.zh.md) · [`SessionId`](subsystems/core.zh.md) · `Volatile` (`@orochi-network/cosmokit`)
-- `source`: [`packages/core/agent-loop/src/index.ts:292`](../packages/core/agent-loop/src/index.ts)
+- `source`: [`packages/core/agent-loop/src/index.ts:299`](../packages/core/agent-loop/src/index.ts)
 
 ```ts config-catalog
 /** Agent-loop plugin configuration. */
@@ -3086,7 +3086,8 @@ export interface Config {
 
 ## `@orochi-network/oh-system-prompt`
 
-- `source`: [`packages/core/system-prompt/src/index.ts:247`](../packages/core/system-prompt/src/index.ts)
+- `refs`: `Volatile` (`@orochi-network/cordis`)
+- `source`: [`packages/core/system-prompt/src/index.ts:243`](../packages/core/system-prompt/src/index.ts)
 
 ```ts config-catalog
 /** Plugin config: the deployment-authored fragment of the system prompt (see {@link Config.personaPrefix} for its contract). */
@@ -3097,14 +3098,24 @@ export interface Config {
   includeRuntimeContext?: boolean
   /**
    * Deployment-wide persona prefix template before first-party guidance. A scoped section named
-   * `deployment:persona-prefix` shadows it; `{{variable}}` references are strict.
+   * `deployment:persona-prefix` shadows it. Each assembly reads the reference's current
+   * value, so a settings edit reaches the next request without a remount. `{{variable}}`
+   * references are strict — see {@link Config.variables} and {@link SystemPrompt.variable}.
    */
-  personaPrefix?: string
+  personaPrefix?: Volatile<string>
   /**
    * Persona suffix template after first-party guidance. A scoped `deployment:persona-suffix`
-   * section shadows it; `{{variable}}` references are strict. Defaults to empty.
+   * section shadows it; live and strict like {@link Config.personaPrefix}. Defaults to empty.
    */
-  personaSuffix?: string
+  personaSuffix?: Volatile<string>
+  /**
+   * Deployment-defined `{{name}}` variable values for the persona templates. Names match
+   * `[a-z][a-z0-9_]*`, validated at load and at every settings write. A registered prompt
+   * variable keeps its name: where {@link SystemPrompt.variable} resolves one, that live
+   * value is used and the `variables` entry is ignored, even when the provider has no
+   * value for one assembly. Defaults to empty.
+   */
+  variables?: Volatile<Record<string, string>>
   /**
    * Model-facing tool names in order, with {@link TOOL_ORDER_REST} exactly once.
    * Invalid fields fail at load and unknown names fail at assembly; known names
@@ -4118,6 +4129,7 @@ export interface Config {
 | `@orochi-network/oh-client-ui-settings-plugins` | — | [`packages/client/ui-settings-plugins/src/index.ts`](../packages/client/ui-settings-plugins/src/index.ts) |
 | `@orochi-network/oh-client-ui-settings-shell` | — | [`packages/client/ui-settings-shell/src/index.ts`](../packages/client/ui-settings-shell/src/index.ts) |
 | `@orochi-network/oh-client-ui-settings-subagent` | — | [`packages/client/ui-settings-subagent/src/index.ts`](../packages/client/ui-settings-subagent/src/index.ts) |
+| `@orochi-network/oh-client-ui-settings-system-prompt` | — | [`packages/client/ui-settings-system-prompt/src/index.ts`](../packages/client/ui-settings-system-prompt/src/index.ts) |
 | `@orochi-network/oh-client-ui-settings-web-search` | — | [`packages/client/ui-settings-web-search/src/index.ts`](../packages/client/ui-settings-web-search/src/index.ts) |
 | `@orochi-network/oh-client-ui-shortcuts` | — | [`packages/client/ui-shortcuts/src/index.ts`](../packages/client/ui-shortcuts/src/index.ts) |
 | `@orochi-network/oh-client-ui-sidebar` | — | [`packages/client/ui-sidebar/src/index.ts`](../packages/client/ui-sidebar/src/index.ts) |
@@ -4254,6 +4266,7 @@ export interface Config {
 | `@orochi-network/oh-typert-registry` | — | [`packages/typert/registry/src/index.ts`](../packages/typert/registry/src/index.ts) |
 | `@orochi-network/oh-util-code-language` | — | [`packages/util/code-language/src/index.ts`](../packages/util/code-language/src/index.ts) |
 | `@orochi-network/oh-util-crypto` | — | [`packages/util/crypto/src/index.ts`](../packages/util/crypto/src/index.ts) |
+| `@orochi-network/oh-util-prompt-template` | — | [`packages/util/prompt-template/src/index.ts`](../packages/util/prompt-template/src/index.ts) |
 | `@orochi-network/oh-util-time` | — | [`packages/util/time/src/index.ts`](../packages/util/time/src/index.ts) |
 | `@orochi-network/oh-util-values` | — | [`packages/util/values/src/index.ts`](../packages/util/values/src/index.ts) |
 | `@orochi-network/oh-util-workspace-path` | — | [`packages/util/workspace-path/src/index.ts`](../packages/util/workspace-path/src/index.ts) |

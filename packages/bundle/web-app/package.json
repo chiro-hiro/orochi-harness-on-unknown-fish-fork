@@ -104,6 +104,7 @@
     "@orochi-network/oh-client-ui-settings-plugins": "workspace:*",
     "@orochi-network/oh-client-ui-settings-shell": "workspace:*",
     "@orochi-network/oh-client-ui-settings-subagent": "workspace:*",
+    "@orochi-network/oh-client-ui-settings-system-prompt": "workspace:*",
     "@orochi-network/oh-client-ui-settings-web-search": "workspace:*",
     "@orochi-network/oh-client-ui-shortcuts": "workspace:*",
     "@orochi-network/oh-client-ui-sidebar": "workspace:*",

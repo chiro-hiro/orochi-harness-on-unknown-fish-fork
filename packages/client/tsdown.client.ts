@@ -61,7 +61,7 @@ function styleInjectionModule(
  * Everything else under @orochi-network/* is either a module-table entry
  * (external) or a leak the purity gate rejects.
  */
-export const INLINE_SAFE = /^(?:@orochi-network\/oh-(?:file-reference|session|llm|tools|brand|deque|output-retention|typert-protocol|util-crypto|util-values|util-workspace-path)(?:\/|$)|@orochi-network\/oh-token-meter\/client$|@orochi-network\/oh-native-command\/types$|@orochi-network\/oh-host-open-in-app\/shared$|@orochi-network\/oh-plugin-manager\/registry$|@orochi-network\/oh-agent-preset-registry\/display$|@orochi-network\/oh-api-workspace-controller\/default-workspace$|@orochi-network\/oh-spill-policy\/notice$)/
+export const INLINE_SAFE = /^(?:@orochi-network\/oh-(?:file-reference|session|llm|tools|brand|deque|output-retention|typert-protocol|util-crypto|util-prompt-template|util-values|util-workspace-path)(?:\/|$)|@orochi-network\/oh-token-meter\/client$|@orochi-network\/oh-native-command\/types$|@orochi-network\/oh-host-open-in-app\/shared$|@orochi-network\/oh-plugin-manager\/registry$|@orochi-network\/oh-agent-preset-registry\/display$|@orochi-network\/oh-api-workspace-controller\/default-workspace$|@orochi-network\/oh-spill-policy\/notice$)/
 
 /**
  * Vendored framework libraries: rescoped into @orochi-network, so the gate below

@@ -130,6 +130,12 @@
   border-color: var(--oh-alias-state-error-primary);
 }
 
+.multiline {
+  height: auto;
+  padding: 8px 12px;
+  resize: vertical;
+}
+
 .invalid {
   margin: 0;
   font-size: 12px;

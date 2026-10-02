@@ -24,6 +24,12 @@
       "path": "../../core/scope"
     },
     {
+      "path": "../../util/prompt-template"
+    },
+    {
+      "path": "../../util/values"
+    },
+    {
       "path": "../../runtime-diagnostics/invariants"
     }
   ]

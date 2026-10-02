@@ -269,6 +269,11 @@
     - id: ui-settings-models
       name: '@orochi-network/oh-client-ui-settings-models'
 
+    # The System Prompt settings section: the deployment persona templates and
+    # their custom {{name}} variables over the system-prompt namespace.
+    - id: ui-settings-system-prompt
+      name: '@orochi-network/oh-client-ui-settings-system-prompt'
+
     # Plugin management: the sidebar Plugins page installs, enables, disables,
     # and removes the profile's bundles through the `pluginManager` Remote.
     # Without a profile-backed Host it reports itself unavailable.

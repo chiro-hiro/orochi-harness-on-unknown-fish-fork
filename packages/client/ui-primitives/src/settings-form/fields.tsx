@@ -6,7 +6,7 @@
  * single point where a draft becomes a document mutation.
  */
 
-import { useState, type ReactNode } from 'react'
+import { useState, type ReactNode, type Ref } from 'react'
 import { IconInfoOutlineRegular } from '../icons/index.tsx'
 import { Tag } from '../Tag.tsx'
 import css from './fields.module.css'
@@ -53,8 +53,14 @@ export function SettingsValueField(props: Omit<SettingsFieldProps, 'hint'> & {
   help?: { label: string; content: ReactNode }
   /** Hints a numeric keypad without narrowing what the control accepts. */
   numeric?: boolean
+  /** Edits free prose in a growing text area instead of a one-line input. */
+  multiline?: boolean
   /** Placeholder shown while the draft is empty. */
   placeholder?: string
+  /** Handle to the rendered text area, for callers that place text at its caret. */
+  textRef?: Ref<HTMLTextAreaElement>
+  /** Handle to the rendered one-line input, for callers that place text at its caret. */
+  inputRef?: Ref<HTMLInputElement>
 }) {
   const [helpOpen, setHelpOpen] = useState(false)
   const helpId = `${props.id}-help`
@@ -92,18 +98,38 @@ export function SettingsValueField(props: Omit<SettingsFieldProps, 'hint'> & {
           )
           : null}
       </div>
-      <input
-        id={props.id}
-        className={css.input}
-        type="text"
-        {...props.numeric === true ? { inputMode: 'numeric' as const } : {}}
-        {...props.invalid ? { 'aria-invalid': true } : {}}
-        aria-describedby={description || undefined}
-        value={props.text}
-        placeholder={props.placeholder ?? ''}
-        disabled={props.disabled}
-        onChange={(event) => { props.onEdit(event.target.value) }}
-      />
+      {props.multiline === true
+        ? (
+          // Grows with the draft from a readable minimum to a cap, then scrolls
+          // inside itself, mirroring the config form's text control.
+          <textarea
+            id={props.id}
+            ref={props.textRef}
+            className={`${css.input} ${css.multiline}`}
+            rows={Math.min(12, Math.max(6, props.text.split('\n').length))}
+            {...props.invalid ? { 'aria-invalid': true } : {}}
+            aria-describedby={description || undefined}
+            value={props.text}
+            placeholder={props.placeholder ?? ''}
+            disabled={props.disabled}
+            onChange={(event) => { props.onEdit(event.target.value) }}
+          />
+        )
+        : (
+          <input
+            id={props.id}
+            ref={props.inputRef}
+            className={css.input}
+            type="text"
+            {...props.numeric === true ? { inputMode: 'numeric' as const } : {}}
+            {...props.invalid ? { 'aria-invalid': true } : {}}
+            aria-describedby={description || undefined}
+            value={props.text}
+            placeholder={props.placeholder ?? ''}
+            disabled={props.disabled}
+            onChange={(event) => { props.onEdit(event.target.value) }}
+          />
+        )}
       {hasMessage
         ? <p id={messageId} className={props.invalid ? css.invalid : css.hint}>{props.invalid ? props.invalidLabel : props.hint}</p>
         : null}

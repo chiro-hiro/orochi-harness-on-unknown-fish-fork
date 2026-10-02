@@ -242,6 +242,13 @@ declare module '@orochi-network/cordis' {
 export { DEFAULT_MAX_PARALLEL_TOOL_CALLS }
 
 /**
+ * The `{{name}}` prompt variables this driver registers on `ctx.systemPrompt`,
+ * resolving to the running agent's provider route, model id, and session
+ * workspace directory. Prompt tooling lists exactly these names.
+ */
+export const AGENT_LOOP_PROMPT_VARIABLES = ['provider', 'model', 'cwd'] as const
+
+/**
  * One launcher-selected session identity for a configured agent. `resume`
  * distinguishes rehydrating existing persisted history from creating the
  * session fresh under that exact id, which the two config keys express as
@@ -367,9 +374,10 @@ export class AgentLoop extends Service implements AgentFactory {
     this.runtime = { ctx }
     ctx.effect(() => () => this.ownership.dispose(), 'agentLoop.transactions()')
     ctx.effect(() => ctx.agents.setFactory(this), 'agentLoop.setFactory()')
-    ctx.systemPrompt.variable('provider', context => context.agent?.options.provider)
-    ctx.systemPrompt.variable('model', context => context.agent?.options.model)
-    ctx.systemPrompt.variable('cwd', context => context.agent?.session.header.cwd)
+    const [providerVariable, modelVariable, cwdVariable] = AGENT_LOOP_PROMPT_VARIABLES
+    ctx.systemPrompt.variable(providerVariable, context => context.agent?.options.provider)
+    ctx.systemPrompt.variable(modelVariable, context => context.agent?.options.model)
+    ctx.systemPrompt.variable(cwdVariable, context => context.agent?.session.header.cwd)
 
     for (const { id, sessionId, cwd, resumeSessionId, ...options } of this.config.agents) {
       const meta = cwd === undefined ? {} : { cwd }

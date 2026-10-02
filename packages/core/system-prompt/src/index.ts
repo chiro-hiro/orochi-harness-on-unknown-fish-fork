@@ -4,11 +4,13 @@
  * @module @orochi-network/oh-system-prompt
  */
 
-import { Context, Service } from '@orochi-network/cordis'
+import { Context, Service, type Fiber, type Volatile } from '@orochi-network/cordis'
 import z from '@orochi-network/schemastery'
 import { AnonymousEntries, NamedEntries, ScopedLayers, scopeTarget } from '@orochi-network/oh-scope'
 import type { ScopeKey, ScopeLayer, Scoped } from '@orochi-network/oh-scope'
 import type { ContextSnapshotSection, ToolSchema } from '@orochi-network/oh-llm'
+import { scanPromptTemplate, VARIABLE_NAME } from '@orochi-network/oh-util-prompt-template'
+import { assertNever } from '@orochi-network/oh-util-values'
 
 declare module '@orochi-network/cordis' {
   interface Context {
@@ -181,12 +183,6 @@ export const PERSONA_PREFIX_SECTION = 'deployment:persona-prefix'
 /** Deployment persona suffix section name shared by global and scoped contributions. */
 export const PERSONA_SUFFIX_SECTION = 'deployment:persona-suffix'
 
-/** Valid variable names: how they are written between the braces. */
-const VARIABLE_NAME = /^[a-z][a-z0-9_]*$/
-
-/** A complete `{{...}}` reference group at the scan position (validated after). */
-const GROUP_AT = /^\{\{([^{}]*)\}\}/
-
 /** Reserved {@link Config.toolOrder} marker for unlisted tools. */
 export const TOOL_ORDER_REST = '<unlisted-tools>'
 
@@ -251,14 +247,24 @@ export interface Config {
   includeRuntimeContext?: boolean
   /**
    * Deployment-wide persona prefix template before first-party guidance. A scoped section named
-   * `deployment:persona-prefix` shadows it; `{{variable}}` references are strict.
+   * `deployment:persona-prefix` shadows it. Each assembly reads the reference's current
+   * value, so a settings edit reaches the next request without a remount. `{{variable}}`
+   * references are strict — see {@link Config.variables} and {@link SystemPrompt.variable}.
    */
-  personaPrefix?: string
+  personaPrefix?: Volatile<string>
   /**
    * Persona suffix template after first-party guidance. A scoped `deployment:persona-suffix`
-   * section shadows it; `{{variable}}` references are strict. Defaults to empty.
+   * section shadows it; live and strict like {@link Config.personaPrefix}. Defaults to empty.
    */
-  personaSuffix?: string
+  personaSuffix?: Volatile<string>
+  /**
+   * Deployment-defined `{{name}}` variable values for the persona templates. Names match
+   * `[a-z][a-z0-9_]*`, validated at load and at every settings write. A registered prompt
+   * variable keeps its name: where {@link SystemPrompt.variable} resolves one, that live
+   * value is used and the `variables` entry is ignored, even when the provider has no
+   * value for one assembly. Defaults to empty.
+   */
+  variables?: Volatile<Record<string, string>>
   /**
    * Model-facing tool names in order, with {@link TOOL_ORDER_REST} exactly once.
    * Invalid fields fail at load and unknown names fail at assembly; known names
@@ -266,6 +272,13 @@ export interface Config {
    */
   toolOrder?: string[]
 }
+
+/**
+ * Mount-time plugin config: the plain values {@link SystemPrompt}'s Config
+ * schema accepts. Volatile fields arrive as {@link Volatile} references only
+ * after resolution, which {@link Config} describes.
+ */
+export type ConfigInput = Schemastery.TypeS<typeof SystemPrompt.Config>
 
 /**
  * Interpolate strict `{{variable}}` references, drop empty sections, and join
@@ -327,38 +340,37 @@ function interpolate(
   variables: Record<string, string | undefined>,
   kind: 'section' | 'context',
 ): string {
-  const text = input.text
   let result = ''
-  let last = 0
-  for (let open = text.indexOf('{{'); open >= 0; open = text.indexOf('{{', last)) {
-    const group = GROUP_AT.exec(text.slice(open))
-    if (group === null) {
-      // A later closing brace makes this malformed; otherwise it is literal prose.
-      if (text.indexOf('}}', open + 2) >= 0) {
-        throw new Error(`malformed prompt variable reference at "${text.slice(open, open + 16)}…" in ${kind} "${input.name}" (references are complete simple {{name}} groups)`)
+  let literal = ''
+  for (const token of scanPromptTemplate(input.text)) {
+    switch (token.kind) {
+      case 'literal':
+        literal += token.text
+        break
+      case 'malformed-group':
+        throw new Error(`malformed prompt variable reference at "${input.text.slice(token.at, token.at + 16)}…" in ${kind} "${input.name}" (references are complete simple {{name}} groups)`)
+      case 'malformed-name':
+        throw new Error(`malformed prompt variable reference "${token.text}" in ${kind} "${input.name}" (variable names match ${String(VARIABLE_NAME)})`)
+      case 'reference': {
+        // Do not resolve unregistered names through Object.prototype.
+        if (!Object.hasOwn(variables, token.name)) {
+          const known = Object.keys(variables)
+          throw new Error(`unknown prompt variable "{{${token.name}}}" in ${kind} "${input.name}"; registered variables: ${known.length > 0 ? known.join(', ') : '(none)'}`)
+        }
+        const value = variables[token.name]
+        if (value === undefined) {
+          throw new Error(`prompt variable "{{${token.name}}}" has no value for this assembly (${kind} "${input.name}")`)
+        }
+        result += literal + value
+        literal = ''
+        break
       }
-      result += text.slice(last, open + 2)
-      last = open + 2
-      continue
+      /* v8 ignore next 2 -- every token kind is handled above */
+      default:
+        assertNever(token, 'prompt template token')
     }
-    // `{{}}` yields an empty name and follows the malformed-reference path.
-    const name = group[0].slice(2, -2)
-    if (!VARIABLE_NAME.test(name)) {
-      throw new Error(`malformed prompt variable reference "{{${name}}}" in ${kind} "${input.name}" (variable names match ${String(VARIABLE_NAME)})`)
-    }
-    // Do not resolve unregistered names through Object.prototype.
-    if (!Object.hasOwn(variables, name)) {
-      const known = Object.keys(variables)
-      throw new Error(`unknown prompt variable "{{${name}}}" in ${kind} "${input.name}"; registered variables: ${known.length > 0 ? known.join(', ') : '(none)'}`)
-    }
-    const value = variables[name]
-    if (value === undefined) {
-      throw new Error(`prompt variable "{{${name}}}" has no value for this assembly (${kind} "${input.name}")`)
-    }
-    result += text.slice(last, open) + value
-    last = open + group[0].length
   }
-  return result + text.slice(last)
+  return result + literal
 }
 
 /** One tool-schema provider stored in a prompt layer. */
@@ -401,13 +413,32 @@ class PromptLayer implements ScopeLayer {
   }
 }
 
+/**
+ * The one `settings` service method this registry writes. The optional
+ * service's type package has a project-reference graph that reaches back here
+ * through `app-boot`, so the call reads the untyped service name and narrows it
+ * locally instead of importing the service type.
+ */
+interface SettingsPagePolicy {
+  /**
+   * Register one plugin instance's page policy. `auto: false` keeps
+   * schema-generated settings pages off while a custom page owns the entry.
+   * @param presentation - the automatic-page policy.
+   * @param owner - the plugin fiber the policy belongs to.
+   * @returns the registration's disposer.
+   */
+  configure(presentation: { auto?: boolean }, owner: Fiber): () => void
+}
+
 /** Registry service for the prompt inputs assembled before each model step. */
 export class SystemPrompt extends Service {
-  static Config: z<Config> = z.object({
+  // Inline schema call: the config catalog walks `static Config` statically.
+  static Config = z.object({
     includeHarnessIdentity: z.boolean().default(true),
     includeRuntimeContext: z.boolean().default(true),
-    personaPrefix: z.string().default(''),
-    personaSuffix: z.string().default(''),
+    personaPrefix: z.string().default('').volatile(),
+    personaSuffix: z.string().default('').volatile(),
+    variables: z.dict(z.string(), z.string().pattern(VARIABLE_NAME)).default({}).volatile(),
     // Preserve omission because an explicit empty order lacks the rest marker.
     toolOrder: z.array(z.string()).default(undefined as unknown as string[]),
   })
@@ -418,7 +449,7 @@ export class SystemPrompt extends Service {
   )
   private readonly toolOrder: string[] | undefined
 
-  constructor(ctx: Context, config: Config) {
+  constructor(ctx: Context, private readonly config: Config) {
     super(ctx, 'systemPrompt')
     this.toolOrder = validateToolOrder(config.toolOrder)
     // Keep harness-owned openers independent of the selected loop plugin.
@@ -432,15 +463,22 @@ export class SystemPrompt extends Service {
     this.section({
       name: PERSONA_PREFIX_SECTION,
       order: this.getSectionOrder('DEPLOYMENT_PERSONA_PREFIX'),
-      // The fallback narrows the optional input type; the schema already defaults it.
-      text: config.personaPrefix ?? '',
+      // A provider text, so each assembly reads the live persona value.
+      text: () => config.personaPrefix?.get() ?? '',
     })
     this.section({
       name: PERSONA_SUFFIX_SECTION,
       order: this.getSectionOrder('DEPLOYMENT_PERSONA_SUFFIX'),
-      text: config.personaSuffix ?? '',
+      text: () => config.personaSuffix?.get() ?? '',
     })
     if (!(config.includeRuntimeContext ?? true)) this.suppressRuntimeContext()
+    // A custom settings page owns this entry, so keep schema-generated pages off.
+    ctx.inject(['settings'], (child) => {
+      child.effect(() => {
+        const settings = child.get('settings') as SettingsPagePolicy
+        return settings.configure({ auto: false }, ctx.fiber)
+      })
+    })
   }
 
   /**
@@ -560,8 +598,10 @@ export class SystemPrompt extends Service {
     const scopeLayers = this.layers.chainLayers(scope)
     const runtimeContextSuppressed = !this.layers.global.runtimeContextSuppressors.isEmpty()
       || scopeLayers.some(layer => !layer.runtimeContextSuppressors.isEmpty())
+    // Deployment entries fill the names no provider resolves; a registered
+    // variable keeps its name even when its provider has no value here.
+    const variables: Record<string, string | undefined> = { ...(this.config.variables?.get() ?? {}) }
     // Scoped variables shadow globals.
-    const variables: Record<string, string | undefined> = {}
     for (const [name, provider] of this.layers.global.variables.entries()) {
       variables[name] = provider(context)
     }

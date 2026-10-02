@@ -286,6 +286,7 @@
       "@orochi-network/oh-client-ui-settings-general": ["./packages/client/ui-settings-general/src"],
       "@orochi-network/oh-client-ui-settings-general/types": ["./packages/client/ui-settings-general/src/types.ts"],
       "@orochi-network/oh-client-ui-settings-models": ["./packages/client/ui-settings-models/src"],
+      "@orochi-network/oh-client-ui-settings-system-prompt": ["./packages/client/ui-settings-system-prompt/src"],
       "@orochi-network/oh-client-ui-plugin-manager": ["./packages/client/ui-plugin-manager/src"],
       "@orochi-network/oh-client-ui-settings-plugin-inventory": ["./packages/client/ui-settings-plugin-inventory/src"],
       "@orochi-network/oh-client-locale": ["./packages/client/locale/src"],
@@ -317,6 +318,7 @@
       // util/ folders are role-named without the util- prefix their npm names carry,
       // so these aliases stay hand-written like oh-util-crypto above.
       "@orochi-network/oh-util-time": ["./packages/util/time/src"],
+      "@orochi-network/oh-util-prompt-template": ["./packages/util/prompt-template/src"],
       // session-log-export lives under session-query/, so the generated aliases map only its
       // bare name; the browser half needs this explicit subpath for source-mode dynamic imports.
       "@orochi-network/oh-session-log-export/client": ["./packages/session-query/session-log-export/src/client"],

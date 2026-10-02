@@ -95,6 +95,7 @@ Every package below exports a Cordis plugin that a bundle patch can name in a Lo
 | `@orochi-network/oh-client-ui-settings-plugins` | no | Built-in plugins settings section for the oh web client: the Settings navigation entry and the tab chrome feature-owned tabs register into |
 | `@orochi-network/oh-client-ui-settings-shell` | no | Settings page of the shell executor on the oh web client's Plugins page: the command timeout and the per-stream output cap of the shell namespace |
 | `@orochi-network/oh-client-ui-settings-subagent` | no | Settings page of Subagent delegation on the oh web client's Plugins page: recursion depth, parallel capacity, and the models agents may choose for subagents |
+| `@orochi-network/oh-client-ui-settings-system-prompt` | no | System Prompt settings page on the oh web client: the deployment persona templates, their custom {{name}} variables, and a variable-picker sidebar |
 | `@orochi-network/oh-client-ui-settings-web-search` | no | Settings page of the Orochi web-search provider on the oh web client's Plugins page: its API key, endpoint, and per-request search budget |
 | `@orochi-network/oh-client-ui-shortcuts` | no | Keyboard shortcut reference, recording, and local preference editing |
 | `@orochi-network/oh-client-ui-sidebar` | no | Sidebar plugin: session multi-level tree, search, grouping, state dots |

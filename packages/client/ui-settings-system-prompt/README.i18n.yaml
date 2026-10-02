@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-settings-system-prompt/README.md
+/:
+  en: 1fe98133e380e9f8
+  zh: e3b5d0931846cef6
+/orochi-network-oh-client-ui-settings-system-prompt:
+  en: 1cb21666cc1f95a6
+  zh: 8567430c9bd3cec5
+/orochi-network-oh-client-ui-settings-system-prompt/summary:
+  en: bcf0fb85c6f5a7ec
+  zh: a78403b07a76ed9f
+/orochi-network-oh-client-ui-settings-system-prompt/table-of-contents:
+  en: d152484eb41ac6b4
+  zh: 09388d293f9be9cb
+/orochi-network-oh-client-ui-settings-system-prompt/use-this-package:
+  en: 18063492c26c7501
+  zh: 3304cf155f1352a5
+/orochi-network-oh-client-ui-settings-system-prompt/understand-the-implementation:
+  en: 71ebcef9b53fea92
+  zh: 6a31edabdc0580ba
+/orochi-network-oh-client-ui-settings-system-prompt/understand-the-implementation/source-map:
+  en: a54bec7b5f29692f
+  zh: af8d678504e03464
+/orochi-network-oh-client-ui-settings-system-prompt/further-exploration:
+  en: 3df62b6a370d4cd3
+  zh: 7da6fa29faf090d4
+/orochi-network-oh-client-ui-settings-system-prompt/model-experience:
+  en: d98809d74c236e0d
+  zh: 9ea430a770c63153
+/orochi-network-oh-client-ui-settings-system-prompt/model-experience/kv-cache-effect:
+  en: 5b2275e94dee6bbd
+  zh: 6afdd6790a613b6a
+/orochi-network-oh-client-ui-settings-system-prompt/known-limitations-and-deferred-work:
+  en: 731989c544951198
+  zh: b4334f7e55bdac0d
+/orochi-network-oh-client-ui-settings-system-prompt/known-limitations-and-deferred-work/dev-note:
+  en: e67f633dc6fe7773
+  zh: fdc5500d0da0e0a6

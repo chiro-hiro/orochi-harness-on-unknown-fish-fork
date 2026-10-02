@@ -42,6 +42,7 @@ Each package provides one primitive; open a package page for how to use it.
 | [`code-language/`](code-language/README.md) | Maps a filename suffix to the syntax-highlighting language that the Code preview, diff review, and the read card render |
 | [`output-retention/`](output-retention/README.md) | Bounds model-facing output and reports exact omission metadata |
 | [`time/`](time/README.md) | Validates and canonicalizes a caller-reported IANA time zone |
+| [`prompt-template/`](prompt-template/README.md) | Scans prompt templates into `{{name}}` variable references and the malformed forms the renderer rejects |
 | [`timeout/`](timeout/README.md) | Deadline arithmetic, signal fusion, and timeout-versus-cancel classification |
 
 -----

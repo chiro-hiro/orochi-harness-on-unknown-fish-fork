@@ -80,6 +80,44 @@ describe('SettingsValueField', () => {
     expect(screen.getByLabelText('Command timeout')).toHaveProperty('disabled', true)
     expect(screen.getByRole('button', { name: 'Reset to default' })).toHaveProperty('disabled', true)
   })
+
+  it('edits prose in a text area that grows with the draft to its cap', () => {
+    const onEdit = vi.fn()
+    const { rerender } = render(
+      <SettingsValueField {...frame} multiline text={'one\ntwo'} onEdit={onEdit} onReset={vi.fn()} />,
+    )
+    const area = screen.getByLabelText('Command timeout')
+    expect(area.tagName).toBe('TEXTAREA')
+    expect(area).toHaveProperty('rows', 6)
+
+    fireEvent.change(area, { target: { value: 'a\nb\nc' } })
+    expect(onEdit).toHaveBeenCalledWith('a\nb\nc')
+
+    rerender(
+      <SettingsValueField {...frame} multiline text={'1\n2\n3\n4\n5\n6\n7\n8'} onEdit={vi.fn()} onReset={vi.fn()} />,
+    )
+    expect(screen.getByLabelText('Command timeout')).toHaveProperty('rows', 8)
+
+    rerender(
+      <SettingsValueField
+        {...frame}
+        multiline
+        text={Array.from({ length: 20 }, () => 'line').join('\n')}
+        onEdit={vi.fn()}
+        onReset={vi.fn()}
+      />,
+    )
+    expect(screen.getByLabelText('Command timeout')).toHaveProperty('rows', 12)
+  })
+
+  it('keeps the invalid and read-only states of the multiline control', () => {
+    render(<SettingsValueField {...frame} multiline invalid disabled text="x" onEdit={vi.fn()} onReset={vi.fn()} />)
+    const area = screen.getByLabelText('Command timeout')
+
+    expect(area.getAttribute('aria-invalid')).toBe('true')
+    expect(area).toHaveProperty('disabled', true)
+    expect(screen.getByText('Enter a number.')).toBeTruthy()
+  })
 })
 
 describe('SettingsSecretField', () => {

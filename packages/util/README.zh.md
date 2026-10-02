@@ -42,6 +42,7 @@ kind: "package-group"
 | [`code-language/`](code-language/README.zh.md) | 把文件名后缀映射为 Code 预览、diff 审阅与 read 卡片所渲染的语法高亮语言 |
 | [`output-retention/`](output-retention/README.zh.md) | 限制面向模型的输出并报告精确的省略元数据 |
 | [`time/`](time/README.zh.md) | 校验并规范化调用方所报的 IANA 时区 |
+| [`prompt-template/`](prompt-template/README.zh.md) | 将提示词模板扫描为 `{{name}}` 变量引用和渲染器会拒绝的错误形式 |
 | [`timeout/`](timeout/README.zh.md) | 截止时间运算、信号融合与超时和取消分类 |
 
 -----
