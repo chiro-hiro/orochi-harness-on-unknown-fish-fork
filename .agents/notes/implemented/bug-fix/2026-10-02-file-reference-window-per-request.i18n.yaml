@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for 2026-10-02-file-reference-window-per-request.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write .agents/notes/implemented/bug-fix/2026-10-02-file-reference-window-per-request.md
+/agent-note-file-reference-window-per-messages-request:
+  en: 2bba19e4fb26a45d
+  zh: 0a9c676e23d33b8f
+/agent-note-file-reference-window-per-messages-request/problem:
+  en: 523bc60c4241d7b3
+  zh: 15c6dc6ca06ddccc
+/agent-note-file-reference-window-per-messages-request/decision:
+  en: 9ab21b0c6d707613
+  zh: 70db7f85e759b864
+/agent-note-file-reference-window-per-messages-request/alternatives-considered:
+  en: cc9c63bfede4dd9d
+  zh: 31160c63221ebc9f
+/agent-note-file-reference-window-per-messages-request/consequences:
+  en: 5ae2bea61ec7b5b0
+  zh: f57b65d1ded16636

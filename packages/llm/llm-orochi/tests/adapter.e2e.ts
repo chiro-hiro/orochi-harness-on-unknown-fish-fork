@@ -24,7 +24,7 @@ import { MESSAGES_FILES_BETA } from '../src/messages-api.ts'
 import { assemble, options, user, sourceModuleLoader } from './helpers.ts'
 
 const IN_HISTORY_MODEL = process.env.OROCHI_IN_HISTORY_MODEL
-/** A Messages root that also serves the Anthropic Files API; the public default does not, so unset skips the Files smoke. */
+/** A Messages root that also serves the Anthropic Files API; unset skips the Files smoke. */
 const FILES_BASE_URL = process.env.OROCHI_FILES_BASE_URL
 const cleanups: (() => Promise<unknown>)[] = []
 afterEach(async () => {
@@ -138,6 +138,47 @@ describe.skipIf(!process.env.OROCHI_API_KEY)('Orochi Messages real API', () => {
     expect(bodies[2]).toContain(`"file_id":"${fileId}"`)
     expect(bodies[3]).toContain(`"file_id":"${uploads[1]}"`)
     expect(bodies[3]).not.toContain('"type":"base64"')
+  })
+
+  it('keeps an 18-image request inside the file-reference limit', async () => {
+    const ctx = await boot()
+    await ctx.plugin(LocalAttachments)
+    const attachment = await ctx.attachments.saveImage({
+      data: await readFile(new URL('fixtures/red.png', import.meta.url)),
+      mediaType: 'image/png',
+    })
+    const bodies: string[] = []
+    const uploads: { id: string; headers: Headers }[] = []
+    const fetchImpl = globalThis.fetch
+    cleanups.push(async () => {
+      for (const { id, headers } of uploads) await fetchImpl(`${Protocol.PUBLIC_BASE_URL}/files/${id}`, { method: 'DELETE', headers })
+    })
+    vi.stubGlobal('fetch', async (input: string | URL | Request, init?: RequestInit) => {
+      const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url
+      const response = await fetchImpl(input, init)
+      if (url.endsWith('/v1/files') && init?.method === 'POST' && response.ok) {
+        const file = await response.clone().json() as { id: string }
+        uploads.push({ id: file.id, headers: new Headers(init.headers) })
+      }
+      if (url.endsWith('/messages') && typeof init?.body === 'string') bodies.push(init.body)
+      return response
+    })
+    const message = user('What is the dominant color of the images? Reply with one English color word.')
+    const request = options({
+      model: 'xiaomi/mimo-v2.6-flash', reasoningEffort: ReasoningEffortId('off'),
+      messages: [{ ...message, content: [
+        ...message.content,
+        ...Array.from({ length: 18 }, () => ({ type: 'image' as const, attachment })),
+      ] }],
+    })
+    const result = await assemble(ctx.llm.stream(request), request.model)
+    expect(result.assembler.finish.kind).toBe('stop')
+    expect(bodies).toHaveLength(1)
+    expect((bodies[0]!.match(/"type":"image"/gu) ?? []).length).toBe(18)
+    // A Files-capable endpoint keeps the oldest 16 occurrences on the one
+    // uploaded file and inlines the rest; an endpoint without Files inlines all
+    // 18. Neither spelling exceeds the provider's per-request reference limit.
+    expect((bodies[0]!.match(/"source":\{"type":"file"/gu) ?? []).length).toBe(uploads.length === 0 ? 0 : 16)
   })
 
   it('submits the Loader package inventory on the real API', async () => {

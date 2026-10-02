@@ -44,6 +44,7 @@ kind: "package-reference"
     reasoningEffort: high        # optional; off | low | high | max
     maxTokens: 256000            # optional per-request output cap
     maxRequestFilesBytes: 134217728
+    maxRequestFileReferences: 16
     maxInlineRequestImageBytes: 20971520
     maxImagesPerRequest: 600
     filesApiTimeoutMs: 60000
@@ -62,6 +63,7 @@ kind: "package-reference"
 | `models` | MiMo-V2.6-Flash + MiMo-V2.6-Pro | 供发现消费方查看的建议性目录 |
 | `streamIdleTimeoutMs` | `300,000` | 单次流读取未完成的最大提供方空闲时间 |
 | `maxRequestFilesBytes` | `128 MiB` | file 模式请求图片字节预算，保留图片超过时请求以 `IMAGE_OFFLOAD_REQUIRED` 失败 |
+| `maxRequestFileReferences` | `16` | 单次请求可携带的文件引用数；更晚的图片出现位置以内联发送 |
 | `maxInlineRequestImageBytes` | `20 MiB` | 独立的 base64 回退高水位 |
 | `maxImagesPerRequest` | `600` | 保留请求图片数量的高水位 |
 | `imageOffloadByteQuantum` | `64 MiB` | Files 模式最旧前缀移除量子 |
@@ -92,11 +94,11 @@ Messages 以内容块发送文本、思考、工具调用和工具结果，以 `
 
 支持图片的路由为每个持久引用选定请求目标，再把它解析为确定性请求版本。省略 `imagePixelBudget` 时按官方公布的视觉 token 网格定目标，即 14 px patch、3:1 降采样、单图最多 1024 token，因此正方形图片最多保留 1302×1302 像素，16:9 图片以 1708×961 发送、对应提供方 1708×966 的网格；正整数会用总像素预算取代网格，`low` 使用总计 512×512 像素。每张请求图片单边最多 4096 像素，这是提供方对包含 15 张及以上图片的请求的限制；`imageMaxBytes` 默认为 2 MiB。带 alpha 的图片使用 effort 0 的 WebP，不透明图片使用 JPEG，并采用 85/75/60 质量阶梯；全部候选都超过目标时保留最小输出。每张保留图片前都有文本，注明完整附件 id 与实际请求尺寸。当前文件系统可以映射附件提供方的宿主对象时，该文本还携带只读执行世界路径与可写副本使用的扩展名。纯文本与未列出路由接收稳定附件占位符，而持久历史继续保留图片引用。
 
-适配器通常通过 `/v1/files` 上传这些确切请求字节，并发送 file-id 引用。Files 请求与包含 file id 的模型请求均携带 `anthropic-beta: files-api-2025-04-14`。全部请求拒绝重定向，确保凭据仅发送到配置的源。文件解析失败或超时会按内联预算，用内联 base64 重建整份模型请求；一次请求绝不混用 file id 与内联图片。调用方取消会停止请求。
+适配器通过 `/v1/files` 上传这些确切请求字节并发送 file-id 引用；由于提供方会拒绝更多引用，单次请求最多携带 `maxRequestFileReferences` 个。最旧的保留图片出现位置保留文件引用，更晚的出现位置在内联预算内以内联 base64 发送，因此一次请求可以混用两者，重复出现的附件每个出现位置消耗一个引用。Files 请求与包含 file id 的模型请求均携带 `anthropic-beta: files-api-2025-04-14`。全部请求拒绝重定向，确保凭据仅发送到配置的源。文件解析失败或超时会按内联预算，用内联 base64 重建整份模型请求。调用方取消会停止请求。
 
 缓存 id 按端点与凭据限定作用域，在到期前刷新，根据提供方的陈旧文件错误失效，并通过带等待方局部取消的 singleflight 解析。上传通过 `expires_after[anchor]=created_at` 与 `expires_after[seconds]` 请求过期。Messages 文件元数据不含远端过期时间，因此本地复用期限使用原始上传时间加 `fileExpiresAfterSeconds`；这不保证远端文件删除。配额失败会先删除一批配置数量的最旧 harness 文件，再重试一次上传。
 
-Files 模式通过 `maxRequestFilesBytes` 与 `maxImagesPerRequest` 限制保留请求版本；内联回退有独立 base64 预算。两种模式都按配置的字节或数量量子移除最旧前缀。每张省略图片都有自己的模型可见占位符，包含显示名或附件 id，以及可用时的规范化尺寸、媒体类型与当前只读路径。分阶高水位策略避免每新增一张图片都改写旧请求前缀。
+file 模式按 `maxRequestFilesBytes` 限制被引用出现位置的原始字节，按 `maxInlineRequestImageBytes` 限制内联溢出的 base64 载荷，并按 `maxImagesPerRequest` 限制整份请求；全内联回退只携带 base64 与数量预算。每个预算按配置的字节或数量量子移除自己的最旧前缀，一次请求以其中最大的数量失败。每张省略图片都有自己的模型可见占位符，包含显示名或附件 id，以及可用时的规范化尺寸、媒体类型与当前只读路径。分阶高水位策略避免每新增一张图片都改写旧请求前缀。
 
 `reasoningEffort` 选择公布的默认值。当部署策略允许 thinking 时，确切模型元数据会按顺序公开 `off`、`low`、`high` 与 `max` 强度及选择指引。`low`、`high` 与 `max` 以 `output_config.effort` 序列化，并伴随 `thinking.type: adaptive`，因此仅由强度决定模型思考多少；适配器自有的 `off` 发送 `thinking.type: disabled` 且不发送 `output_config`。端点改为读取不带 `budget_tokens` 的 `thinking.type: enabled` 时，部署设置 `thinkingType: enabled`；该值与 `thinking: disabled` 同时配置会被拒绝，因为后者下没有请求会思考。不支持的取值会在网络 I/O 前以 `UNSUPPORTED_REASONING_EFFORT` 失败；`thinking: disabled` 会在插件加载时拒绝任何非 `off` 强度。`purpose: 'session-title'` 的请求会强制关闭 thinking，把有界输出留给可见标题文本。适配器转发显式 `temperature`；Orochi 在启用 thinking 时接受该参数，但忽略其值。
 
@@ -167,11 +169,11 @@ Files 模式通过 `maxRequestFilesBytes` 与 `maxImagesPerRequest` 限制保留
 
 #### 模型看到什么
 
-所选 Orochi 模型会收到 harness 系统提示词、消息历史、工具 schema、停止序列与调用配置（`maxTokens`、`reasoningEffort`、`temperature`），不包含适配器撰写的提示词散文。提供方专用请求扩展字段留在模型输入之外。视觉模型通常接收 Files API 引用形式的用户与工具结果图片，其旁带附件句柄和请求预览尺寸。当前执行文件系统可以映射附件提供方的宿主对象时，它还会收到规范化对象路径；描述符会把该副本标记为只读，并警告规范化可能缩放或重新编码上传内容。Files 解析失败时，全部保留图片改用内联 base64；超出预算的较旧图片则在占位文本中保留当前请求已解析的访问方式。此前 assistant 轮次的推理内容会原样传回，无论该轮次是否调用了工具；当推理无法以 `thinking` 发送时（任一块缺少可用回放签名），该轮次的全部推理改以 assistant 文本发送，因为请求 `thinking` 块必须携带签名，且任何轮次都不会携带不完整的思考序列。 对于非法 JSON 或非对象的历史工具参数，Messages 发送 `{}`。此参数兜底保留调用 ID、工具名和工具结果；原始参数仍保留在 Session 日志中。新生成的 Messages 工具参数仍须是有效 JSON 对象。 Messages 会省略用户消息和工具结果中的 `reasoning` 与 `tool-call` 块。这也允许回放包含助手输出的已保存子 Agent 通知；原始 Session 内容保持完整。转换后省略空文本块并跳过空轮次，空工具结果则保留调用 id 和错误标记。其他不支持的输入块仍会以 `UNSUPPORTED_CONTENT` 失败。
+所选 Orochi 模型会收到 harness 系统提示词、消息历史、工具 schema、停止序列与调用配置（`maxTokens`、`reasoningEffort`、`temperature`），不包含适配器撰写的提示词散文。提供方专用请求扩展字段留在模型输入之外。视觉模型通常接收 Files API 引用形式的用户与工具结果图片，其旁带附件句柄和请求预览尺寸；超出文件引用窗口的出现位置以内联 base64 发送。当前执行文件系统可以映射附件提供方的宿主对象时，它还会收到规范化对象路径；描述符会把该副本标记为只读，并警告规范化可能缩放或重新编码上传内容。Files 解析失败时，全部保留图片改用内联 base64；超出预算的较旧图片则在占位文本中保留当前请求已解析的访问方式。此前 assistant 轮次的推理内容会原样传回，无论该轮次是否调用了工具；当推理无法以 `thinking` 发送时（任一块缺少可用回放签名），该轮次的全部推理改以 assistant 文本发送，因为请求 `thinking` 块必须携带签名，且任何轮次都不会携带不完整的思考序列。 对于非法 JSON 或非对象的历史工具参数，Messages 发送 `{}`。此参数兜底保留调用 ID、工具名和工具结果；原始参数仍保留在 Session 日志中。新生成的 Messages 工具参数仍须是有效 JSON 对象。 Messages 会省略用户消息和工具结果中的 `reasoning` 与 `tool-call` 块。这也允许回放包含助手输出的已保存子 Agent 通知；原始 Session 内容保持完整。转换后省略空文本块并跳过空轮次，空工具结果则保留调用 id 和错误标记。其他不支持的输入块仍会以 `UNSUPPORTED_CONTENT` 失败。
 
 #### Token 影响
 
-提供方分词决定精确的文本与图片 token 输入。适配器声明按路由的 `imageRequestPricing`：把日志中的图片省略决策选中的每个出现位置按其占位文本计价，并按投影后的尺寸使用公开的视觉计量规则（14 px patch 网格、3:1 降采样、544×544 放大下限、单图 1024 token 上限）为每张保留图片计价。这使 token 计量服务可以在请求发出前为图片压力定价；上报的 usage 仍是权威值。推理回传会把每个推理轮次的思维链带进后续请求，而已省略的图片不再消耗视觉 token。保留的出现位置按精确请求版本字节超过 file 模式或内联回退预算（`maxRequestFilesBytes`、`maxImagesPerRequest` 与两个量子）的请求，以 `IMAGE_OFFLOAD_REQUIRED` 失败并说明还需省略多少最老的出现位置，由 `oh-compaction-image-offload` 用 `image/offload` 事件记录所选位置并重试。可用时报告缓存读取用量。Messages 的 token 总数包含未缓存输入、输出、缓存读取与缓存写入 token。
+提供方分词决定精确的文本与图片 token 输入。适配器声明按路由的 `imageRequestPricing`：把日志中的图片省略决策选中的每个出现位置按其占位文本计价，并按投影后的尺寸使用公开的视觉计量规则（14 px patch 网格、3:1 降采样、544×544 放大下限、单图 1024 token 上限）为每张保留图片计价。这使 token 计量服务可以在请求发出前为图片压力定价；上报的 usage 仍是权威值。推理回传会把每个推理轮次的思维链带进后续请求，而已省略的图片不再消耗视觉 token。保留的出现位置按精确请求版本字节超过 file 模式、内联回退或数量预算（`maxRequestFileReferences`、`maxRequestFilesBytes`、`maxInlineRequestImageBytes`、`maxImagesPerRequest` 与其量子）的请求，以 `IMAGE_OFFLOAD_REQUIRED` 失败并说明还需省略多少最老的出现位置，由 `oh-compaction-image-offload` 用 `image/offload` 事件记录所选位置并重试。可用时报告缓存读取用量。Messages 的 token 总数包含未缓存输入、输出、缓存读取与缓存写入 token。
 
 #### KV Cache 影响
 
@@ -203,10 +205,10 @@ loop 保留的响应块会追加到下一个请求，并保留其更早的可复
 - **不映射 `tool_choice`**——不属于核心词汇（与 pi-ai 孪生共享）。
 - **请求使用原始 `fetch`，而非 `@cordisjs/plugin-http`**——没有共享代理或拦截配置。
 - **Messages 历史内 system 更新需要保留用户或工具结果轮次**——若更新后的全部用户输入都被省略，且前一个协议轮次是 assistant，序列化会在下一个 assistant 之前或请求结束处以 `UNSUPPORTED_CONTENT` 失败。文本或空工具结果可以保留该轮次。不支持将更新移到更早的轮次；[输入历史决策](../../../.agents/notes/implemented/bug-fix/2026-09-18-messages-input-history-compatibility.zh.md)记录了排序约束。
-- **图片是仅用于输入的持久附件**——不支持直接外部 URL 与 assistant 图片输出；Orochi 输入通常使用 Files API，仅在单次请求恢复时使用内联 base64。
+- **图片是仅用于输入的持久附件**——不支持直接外部 URL 与 assistant 图片输出；Orochi 输入优先使用 Files API，对超出文件引用窗口的出现位置以及单次请求 Files 失败后的图片使用内联 base64。
 - 默认目录公布 `xiaomi/mimo-v2.6-flash` 与 `xiaomi/mimo-v2.6-pro` 及其文本、图片输入能力，不探测网关可用性。网关开放该 ID 前，请求可能以 `INVALID_REQUEST` 失败。
-- **公共端点不提供 Anthropic Files API**——图片请求会尝试一次上传，得到 `FileResolutionFailure`，随后以内联 base64 重发请求。图片仍能发送，代价是每个请求多一次往返；端点确实提供 Files 的部署不受影响。
-- [adapter.e2e.ts](tests/adapter.e2e.ts) 与 [runtime.e2e.ts](tests/runtime.e2e.ts) 中的真实 API 检查需要 `OROCHI_API_KEY`。将 `OROCHI_IN_HISTORY_MODEL` 设为受支持的非空模型 ID 可运行 system 更新检查：适配器套件使用 `high` 思考强度，运行时套件则在关闭思考时比较缓存复用，可能受到指令遵循不稳定的影响。运行时图片用例还需要 `OROCHI_FLASH_E2E=1` 或 `OROCHI_VISION_E2E=1`。Files API 用例需要 `OROCHI_FILES_BASE_URL` 指向同时提供 `/v1/files` 的 Messages 根地址——公共默认端点并不提供；未设置则跳过这些用例。
+- **不提供 Files API 的端点让每个图片请求多一次往返**——图片请求会尝试一次上传，得到 `FileResolutionFailure`，随后把全部图片以内联 base64 重发请求。图片仍能发送；提供 Files 的端点没有这次额外往返。
+- [adapter.e2e.ts](tests/adapter.e2e.ts) 与 [runtime.e2e.ts](tests/runtime.e2e.ts) 中的真实 API 检查需要 `OROCHI_API_KEY`。将 `OROCHI_IN_HISTORY_MODEL` 设为受支持的非空模型 ID 可运行 system 更新检查：适配器套件使用 `high` 思考强度，运行时套件则在关闭思考时比较缓存复用，可能受到指令遵循不稳定的影响。运行时图片用例还需要 `OROCHI_FLASH_E2E=1` 或 `OROCHI_VISION_E2E=1`。Files API 用例需要 `OROCHI_FILES_BASE_URL` 指向同时提供 `/v1/files` 的 Messages 根地址；未设置则跳过这些用例。
 
 <a id="dev-note"></a>
 ### 开发备注

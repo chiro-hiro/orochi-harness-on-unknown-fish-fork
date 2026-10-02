@@ -306,6 +306,30 @@ function offloadedImagePrefixCount(
 }
 
 /**
+ * Number of oldest entries one budget removes from an ordered occurrence list
+ * at the exact byte length the route sends; zero when the list fits. A route
+ * that packs different occurrences under different budgets accounts each
+ * partition this way and reports the largest count.
+ * @param occurrences - image occurrences in request order, carrying the surface's `offloaded` marks.
+ * @param budget - route representation, budgets, and removal quanta.
+ * @param versionBytes - exact request-version byte length of one occurrence.
+ * @returns how many leading entries to offload.
+ */
+export function requiredImageOffloadOccurrences(
+  occurrences: readonly ImageBlock[],
+  budget: Pick<LlmImageRequestBudget, 'representation' | 'maxBytes' | 'maxImages' | 'byteQuantum' | 'countQuantum'>,
+  versionBytes: (block: ImageBlock) => number,
+): number {
+  const lengths: number[] = []
+  for (const block of occurrences) {
+    if (block.offloaded === true) continue
+    const bytes = versionBytes(block)
+    lengths.push(budget.representation === 'base64' ? base64Length(bytes) : bytes)
+  }
+  return offloadedImagePrefixCount(lengths, budget)
+}
+
+/**
  * Number of oldest retained occurrences a route must still offload before a
  * derived request fits its budget at the exact byte length the route sends;
  * zero when the request fits. A route fails with `IMAGE_OFFLOAD_REQUIRED`
@@ -320,15 +344,9 @@ export function requiredImageOffload(
   budget: Pick<LlmImageRequestBudget, 'representation' | 'maxBytes' | 'maxImages' | 'byteQuantum' | 'countQuantum'>,
   versionBytes: (block: ImageBlock) => number,
 ): number {
-  const lengths: number[] = []
-  for (const message of messages) {
-    visitImageBlocks(message.content, (block) => {
-      if (block.offloaded === true) return
-      const bytes = versionBytes(block)
-      lengths.push(budget.representation === 'base64' ? base64Length(bytes) : bytes)
-    })
-  }
-  return offloadedImagePrefixCount(lengths, budget)
+  const occurrences: ImageBlock[] = []
+  for (const message of messages) visitImageBlocks(message.content, block => occurrences.push(block))
+  return requiredImageOffloadOccurrences(occurrences, budget, versionBytes)
 }
 
 /** Replace every image occurrence for a text-only model. */

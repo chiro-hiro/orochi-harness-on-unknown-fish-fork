@@ -351,7 +351,9 @@ export interface LlmModelContext {
  * retained occurrences' exact request-version bytes; for the `base64`
  * representation each byte count expands to its encoded length. A route whose
  * retained occurrences exceed the budget fails the request with
- * `IMAGE_OFFLOAD_REQUIRED` naming the additional occurrences to offload.
+ * `IMAGE_OFFLOAD_REQUIRED` naming the additional occurrences to offload. One
+ * request that packs different occurrences under different budgets applies a
+ * budget to each ordered partition and reports the largest removal.
  */
 export interface LlmImageRequestBudget {
   /** Whether the route accounts raw file bytes or inline base64 length. */

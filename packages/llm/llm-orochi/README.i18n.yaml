@@ -21,8 +21,8 @@
   en: a88841de7cf6b931
   zh: e14156fa900139a0
 /orochi-network-oh-llm-orochi/use-this-package/minimal-configuration:
-  en: 681b6e75466cb807
-  zh: 6e7a6908d3456eaa
+  en: 35c7f48ad4ffc24c
+  zh: 00df95ddf5ae6066
 /orochi-network-oh-llm-orochi/use-this-package/endpoint-and-wire-format:
   en: 7336837ee1a4738a
   zh: 1692a4f709131e67
@@ -30,8 +30,8 @@
   en: dfd5d4972e2d17c4
   zh: 337059d622ce0a7d
 /orochi-network-oh-llm-orochi/use-this-package/streaming-with-thinking-and-images:
-  en: a30c2b4905b7df23
-  zh: 199e52bf383517d1
+  en: 177622d03d82e774
+  zh: 7dc5f21a7c56d285
 /orochi-network-oh-llm-orochi/use-this-package/dynamic-configuration:
   en: 49290fc5647136b4
   zh: 96fa9ce0f9e83c13
@@ -63,11 +63,11 @@
   en: b0fde5f88c9395b1
   zh: fd91e91e4a61e63f
 /orochi-network-oh-llm-orochi/model-experience/orochi-request/what-the-model-sees:
-  en: d2c53b131e3603cf
-  zh: 4d341fd46007ea6c
+  en: e202c574a0899eb3
+  zh: 924932d69e975d07
 /orochi-network-oh-llm-orochi/model-experience/orochi-request/token-effect:
-  en: d08cbd3246d7a8cb
-  zh: ed14f921218d1e89
+  en: 6f43155b32ed6b5e
+  zh: add5d67dbb8ae971
 /orochi-network-oh-llm-orochi/model-experience/orochi-request/kv-cache-effect:
   en: 39489342f9e39849
   zh: d21bc2ba08279123
@@ -84,8 +84,8 @@
   en: ddfbea043596878d
   zh: 4fbf5864a684c053
 /orochi-network-oh-llm-orochi/known-limitations-and-deferred-work:
-  en: 3cfe514f1a7aabe4
-  zh: 06911a246f8e99b9
+  en: 8a06754012920d5b
+  zh: 081286c4ce6a5d5e
 /orochi-network-oh-llm-orochi/known-limitations-and-deferred-work/dev-note:
   en: 9eb6dfc393fe3f69
   zh: 5517e7ef1f318c21

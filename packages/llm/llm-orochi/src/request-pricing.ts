@@ -18,6 +18,8 @@ import type { OrochiCatalogModel, OrochiConnectionOptions } from './types.ts'
 
 /** Default bound on accumulated file-referenced image bytes per request. */
 export const DEFAULT_MAX_REQUEST_FILES_BYTES = 128 * 1024 * 1024
+/** Provider per-request limit on file-referenced image occurrences. */
+export const DEFAULT_MAX_REQUEST_FILE_REFERENCES = 16
 /** Provider request image-count limit. */
 export const DEFAULT_MAX_IMAGES_PER_REQUEST = 600
 /** Total-pixel budget matching provider low-detail image input. */

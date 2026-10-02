@@ -112,6 +112,36 @@ describe('Messages Files requests', () => {
     expect(h.prepare).toHaveBeenCalledTimes(1)
   })
 
+  it('admits only maxRequestFileReferences file references and sends later occurrences inline', async () => {
+    const fetchImpl = vi.fn<typeof fetch>(async () => success())
+    vi.stubGlobal('fetch', fetchImpl)
+    const h = harness()
+    const refs = Array.from({ length: 18 }, (_, index): ImageAttachmentRef => ({
+      ...ref,
+      attachmentId: AttachmentId(`sha256:${index.toString(16).padStart(64, '0')}`),
+    }))
+    await chunks(h.adapter.stream(request(refs)))
+    const [, init] = fetchImpl.mock.calls[0]!
+    const payload = JSON.parse(body(init)) as { messages: { content: unknown[] }[] }
+    const inputs = payload.messages[0]?.content ?? []
+    expect(inputs.filter(block => (block as { source?: { type: string } }).source?.type === 'file')).toHaveLength(16)
+    expect(inputs.filter(block => (block as { source?: { type: string } }).source?.type === 'base64')).toHaveLength(2)
+    expect(h.ensureUploaded).toHaveBeenCalledTimes(16)
+    expect(new Headers(init?.headers).get('anthropic-beta')).toBe('files-api-2025-04-14')
+  })
+
+  it('counts file references per occurrence when one attachment repeats past the window', async () => {
+    const fetchImpl = vi.fn<typeof fetch>(async () => success())
+    vi.stubGlobal('fetch', fetchImpl)
+    const h = harness()
+    await chunks(h.adapter.stream(request(Array.from({ length: 20 }, () => ref))))
+    const [, init] = fetchImpl.mock.calls[0]!
+    const payload = JSON.parse(body(init)) as { messages: { content: unknown[] }[] }
+    const inputs = payload.messages[0]?.content ?? []
+    expect(inputs.filter(block => (block as { source?: { type: string } }).source?.type === 'file')).toHaveLength(16)
+    expect(inputs.filter(block => (block as { source?: { type: string } }).source?.type === 'base64')).toHaveLength(4)
+  })
+
   it('applies the tighter inline byte budget only after Files resolution fails', async () => {
     const fetchImpl = vi.fn<typeof fetch>(async () => success())
     vi.stubGlobal('fetch', fetchImpl)

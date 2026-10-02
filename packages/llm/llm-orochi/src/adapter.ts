@@ -92,7 +92,7 @@ export class OrochiAdapter<C extends Connection = Connection> extends LlmAdapter
         let fileIds: Awaited<ReturnType<typeof prepareFileIds>> | undefined
         if (!inline) {
           try {
-            fileIds = await prepareFileIds(messages, versions, files)
+            fileIds = await prepareFileIds(messages, versions, files, connection.maxRequestFileReferences)
           } catch (error) {
             if (!(error instanceof FileResolutionFailure)) throw error
             inline = true

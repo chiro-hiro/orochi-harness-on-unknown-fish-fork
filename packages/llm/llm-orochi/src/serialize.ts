@@ -70,7 +70,9 @@ function assistant(message: Message, model: string, onReplayDegrade?: (reason: s
  * @param images - request versions for retained images.
  * @param access - execution-world paths for image descriptions.
  * @param onReplayDegrade - diagnostic for discarded native replay metadata.
- * @param fileIds - resolved Files references; omission selects inline image bytes.
+ * @param fileIds - resolved Files references for the request's first
+ * `maxRequestFileReferences` image occurrences; omission sends every image
+ * inline, and later occurrences travel inline under either spelling.
  * @returns the Messages API JSON body.
  */
 export function serialize(
@@ -81,14 +83,19 @@ export function serialize(
 ): WireRequest {
   const model = connection.models.find(entry => entry.id === options.model)
   const inHistory = model?.systemPromptUpdate === 'in-history'
+  // Image occurrences keep request order across user turns and tool results;
+  // the provider rejects a request that references more files than it accepts.
+  let fileReferences = 0
   const input = (blocks: readonly ContentBlock[]): WireInput[] => blocks.flatMap((block): WireInput[] => {
     if (block.type === 'text') return block.text ? [{ type: 'text', text: block.text }] : []
     if (block.type === 'reasoning' || block.type === 'tool-call') return []
     if (block.type !== 'image') return unsupported(`user/tool-result content ${block.type}`)
     const version = images.get(block.attachment.attachmentId)
     if (version === undefined) throw new LlmError('Orochi Messages request image is missing', 'INVALID_REQUEST')
-    const fileId = fileIds?.get(block.attachment.attachmentId)
-    if (fileIds !== undefined && fileId === undefined) throw new LlmError('Orochi Messages request file id is missing', 'INVALID_REQUEST')
+    const referenced = fileIds !== undefined && fileReferences < connection.maxRequestFileReferences
+    fileReferences += 1
+    const fileId = referenced ? fileIds.get(block.attachment.attachmentId) : undefined
+    if (referenced && fileId === undefined) throw new LlmError('Orochi Messages request file id is missing', 'INVALID_REQUEST')
     return [
       { type: 'text', text: requestImageHandleText(block.attachment, version, access(block.attachment)) },
       fileId === undefined
