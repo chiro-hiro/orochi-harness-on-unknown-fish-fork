@@ -8,12 +8,14 @@ import {
   createToolResultMessage,
   createUserMessage,
   fileHandleText,
+  imageOccurrences,
   projectFilesToText,
   offloadedImageText,
   projectImagesForTextModel,
   projectOffloadedImages,
   projectToolUpdates,
   requiredImageOffload,
+  requiredImageOffloadOccurrences,
   resolveImageAttachmentAccess,
   requestImageHandleText,
 } from '../src/index.ts'
@@ -59,6 +61,7 @@ describe('requiredImageOffload traversal', () => {
       return block.attachment.bytes
     })).toBe(4)
     expect(seen).toEqual([1, 2, 4, 3])
+    expect(imageOccurrences(messages).map(block => block.attachment.bytes)).toEqual([1, 2, 4, 3])
   })
 })
 
@@ -134,6 +137,16 @@ describe('requiredImageOffload', () => {
   it('skips offloaded occurrences and accounts inline bytes by their base64 length', () => {
     expect(requiredImageOffload(request([3, 3, 3]), { representation: 'base64', maxBytes: 8 }, bytesOf)).toBe(1)
     expect(requiredImageOffload(request([3, 3, 3], [0]), { representation: 'base64', maxBytes: 8 }, bytesOf)).toBe(0)
+  })
+
+  it('accounts one ordered partition so a caller can report the largest removal', () => {
+    const occurrences = [image(4), image(4), image(4), image(4)]
+    // The caller partitions the same occurrences for different budgets and
+    // reports the largest count back as one oldest-prefix removal.
+    expect(requiredImageOffloadOccurrences(occurrences.slice(0, 2), { ...raw, maxBytes: 4, byteQuantum: 1 }, bytesOf)).toBe(1)
+    expect(requiredImageOffloadOccurrences(occurrences.slice(2), { representation: 'base64', maxBytes: 8 }, bytesOf)).toBe(1)
+    expect(requiredImageOffloadOccurrences([], { ...raw, maxBytes: 1 }, bytesOf)).toBe(0)
+    expect(requiredImageOffloadOccurrences([image(4, true), image(4), image(4)], { ...raw, maxBytes: 4 }, bytesOf)).toBe(1)
   })
 })
 

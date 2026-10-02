@@ -62,6 +62,8 @@ export interface OrochiConnectionOptions {
   streamIdleTimeoutMs: number
   /** Maximum accumulated file-referenced image bytes in one request. */
   maxRequestFilesBytes: number
+  /** Maximum file-referenced image occurrences in one request; later images travel inline. */
+  maxRequestFileReferences: number
   /** Maximum accumulated base64 image payload after Files API fallback. */
   maxInlineRequestImageBytes: number
   /** Maximum number of represented images in one request. */

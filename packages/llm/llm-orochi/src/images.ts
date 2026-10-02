@@ -1,24 +1,14 @@
 /** Deterministic Messages image preparation for Files references and bounded inline fallback. */
 
 import type { AttachmentStore, ImageAttachmentRef, RequestImageAttachment } from '@orochi-network/oh-attachment'
-import { contentHasImage, IMAGE_OFFLOAD_REQUIRED_CODE, LlmError, offloadedImageText, projectOffloadedImages, requiredImageOffload } from '@orochi-network/oh-llm'
-import type { ContentBlock, ImageAttachmentAccessResolver, RequestMessage } from '@orochi-network/oh-llm'
+import { contentHasImage, IMAGE_OFFLOAD_REQUIRED_CODE, imageOccurrences, LlmError, offloadedImageText, projectOffloadedImages, requiredImageOffloadOccurrences } from '@orochi-network/oh-llm'
+import type { ContentBlock, ImageAttachmentAccessResolver, ImageBlock, RequestMessage } from '@orochi-network/oh-llm'
 import type { OrochiConnectionOptions as Connection } from './types.ts'
 import { resolveRequestImageTarget } from './request-pricing.ts'
 import type { OrochiFileId } from './file-id.ts'
 import type { RequestFiles } from './request-files.ts'
 
 export { orochiImageRequestPricing as imagePricing } from './request-pricing.ts'
-
-function bounds(connection: Connection, representation: 'raw' | 'base64') {
-  return {
-    representation,
-    maxBytes: representation === 'raw' ? connection.maxRequestFilesBytes : connection.maxInlineRequestImageBytes,
-    maxImages: connection.maxImagesPerRequest,
-    byteQuantum: representation === 'raw' ? connection.imageOffloadByteQuantum : connection.inlineImageOffloadByteQuantum,
-    countQuantum: connection.imageOffloadCountQuantum,
-  }
-}
 
 function* imageRefs(blocks: readonly ContentBlock[]): Generator<ImageAttachmentRef> {
   for (const block of blocks) {
@@ -56,7 +46,7 @@ export async function prepareImages(
       }
     }
   }
-  assertImagesFit(messages, versions, connection, 'raw')
+  assertImagesFit(messages, versions, connection, 'file-mode')
   return { messages, versions }
 }
 
@@ -70,17 +60,36 @@ export function inlineImages(
   messages: readonly RequestMessage[], versions: ReadonlyMap<ImageAttachmentRef['attachmentId'], RequestImageAttachment>,
   connection: Connection,
 ): readonly RequestMessage[] {
-  assertImagesFit(messages, versions, connection, 'base64')
+  assertImagesFit(messages, versions, connection, 'inline-fallback')
   return messages
 }
 
-/** Count additional oldest occurrences requiring durable offload at their exact represented bytes. */
+/** Count additional oldest occurrences requiring durable offload at their exact represented bytes.
+ * A file-mode request keeps the oldest `maxRequestFileReferences` occurrences on
+ * file references and sends the rest inline, so each bound removes its own
+ * partition's oldest prefix while every occurrence counts toward the image-count
+ * bound; the request fails with the largest count. A later attempt re-derives
+ * the layout, so a window that slides into different bytes converges.
+ */
 function assertImagesFit(
   messages: readonly RequestMessage[], versions: ReadonlyMap<ImageAttachmentRef['attachmentId'], RequestImageAttachment>,
-  connection: Connection, representation: 'raw' | 'base64',
+  connection: Connection, representation: 'file-mode' | 'inline-fallback',
 ): void {
-  const offloadImages = requiredImageOffload(messages, bounds(connection, representation),
-    block => (versions.get(block.attachment.attachmentId) as RequestImageAttachment).bytes)
+  const occurrences = imageOccurrences(messages)
+  const versionBytes = (block: ImageBlock) => (versions.get(block.attachment.attachmentId) as RequestImageAttachment).bytes
+  const referenced = representation === 'file-mode' ? occurrences.slice(0, connection.maxRequestFileReferences) : []
+  const inline = representation === 'file-mode' ? occurrences.slice(connection.maxRequestFileReferences) : occurrences
+  const offloadImages = Math.max(
+    requiredImageOffloadOccurrences(referenced, {
+      representation: 'raw', maxBytes: connection.maxRequestFilesBytes, byteQuantum: connection.imageOffloadByteQuantum,
+    }, versionBytes),
+    requiredImageOffloadOccurrences(inline, {
+      representation: 'base64', maxBytes: connection.maxInlineRequestImageBytes, byteQuantum: connection.inlineImageOffloadByteQuantum,
+    }, versionBytes),
+    requiredImageOffloadOccurrences(occurrences, {
+      representation: 'raw', maxImages: connection.maxImagesPerRequest, countQuantum: connection.imageOffloadCountQuantum,
+    }, versionBytes),
+  )
   if (offloadImages > 0) {
     throw new LlmError(
       `Orochi Messages ${representation} request images exceed the route budget; ${offloadImages} more oldest occurrence(s) must be offloaded.`,
@@ -90,21 +99,27 @@ function assertImagesFit(
   }
 }
 
-/** Resolve retained images to Files ids, recording every occurrence for failure diagnostics.
+/** Resolve retained images inside the file-reference window to Files ids, recording every occurrence for failure diagnostics.
+ * Occurrences past the window travel inline and are never uploaded.
  * @param messages - history within the Files byte/count budget.
  * @param versions - normalized versions for every retained reference.
  * @param files - request-owned Files resolution and recovery.
+ * @param maxFileReferences - file references this request may carry.
  * @returns ids keyed by durable attachment identity.
  */
 export async function prepareFileIds(
-  messages: readonly RequestMessage[], versions: ReadonlyMap<ImageAttachmentRef['attachmentId'], RequestImageAttachment>, files: RequestFiles,
+  messages: readonly RequestMessage[], versions: ReadonlyMap<ImageAttachmentRef['attachmentId'], RequestImageAttachment>,
+  files: RequestFiles, maxFileReferences: number,
 ): Promise<Map<ImageAttachmentRef['attachmentId'], OrochiFileId>> {
   const ids = new Map<ImageAttachmentRef['attachmentId'], OrochiFileId>()
+  let occurrence = 0
   for (const [index, message] of messages.entries()) {
     let image = 0
     for (const ref of imageRefs(message.content)) {
+      const location = { message: index + 1, image: ++image }
+      if (occurrence++ >= maxFileReferences) continue
       const version = versions.get(ref.attachmentId) as RequestImageAttachment
-      ids.set(ref.attachmentId, await files.resolve(version, { message: index + 1, image: ++image }))
+      ids.set(ref.attachmentId, await files.resolve(version, location))
     }
   }
   return ids

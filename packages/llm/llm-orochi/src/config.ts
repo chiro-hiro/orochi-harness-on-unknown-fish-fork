@@ -10,7 +10,7 @@ import { MAX_TIMER_DELAY_MS } from '@orochi-network/oh-timeout'
 import type { OrochiCatalogModel, OrochiConnectionOptions } from './types.ts'
 import { DEFAULT_MODELS } from './models.ts'
 import { DEFAULT_STREAM_IDLE_TIMEOUT_MS, DEFAULT_CONTEXT_WINDOW, DEFAULT_MAX_TOKENS, DEFAULT_MAX_INLINE_REQUEST_IMAGE_BYTES, DEFAULT_IMAGE_OFFLOAD_BYTE_QUANTUM, DEFAULT_INLINE_IMAGE_OFFLOAD_BYTE_QUANTUM, DEFAULT_IMAGE_OFFLOAD_COUNT_QUANTUM, DEFAULT_FILE_EXPIRY_SECONDS, DEFAULT_FILE_REFRESH_MARGIN_SECONDS, DEFAULT_FILE_QUOTA_CLEANUP_BATCH, DEFAULT_FILES_API_TIMEOUT_MS } from './defaults.ts'
-import { DEFAULT_MAX_IMAGES_PER_REQUEST, DEFAULT_MAX_REQUEST_FILES_BYTES, DEFAULT_REQUEST_IMAGE_MAX_BYTES } from './request-pricing.ts'
+import { DEFAULT_MAX_IMAGES_PER_REQUEST, DEFAULT_MAX_REQUEST_FILES_BYTES, DEFAULT_MAX_REQUEST_FILE_REFERENCES, DEFAULT_REQUEST_IMAGE_MAX_BYTES } from './request-pricing.ts'
 
 const MODEL_MODALITIES = ['text', 'image'] as const satisfies readonly ModelModality[]
 
@@ -39,6 +39,8 @@ export interface Config {
   streamIdleTimeoutMs: Volatile<number>
   /** Maximum accumulated file-referenced image bytes per chat request (default 128 MiB). */
   maxRequestFilesBytes: Volatile<number>
+  /** Maximum file-referenced image occurrences per chat request (default 16); later images travel inline. */
+  maxRequestFileReferences: Volatile<number>
   /** Maximum accumulated base64 image payload after Files API fallback (default 20 MiB). */
   maxInlineRequestImageBytes: Volatile<number>
   /** Maximum number of represented images per chat request (default 600). */
@@ -96,6 +98,7 @@ export const orochiConfigFields = {
   models: z.array(catalogModel).default(DEFAULT_MODELS).volatile(),
   streamIdleTimeoutMs: z.number().min(Number.MIN_VALUE).max(MAX_TIMER_DELAY_MS).default(DEFAULT_STREAM_IDLE_TIMEOUT_MS).volatile(),
   maxRequestFilesBytes: z.number().step(1).min(1).default(DEFAULT_MAX_REQUEST_FILES_BYTES).volatile(),
+  maxRequestFileReferences: z.number().step(1).min(1).default(DEFAULT_MAX_REQUEST_FILE_REFERENCES).volatile(),
   maxInlineRequestImageBytes: z.number().step(1).min(1).default(DEFAULT_MAX_INLINE_REQUEST_IMAGE_BYTES).volatile(),
   maxImagesPerRequest: z.number().step(1).min(1).default(DEFAULT_MAX_IMAGES_PER_REQUEST).volatile(),
   imageOffloadByteQuantum: z.number().step(1).min(1).default(DEFAULT_IMAGE_OFFLOAD_BYTE_QUANTUM).volatile(),
@@ -248,6 +251,10 @@ export function resolveAdapterOptions(config: Options, environment?: LaunchEnvir
   if (!Number.isSafeInteger(maxRequestFilesBytes) || maxRequestFilesBytes <= 0) {
     throw new Error('llm-orochi: maxRequestFilesBytes must be a positive safe integer')
   }
+  const maxRequestFileReferences = config.maxRequestFileReferences ?? DEFAULT_MAX_REQUEST_FILE_REFERENCES
+  if (!Number.isSafeInteger(maxRequestFileReferences) || maxRequestFileReferences <= 0) {
+    throw new Error('llm-orochi: maxRequestFileReferences must be a positive safe integer')
+  }
   const maxInlineRequestImageBytes = config.maxInlineRequestImageBytes ?? DEFAULT_MAX_INLINE_REQUEST_IMAGE_BYTES
   if (!Number.isSafeInteger(maxInlineRequestImageBytes) || maxInlineRequestImageBytes <= 0) {
     throw new Error('llm-orochi: maxInlineRequestImageBytes must be a positive safe integer')
@@ -321,6 +328,7 @@ export function resolveAdapterOptions(config: Options, environment?: LaunchEnvir
     models: resolveModels(config.models),
     streamIdleTimeoutMs,
     maxRequestFilesBytes,
+    maxRequestFileReferences,
     maxInlineRequestImageBytes,
     maxImagesPerRequest,
     imageOffloadByteQuantum,

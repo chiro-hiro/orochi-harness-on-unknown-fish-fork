@@ -1032,8 +1032,12 @@ describe('OrochiAdapter against a mock server', () => {
       ...requestImage(ref),
       variantId: ImageVariantId(String(ref.attachmentId)),
     })).store
+    // One index update must recover every named id at once, so this deployment
+    // accepts more file references than the default window and keeps each
+    // occurrence on its upload.
     const adapter = adapterOf({
       baseURL: server.url,
+      maxRequestFileReferences: 40,
       models: [{ id: 'deepseek-v4-flash-vision-exp', inputModalities: ['text', 'image'] }],
     }, attachments)
 

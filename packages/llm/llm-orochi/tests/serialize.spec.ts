@@ -8,6 +8,7 @@ import { resolveAdapterOptions } from '../src/config.ts'
 import { modelInfo } from '../src/model-info.ts'
 import type { Options as Config } from '../src/config.ts'
 import { imagePricing, inlineImages, prepareImages } from '../src/images.ts'
+import { OrochiFileId } from '../src/file-id.ts'
 import { readReplay, replayState } from '../src/replay.ts'
 import { serialize } from '../src/serialize.ts'
 import { MODEL, options, user, requestImageStore } from './helpers.ts'
@@ -475,7 +476,7 @@ describe('validated configuration', () => {
     { thinking: 'disabled', reasoningEffort: 'high' }, { thinking: 'disabled', thinkingType: 'adaptive' },
     { thinkingType: 'budgeted' }, { models: [{ id: '' }] },
     { models: [{ id: 'a' }, { id: 'a' }] }, { models: [{ id: 'a', name: '' }] },
-    { maxInlineRequestImageBytes: 1 }, { maxImagesPerRequest: 1 },
+    { maxInlineRequestImageBytes: 1 }, { maxImagesPerRequest: 1 }, { maxRequestFileReferences: 0 },
     { baseURL: 'ftp://example.com' }, { baseURL: 'https://user:pass@example.com' },
     { baseURL: 'https://example.com/?key=x' }, { baseURL: 'https://example.com/#x' },
     { maxTokens: 0 }, { streamIdleTimeoutMs: 0 },
@@ -542,5 +543,38 @@ describe('Messages images', () => {
       .toThrow(/user\/tool-result content tool-result/)
     expect(() => serialize(options({ model }), connection, [result('a', [image])], new Map([[ref.attachmentId, version]]), access, undefined, new Map()))
       .toThrow(/request file id is missing/)
+  })
+  it('sends the oldest image occurrences as file references and later ones inline', () => {
+    const config = resolveAdapterOptions({ maxRequestFileReferences: 2 })
+    const ids = ['1', '2', '3'].map(digit => AttachmentId(`sha256:${digit.repeat(64)}`))
+    const block = (attachmentId: ImageAttachmentRef['attachmentId']): ImageBlock => ({ type: 'image', attachment: { ...ref, attachmentId } })
+    const versions = new Map(ids.map(attachmentId => [attachmentId, { ...version, attachment: { ...ref, attachmentId } }]))
+    // The fourth occurrence repeats an attachment the window already referenced,
+    // and the third has no resolved id: both travel as inline bytes.
+    const messages = [assistant([call('a')]), result('a', [block(ids[0]!), block(ids[1]!), block(ids[2]!), block(ids[0]!)])]
+    const request = serialize(options({ model, messages }), config, messages, versions, access, undefined,
+      new Map([[ids[0]!, OrochiFileId('file-0')], [ids[1]!, OrochiFileId('file-1')]]))
+    expect(request.messages[1]?.content[0]).toMatchObject({ type: 'tool_result', content: [
+      { type: 'text' }, { type: 'image', source: { type: 'file', file_id: 'file-0' } },
+      { type: 'text' }, { type: 'image', source: { type: 'file', file_id: 'file-1' } },
+      { type: 'text' }, { type: 'image', source: { type: 'base64' } },
+      { type: 'text' }, { type: 'image', source: { type: 'base64' } },
+    ] })
+  })
+  it('requires logged offload when the inline overflow past the window exceeds its budget', async () => {
+    const config = resolveAdapterOptions({
+      maxRequestFileReferences: 2, maxInlineRequestImageBytes: 8, inlineImageOffloadByteQuantum: 1,
+    })
+    // The window keeps 2x3 raw bytes; the 3-image inline overflow encodes to
+    // 12 bytes and its oldest entry covers the 4-byte excess.
+    const offload: unknown = expect.objectContaining({ code: 'IMAGE_OFFLOAD_REQUIRED', offloadImages: 1 })
+    await expect(prepareImages([assistant([call('a')]), result('a', [image, image, image, image, image])], config, model, attachments, access, signal))
+      .rejects.toMatchObject({ failure: offload })
+  })
+  it('counts every image occurrence against the request image-count bound in file mode', async () => {
+    const config = resolveAdapterOptions({ maxImagesPerRequest: 2, imageOffloadCountQuantum: 1 })
+    const offload: unknown = expect.objectContaining({ code: 'IMAGE_OFFLOAD_REQUIRED', offloadImages: 3 })
+    await expect(prepareImages([assistant([call('a')]), result('a', [image, image, image, image, image])], config, model, attachments, access, signal))
+      .rejects.toMatchObject({ failure: offload })
   })
 })

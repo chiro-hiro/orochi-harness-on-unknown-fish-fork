@@ -22412,7 +22412,7 @@
         "packages/llm/llm/src/types.ts#ReplayEnvelope"
       ],
       "sources": [
-        "packages/llm/llm/src/types.ts:430"
+        "packages/llm/llm/src/types.ts:432"
       ]
     },
     {
@@ -32883,7 +32883,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:455"
+        "packages/llm/llm/src/types.ts:457"
       ]
     },
     {
@@ -35998,7 +35998,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:453"
+        "packages/llm/llm/src/types.ts:455"
       ]
     },
     {
@@ -42920,7 +42920,7 @@
         "packages/llm/llm/src/types.ts#StreamChunk"
       ],
       "sources": [
-        "packages/llm/llm/src/types.ts:452"
+        "packages/llm/llm/src/types.ts:454"
       ]
     },
     {
@@ -54563,7 +54563,7 @@
         "packages/llm/llm/src/types.ts#ToolSchema"
       ],
       "sources": [
-        "packages/llm/llm/src/types.ts:473"
+        "packages/llm/llm/src/types.ts:475"
       ]
     },
     {
@@ -63143,7 +63143,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:456"
+        "packages/llm/llm/src/types.ts:458"
       ]
     },
     {
@@ -64172,7 +64172,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:454"
+        "packages/llm/llm/src/types.ts:456"
       ]
     },
     {
@@ -69189,7 +69189,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:459"
+        "packages/llm/llm/src/types.ts:461"
       ]
     },
     {
@@ -77892,7 +77892,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:457"
+        "packages/llm/llm/src/types.ts:459"
       ]
     },
     {
@@ -87031,7 +87031,7 @@
       },
       "names": [],
       "sources": [
-        "packages/llm/llm/src/types.ts:458"
+        "packages/llm/llm/src/types.ts:460"
       ]
     },
     {
@@ -87200,7 +87200,7 @@
         "packages/llm/llm/src/types.ts#SystemPromptUpdate"
       ],
       "sources": [
-        "packages/llm/llm/src/types.ts:396"
+        "packages/llm/llm/src/types.ts:398"
       ]
     },
     {
