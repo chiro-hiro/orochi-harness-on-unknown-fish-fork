@@ -1,7 +1,7 @@
 /** Deterministic Messages image preparation for Files references and bounded inline fallback. */
 
 import type { AttachmentStore, ImageAttachmentRef, RequestImageAttachment } from '@orochi-network/oh-attachment'
-import { contentHasImage, IMAGE_OFFLOAD_REQUIRED_CODE, LlmError, offloadedImageText, projectOffloadedImages, requiredImageOffloadOccurrences } from '@orochi-network/oh-llm'
+import { contentHasImage, IMAGE_OFFLOAD_REQUIRED_CODE, imageOccurrences, LlmError, offloadedImageText, projectOffloadedImages, requiredImageOffloadOccurrences } from '@orochi-network/oh-llm'
 import type { ContentBlock, ImageAttachmentAccessResolver, ImageBlock, RequestMessage } from '@orochi-network/oh-llm'
 import type { OrochiConnectionOptions as Connection } from './types.ts'
 import { resolveRequestImageTarget } from './request-pricing.ts'
@@ -9,17 +9,6 @@ import type { OrochiFileId } from './file-id.ts'
 import type { RequestFiles } from './request-files.ts'
 
 export { orochiImageRequestPricing as imagePricing } from './request-pricing.ts'
-
-/** Ordered image occurrences one request serializes, oldest first. */
-function imageOccurrences(messages: readonly RequestMessage[]): ImageBlock[] {
-  const occurrences: ImageBlock[] = []
-  for (const message of messages) {
-    for (const block of message.content) {
-      if (block.type === 'image') occurrences.push(block)
-    }
-  }
-  return occurrences
-}
 
 function* imageRefs(blocks: readonly ContentBlock[]): Generator<ImageAttachmentRef> {
   for (const block of blocks) {

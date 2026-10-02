@@ -8,6 +8,7 @@ import {
   createToolResultMessage,
   createUserMessage,
   fileHandleText,
+  imageOccurrences,
   projectFilesToText,
   offloadedImageText,
   projectImagesForTextModel,
@@ -60,6 +61,7 @@ describe('requiredImageOffload traversal', () => {
       return block.attachment.bytes
     })).toBe(4)
     expect(seen).toEqual([1, 2, 4, 3])
+    expect(imageOccurrences(messages).map(block => block.attachment.bytes)).toEqual([1, 2, 4, 3])
   })
 })
 

@@ -306,6 +306,17 @@ function offloadedImagePrefixCount(
 }
 
 /**
+ * Every image occurrence of a request in message order.
+ * @param messages - request history in send order.
+ * @returns the image blocks in occurrence order, carrying the surface's `offloaded` marks.
+ */
+export function imageOccurrences(messages: readonly RequestMessage[]): ImageBlock[] {
+  const occurrences: ImageBlock[] = []
+  for (const message of messages) visitImageBlocks(message.content, block => occurrences.push(block))
+  return occurrences
+}
+
+/**
  * Number of oldest entries one budget removes from an ordered occurrence list
  * at the exact byte length the route sends; zero when the list fits. A route
  * that packs different occurrences under different budgets accounts each
@@ -344,9 +355,7 @@ export function requiredImageOffload(
   budget: Pick<LlmImageRequestBudget, 'representation' | 'maxBytes' | 'maxImages' | 'byteQuantum' | 'countQuantum'>,
   versionBytes: (block: ImageBlock) => number,
 ): number {
-  const occurrences: ImageBlock[] = []
-  for (const message of messages) visitImageBlocks(message.content, block => occurrences.push(block))
-  return requiredImageOffloadOccurrences(occurrences, budget, versionBytes)
+  return requiredImageOffloadOccurrences(imageOccurrences(messages), budget, versionBytes)
 }
 
 /** Replace every image occurrence for a text-only model. */
