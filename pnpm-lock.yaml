@@ -2449,6 +2449,9 @@ importers:
       '@orochi-network/oh-client-ui-settings-subagent':
         specifier: workspace:*
         version: link:../../client/ui-settings-subagent
+      '@orochi-network/oh-client-ui-settings-system-prompt':
+        specifier: workspace:*
+        version: link:../../client/ui-settings-system-prompt
       '@orochi-network/oh-client-ui-settings-web-search':
         specifier: workspace:*
         version: link:../../client/ui-settings-web-search
@@ -4881,6 +4884,45 @@ importers:
         specifier: ^18.3.1
         version: 18.3.1
 
+  packages/client/ui-settings-system-prompt:
+    devDependencies:
+      '@orochi-network/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+      '@orochi-network/oh-agent-loop':
+        specifier: workspace:*
+        version: link:../../core/agent-loop
+      '@orochi-network/oh-client-locale':
+        specifier: workspace:*
+        version: link:../locale
+      '@orochi-network/oh-client-store':
+        specifier: workspace:*
+        version: link:../store
+      '@orochi-network/oh-client-test-runtime':
+        specifier: workspace:*
+        version: link:../../test-support/client-runtime
+      '@orochi-network/oh-client-ui-primitives':
+        specifier: workspace:*
+        version: link:../ui-primitives
+      '@orochi-network/oh-client-ui-renderer':
+        specifier: workspace:*
+        version: link:../ui-renderer
+      '@orochi-network/oh-client-ui-settings':
+        specifier: workspace:*
+        version: link:../ui-settings
+      '@orochi-network/oh-client-ui-slots':
+        specifier: workspace:*
+        version: link:../ui-slots
+      '@orochi-network/oh-util-prompt-template':
+        specifier: workspace:*
+        version: link:../../util/prompt-template
+      '@types/react':
+        specifier: ~18.3.1
+        version: 18.3.31
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+
   packages/client/ui-settings-web-search:
     devDependencies:
       '@orochi-network/cordis':
@@ -6661,6 +6703,12 @@ importers:
 
   packages/core/system-prompt:
     dependencies:
+      '@orochi-network/oh-util-prompt-template':
+        specifier: workspace:*
+        version: link:../../util/prompt-template
+      '@orochi-network/oh-util-values':
+        specifier: workspace:*
+        version: link:../../util/values
       '@orochi-network/schemastery':
         specifier: link:../../../vendor/schemastery
         version: link:../../../vendor/schemastery
@@ -12840,6 +12888,12 @@ importers:
         version: link:../../../vendor/cordis
 
   packages/util/package-manifest:
+    devDependencies:
+      '@orochi-network/cordis':
+        specifier: workspace:~
+        version: link:../../../vendor/cordis
+
+  packages/util/prompt-template:
     devDependencies:
       '@orochi-network/cordis':
         specifier: workspace:~

@@ -14,11 +14,14 @@ import SessionStore from '@orochi-network/oh-session'
 import type { SessionHeader, SessionId, UserMessage } from '@orochi-network/oh-session'
 import SessionProjectionRegistry from '@orochi-network/oh-session-projection'
 import SystemPrompt from '@orochi-network/oh-system-prompt'
-import type { Config as SystemPromptConfig } from '@orochi-network/oh-system-prompt'
+import type { ConfigInput } from '@orochi-network/oh-system-prompt'
 import ToolRuntime from '@orochi-network/oh-tools'
 import type { Config as ToolRuntimeConfig } from '@orochi-network/oh-tools'
 
 export { createInboxStub, unsupportedInbox } from './inbox.ts'
+
+/** Mount-time system-prompt configuration forwarded to the registry's Config schema. */
+export type SystemPromptConfig = ConfigInput
 
 interface DriverInbox extends Inbox {
   claim(target: InboxTarget, turn: number): UserMessage[]

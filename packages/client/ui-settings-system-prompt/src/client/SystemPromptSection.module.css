@@ -1,0 +1,106 @@
+/* The System Prompt settings page: editors, custom variable rows, and picker layout. */
+
+.layout {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.main {
+  display: flex;
+  flex: 1 1 360px;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.section {
+  min-width: 0;
+  padding: 16px 0;
+}
+
+.heading {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--oh-alias-label-primary);
+}
+
+.hint {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-tertiary);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) auto;
+  gap: 8px;
+  align-items: center;
+  padding: 6px 0;
+}
+
+.rowInput {
+  height: 34px;
+  min-width: 0;
+  padding: 0 12px;
+  border: 0.5px solid var(--oh-alias-border-l4);
+  border-radius: var(--oh-radius-md);
+  background: var(--oh-alias-bg-layer-3);
+  font: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-primary);
+}
+
+.rowInput:focus-visible {
+  outline: none;
+  border-color: var(--oh-alias-state-business-primary);
+}
+
+.rowInput:disabled {
+  color: var(--oh-alias-label-tertiary);
+  cursor: default;
+}
+
+.rowInput[aria-invalid='true'] {
+  border-color: var(--oh-alias-state-error-primary);
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: var(--oh-radius-sm);
+  background: none;
+  color: var(--oh-alias-label-tertiary);
+  cursor: pointer;
+}
+
+.remove:hover:not(:disabled) {
+  background: var(--oh-alias-interactive-bg-hover);
+  color: var(--oh-alias-label-primary);
+}
+
+.remove:disabled {
+  cursor: default;
+}
+
+.rowProblem {
+  grid-column: 1 / -1;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-state-error-primary);
+}
+
+.add {
+  align-self: flex-start;
+  margin-top: 8px;
+}

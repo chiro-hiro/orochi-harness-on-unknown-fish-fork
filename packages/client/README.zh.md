@@ -78,6 +78,7 @@ kind: "package-group"
 | [`ui-settings-shell/`](ui-settings-shell/README.zh.md) | 在插件页提供终端设置页 | — |
 | [`ui-settings-agent-loop/`](ui-settings-agent-loop/README.zh.md) | 在插件页提供 Agent 循环设置页 | — |
 | [`ui-settings-subagent/`](ui-settings-subagent/README.zh.md) | 在插件页提供子智能体设置页 | — |
+| [`ui-settings-system-prompt/`](ui-settings-system-prompt/README.zh.md) | 提供系统提示词设置页：部署级人设模板及其自定义 `{{name}}` 变量 | — |
 | [`ui-settings-web-search/`](ui-settings-web-search/README.zh.md) | 在插件页提供网页搜索设置页 | — |
 | [`ui-plugin-manager/`](ui-plugin-manager/README.zh.md) | 贡献侧栏的“插件”面板：安装、启用、停用、重试与组合已安装的包 | — |
 | [`ui-settings-plugin-inventory/`](ui-settings-plugin-inventory/README.zh.md) | 向「插件」设置贡献只读的 Host Loader 清单标签页 | — |

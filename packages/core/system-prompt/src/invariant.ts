@@ -2,10 +2,10 @@
 
 import type { Context } from '@orochi-network/cordis'
 import type { InvariantFailure, InvariantInstaller } from '@orochi-network/oh-invariants'
+import { VARIABLE_NAME } from '@orochi-network/oh-util-prompt-template'
 import type { PromptAssembly } from './index.ts'
 
 const PACKAGE_NAME = '@orochi-network/oh-system-prompt'
-const VARIABLE_NAME = /^[a-z][a-z0-9_]*$/
 
 /** Cordis companion plugin name. */
 export const name = 'system-prompt-invariant'

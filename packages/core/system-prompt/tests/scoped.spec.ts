@@ -3,9 +3,9 @@ import { Context } from '@orochi-network/cordis'
 import { createScope, scopeOf } from '@orochi-network/oh-scope'
 import type { Scope, ScopeKey } from '@orochi-network/oh-scope'
 import SystemPrompt, { TOOL_ORDER_REST, renderContextSnapshot, renderPrompt } from '@orochi-network/oh-system-prompt'
-import type { Config, PromptAssembly } from '@orochi-network/oh-system-prompt'
+import type { ConfigInput, PromptAssembly } from '@orochi-network/oh-system-prompt'
 
-async function mount(config: Config = {}): Promise<Context> {
+async function mount(config: ConfigInput = {}): Promise<Context> {
   const ctx = new Context()
   await ctx.plugin(SystemPrompt, config)
   return ctx

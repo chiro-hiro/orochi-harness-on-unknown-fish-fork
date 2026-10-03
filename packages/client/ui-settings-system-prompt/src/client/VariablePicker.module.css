@@ -1,0 +1,61 @@
+/* The variable picker sidebar beside the System Prompt editors. */
+
+.picker {
+  display: flex;
+  flex: 0 1 240px;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 200px;
+  padding: 16px 0;
+}
+
+.heading {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--oh-alias-label-primary);
+}
+
+.hint {
+  margin: 0 0 8px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-tertiary);
+}
+
+.group {
+  margin: 8px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-secondary);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 8px;
+  border: 0;
+  border-radius: var(--oh-radius-sm);
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.row:hover {
+  background: var(--oh-alias-interactive-bg-hover);
+}
+
+.name {
+  font-family: var(--oh-font-family);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-primary);
+}
+
+.description {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-tertiary);
+}

@@ -45,11 +45,12 @@ The config owns the fixed opener, runtime context, deployment persona prefix and
 |---|---|---|
 | `includeHarnessIdentity` | `true` | Include the fixed `You are an AI agent powered by Orochi Harness.` first-party opener at order −1000. Set false only when a compatibility deployment owns the complete system prompt. |
 | `includeRuntimeContext` | `true` | Include ordered dynamic runtime context in assembly |
-| `personaPrefix` | `''` | Global persona prefix template at order `0`, before first-party guidance |
-| `personaSuffix` | `''` | Global `deployment:persona-suffix` template at order `10200`, after first-party guidance |
+| `personaPrefix` | `''` | Global persona prefix template at order `0`, before first-party guidance; re-read at every assembly |
+| `personaSuffix` | `''` | Global `deployment:persona-suffix` template at order `10200`, after first-party guidance; re-read at every assembly |
+| `variables` | `{}` | Deployment-defined `{{name}}` values for the persona templates; names match `[a-z][a-z0-9_]*` |
 | `toolOrder` | — | Explicit model-facing tool order with one `'<unlisted-tools>'` rest entry |
 
-The generated [configuration catalog](../../../docs/config-catalog.md#orochi-networkoh-system-prompt) is the exhaustive source for every accepted field. A `toolOrder` list without exactly one rest entry or with duplicates fails at load; a listed name with no registered tool rejects every `assemble()`.
+The generated [configuration catalog](../../../docs/config-catalog.md#orochi-networkoh-system-prompt) is the exhaustive source for every accepted field. A `toolOrder` list without exactly one rest entry or with duplicates fails at load; a listed name with no registered tool rejects every `assemble()`. The persona fields and `variables` read their current value at every assembly, so a settings write reaches the next request without a remount; while the System Prompt settings page owns this plugin's entry, the schema-generated settings page stays off (`settings.configure({ auto: false })`).
 
 ### Contribute a prompt section
 
@@ -67,7 +68,7 @@ Set `interpolate: false` on a section to preserve its text literally, including 
 
 ### Contribute a prompt variable
 
-Variables are referenced from section text as `{{name}}` and resolved at each assembly; scoped variables shadow a same-named global for that agent. The loop supplies `model` and `cwd`; any plugin can register the facts it owns.
+Variables are referenced from section text as `{{name}}` and resolved at each assembly; scoped variables shadow a same-named global for that agent. The loop supplies `provider`, `model`, and `cwd`; any plugin can register the facts it owns. The `variables` config carries deployment-defined values for the same names; a registered variable keeps its name and its provider's value wherever the provider resolves one.
 
 ```text
 ctx.systemPrompt.variable('cwd', ({ agent }) => agent?.session.header.cwd)

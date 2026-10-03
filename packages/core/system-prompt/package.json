@@ -38,6 +38,8 @@
     "@orochi-network/cordis": "workspace:~"
   },
   "dependencies": {
+    "@orochi-network/oh-util-prompt-template": "workspace:*",
+    "@orochi-network/oh-util-values": "workspace:*",
     "@orochi-network/schemastery": "workspace:~"
   },
   "devDependencies": {
