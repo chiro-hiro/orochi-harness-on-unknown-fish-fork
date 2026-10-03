@@ -3,9 +3,10 @@ import type { IconProps } from './icons/props.ts'
 /** Native viewBox of {@link ORO_LOGO_PATH} — the official 32×32 mark canvas. */
 export const ORO_LOGO_VIEWBOX = { width: 32, height: 32 }
 
-/** The Orochi mark path data (the source asset's six shapes and translate/scale
- * baked into one `d` of separate subpaths), exported for consumers that compose
- * their own svg (entrance effects, masks) around the same geometry. */
+/** The Orochi mark path data (the favicon mark's six shapes and translate/scale
+ * baked into one `d` of separate subpaths; the `assets/oro-logo.svg` design
+ * asset carries the same geometry), exported for consumers that compose their
+ * own svg (entrance effects, masks) around the same geometry. */
 export const ORO_LOGO_PATH =
   'M 28.320831 13.92364 C 28.320831 13.879387 28.257613 13.835135 28.244969 13.790882 C 28.737882 14.00437 29.171685 14.334053 29.509333 14.751798 C 29.517109 14.051088 ' +
   '29.295087 13.36713 28.877151 12.804678 C 28.461618 12.246082 27.920154 11.793376 27.296696 11.483417 C 27.661908 11.511802 28.02143 11.590509 28.365084 11.717325 C ' +

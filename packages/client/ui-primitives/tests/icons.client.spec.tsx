@@ -1,4 +1,6 @@
 // @vitest-environment jsdom
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { cleanup, render } from '@testing-library/react'
 import { afterEach, describe, expect, it } from 'vitest'
 import * as primitives from '@orochi-network/oh-client-ui-primitives'
@@ -135,6 +137,11 @@ describe('OroLogo', () => {
     expect(container.querySelectorAll('path')).toHaveLength(1)
     expect(container.querySelector('path')!.getAttribute('d')).toBe(primitives.ORO_LOGO_PATH)
     expect(container.innerHTML).toContain('currentColor')
+  })
+
+  it('ships the design asset with the same mark geometry as the constant', () => {
+    const asset = readFileSync(join(import.meta.dirname, '../assets/oro-logo.svg'), 'utf8')
+    expect(/<path d="([^"]+)"/.exec(asset)?.[1]).toBe(primitives.ORO_LOGO_PATH)
   })
 })
 
