@@ -8,7 +8,7 @@
 
 import { useState, type ChangeEvent, type ReactNode, type Ref } from 'react'
 import { IconInfoOutlineRegular } from '../icons/index.tsx'
-import { Tag } from '../Tag.tsx'
+import { Tag, type TagTone } from '../Tag.tsx'
 import css from './fields.module.css'
 
 /** What every settings field control needs regardless of its value type. */
@@ -37,6 +37,43 @@ export interface SettingsFieldProps {
   onEdit: (text: string) => void
   /** Stage a clear so the field re-inherits the composition layer. */
   onReset: () => void
+}
+
+/** What the shared state badge renders. */
+export interface SettingsBadgeProps {
+  /** Copy for the state badge. */
+  label: string
+  /** Palette for the state badge; neutral when omitted. */
+  tone?: TagTone
+  /** Copy for the reset control; the badge carries none when omitted. */
+  resetLabel?: string
+  /** Disables the reset control (read-only document). */
+  disabled?: boolean
+  /** Stage a clear so the field re-inherits the composition layer. */
+  onReset?: () => void
+}
+
+/**
+ * The state badges a settings head carries: a Tag naming the field's state
+ * and, when the caller stages clears, the reset control beside it. Value
+ * fields, secret fields, and section-level rows share it so the reset
+ * affordance cannot drift between them.
+ * @param props - the badge copy and the optional reset action.
+ * @returns the badge row.
+ */
+export function SettingsBadge(props: SettingsBadgeProps) {
+  return (
+    <span className={css.badges}>
+      <Tag tone={props.tone ?? 'neutral'}>{props.label}</Tag>
+      {props.resetLabel === undefined
+        ? null
+        : (
+          <button type="button" className={css.reset} disabled={props.disabled} onClick={props.onReset}>
+            {props.resetLabel}
+          </button>
+        )}
+    </span>
+  )
 }
 
 /**
@@ -92,17 +129,12 @@ export function SettingsValueField(props: Omit<SettingsFieldProps, 'hint'> & {
         </div>
         {props.overridden
           ? (
-            <span className={css.badges}>
-              <Tag tone="neutral">{props.overriddenLabel}</Tag>
-              <button
-                type="button"
-                className={css.reset}
-                disabled={props.disabled}
-                onClick={props.onReset}
-              >
-                {props.resetLabel}
-              </button>
-            </span>
+            <SettingsBadge
+              label={props.overriddenLabel}
+              resetLabel={props.resetLabel}
+              disabled={props.disabled}
+              onReset={props.onReset}
+            />
           )
           : null}
       </div>
@@ -153,9 +185,7 @@ export function SettingsSecretField(props: Pick<SettingsFieldProps, 'id' | 'labe
     <div className={css.field}>
       <div className={css.head}>
         <label className={css.label} htmlFor={props.id}>{props.label}</label>
-        <span className={css.badges}>
-          <Tag tone={props.configured ? 'neutral' : 'quiet'}>{props.stateLabel}</Tag>
-        </span>
+        <SettingsBadge label={props.stateLabel} tone={props.configured ? 'neutral' : 'quiet'} />
       </div>
       <input
         id={props.id}
