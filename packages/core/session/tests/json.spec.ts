@@ -64,6 +64,22 @@ describe('snapshotJsonValue', () => {
     expect(Object.getPrototypeOf(arraySnapshot)).toBe(Array.prototype)
   })
 
+  it('accepts intrinsic containers when native functions print on several lines, as in Firefox', () => {
+    const nativeToString = Object.getOwnPropertyDescriptor(Function.prototype, 'toString')!.value as (this: unknown) => string
+    const multiline = function toString(this: unknown): string {
+      return nativeToString.call(this).replace(/^(function \w+\(\)) (\{) (\[native code\]) (\})$/, '$1 {\n    $3\n}')
+    }
+    Function.prototype.toString = multiline
+    try {
+      expect(Function.prototype.toString.call(Object)).toBe('function Object() {\n    [native code]\n}')
+      expect(snapshotJsonValue({ list: [{ ok: true }] })).toEqual({ list: [{ ok: true }] })
+      expect(isJsonValue(runInNewContext('({ nested: [1] })'))).toBe(true)
+      expect(snapshotJsonValue(objectWithForgedIntrinsicPrototype())).toBeUndefined()
+    } finally {
+      Function.prototype.toString = nativeToString
+    }
+  })
+
   it('reads each object value and array slot once while materializing', () => {
     class Exotic {
       readonly accepted = false
