@@ -1,3 +1,5 @@
+/** The harness-provided `{{name}}` variables the picker lists. */
+
 import type { SystemPromptSettingsKey } from './locales.ts'
 
 /** One harness prompt variable as the picker lists it. */

@@ -1,3 +1,5 @@
+/** The `{{name}}` reference problems one prompt draft can carry. */
+
 import { scanPromptTemplate } from '@orochi-network/oh-util-prompt-template'
 
 /** One `{{name}}` reference problem in a draft. */
