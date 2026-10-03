@@ -1,7 +1,7 @@
 /** The System Prompt settings page: the persona templates, the custom variable rows, and the variable picker. */
 
 import { useEffect, useId, useRef, useState } from 'react'
-import { Button, IconPlusOutlineRegular, IconTrashOutlineRegular, SettingsForm, SettingsValueField, Tooltip } from '@orochi-network/oh-client-ui-primitives'
+import { Button, IconPlusOutlineRegular, IconTrashOutlineRegular, SettingsForm, SettingsValueField, Tag, Tooltip } from '@orochi-network/oh-client-ui-primitives'
 // Type-only: the settings shell's SlotMap merge (the 'settings.section' entry).
 import type {} from '@orochi-network/oh-client-ui-settings/client'
 import type { InjectFace, PropsLocale, PropsRuntime, TranslateNS } from '@orochi-network/oh-client-ui-slots'
@@ -115,6 +115,21 @@ export function SystemPromptSection(props: SystemPromptSectionProps) {
           <section className={css.section} aria-labelledby={`${headingId}-variables`}>
             <h3 className={css.heading} id={`${headingId}-variables`}>{t('customVariablesTitle')}</h3>
             <p className={css.hint}>{t('customVariablesHint')}</p>
+            {state.variablesOverridden
+              ? (
+                <div className={css.badges}>
+                  <Tag tone="neutral">{t('overridden')}</Tag>
+                  <button
+                    type="button"
+                    className={css.reset}
+                    disabled={disabled}
+                    onClick={props.resetVariables}
+                  >
+                    {t('reset')}
+                  </button>
+                </div>
+              )
+              : null}
             {state.rows.map((row, index) => {
               const problemId = `${headingId}-row-${index}`
               return (
@@ -162,7 +177,7 @@ export function SystemPromptSection(props: SystemPromptSectionProps) {
             </Button>
           </section>
         </div>
-        <VariablePicker t={t} rows={state.rows} onInsert={insert} />
+        <VariablePicker t={t} rows={state.rows} disabled={disabled} onInsert={insert} />
       </div>
     </SettingsForm>
   )

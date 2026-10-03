@@ -13,6 +13,8 @@ export interface VariablePickerProps {
   t: TranslateNS<'settings.systemPrompt'>
   /** Custom variable rows under edit; the picker lists the rows with usable names. */
   rows: readonly VariableRow[]
+  /** Disable every insert button while the form cannot stage edits. */
+  disabled: boolean
   /** Insert one `{{name}}` reference at the editors' caret. */
   onInsert: (reference: string) => void
 }
@@ -36,6 +38,7 @@ export function VariablePicker(props: VariablePickerProps) {
           key={variable.name}
           type="button"
           className={css.row}
+          disabled={props.disabled}
           onClick={() => { props.onInsert(`{{${variable.name}}}`) }}
         >
           <code className={css.name}>{`{{${variable.name}}}`}</code>
@@ -51,6 +54,7 @@ export function VariablePicker(props: VariablePickerProps) {
                 key={`${row.name}-${index}`}
                 type="button"
                 className={css.row}
+                disabled={props.disabled}
                 onClick={() => { props.onInsert(`{{${row.name}}}`) }}
               >
                 <code className={css.name}>{`{{${row.name}}}`}</code>

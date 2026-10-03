@@ -13,7 +13,7 @@ const t = makeTranslate(en)
 describe('VariablePicker', () => {
   it('lists the harness variables with their descriptions', () => {
     const onInsert = vi.fn()
-    render(<VariablePicker t={t} rows={[]} onInsert={onInsert} />)
+    render(<VariablePicker t={t} rows={[]} disabled={false} onInsert={onInsert} />)
 
     for (const name of ['cwd', 'model', 'provider']) {
       expect(screen.getByText(`{{${name}}}`)).toBeTruthy()
@@ -28,7 +28,12 @@ describe('VariablePicker', () => {
   it('lists only custom rows with usable names and hides the group when none remain', () => {
     const onInsert = vi.fn()
     const { rerender } = render(
-      <VariablePicker t={t} rows={[{ name: 'tone', value: 'calm' }, { name: 'Bad Name', value: 'x' }]} onInsert={onInsert} />,
+      <VariablePicker
+        t={t}
+        rows={[{ name: 'tone', value: 'calm' }, { name: 'Bad Name', value: 'x' }]}
+        disabled={false}
+        onInsert={onInsert}
+      />,
     )
 
     expect(screen.getByText('{{tone}}')).toBeTruthy()
@@ -37,7 +42,17 @@ describe('VariablePicker', () => {
     fireEvent.click(screen.getByText('{{tone}}').closest('button')!)
     expect(onInsert).toHaveBeenCalledWith('{{tone}}')
 
-    rerender(<VariablePicker t={t} rows={[{ name: 'Bad Name', value: 'x' }]} onInsert={onInsert} />)
+    rerender(
+      <VariablePicker t={t} rows={[{ name: 'Bad Name', value: 'x' }]} disabled={false} onInsert={onInsert} />,
+    )
     expect(screen.queryByText(en.customGroup)).toBeNull()
+  })
+
+  it('disables every insert button while the form cannot stage edits', () => {
+    const onInsert = vi.fn()
+    render(<VariablePicker t={t} rows={[{ name: 'tone', value: 'calm' }]} disabled onInsert={onInsert} />)
+
+    expect(screen.getByText('{{cwd}}').closest('button')).toHaveProperty('disabled', true)
+    expect(screen.getByText('{{tone}}').closest('button')).toHaveProperty('disabled', true)
   })
 })

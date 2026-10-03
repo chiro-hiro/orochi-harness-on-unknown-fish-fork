@@ -118,6 +118,11 @@ describe('SettingsValueField', () => {
     expect(area).toHaveProperty('disabled', true)
     expect(screen.getByText('Enter a number.')).toBeTruthy()
   })
+
+  it('describes no message region for a multiline control without a hint', () => {
+    render(<SettingsValueField {...frame} hint="" multiline text="x" onEdit={vi.fn()} onReset={vi.fn()} />)
+    expect(screen.getByLabelText('Command timeout').getAttribute('aria-describedby')).toBeNull()
+  })
 })
 
 describe('SettingsSecretField', () => {

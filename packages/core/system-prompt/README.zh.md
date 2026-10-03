@@ -45,11 +45,12 @@ kind: "package-reference"
 |---|---|---|
 | `includeHarnessIdentity` | `true` | 是否包含顺序为 −1000 的第一方固定开场白 `You are an AI agent powered by Orochi Harness.`。仅当兼容性部署拥有完整系统提示词时设为 false。 |
 | `includeRuntimeContext` | `true` | 是否在组装中包含有序动态 runtime 上下文 |
-| `personaPrefix` | `''` | 全局 persona 前缀模板，顺序为 `0`，位于第一方指导之前 |
-| `personaSuffix` | `''` | 全局 `deployment:persona-suffix` 模板，顺序为 `10200`，位于第一方指导之后 |
+| `personaPrefix` | `''` | 全局 persona 前缀模板，顺序为 `0`，位于第一方指导之前；每次组装时重新读取 |
+| `personaSuffix` | `''` | 全局 `deployment:persona-suffix` 模板，顺序为 `10200`，位于第一方指导之后；每次组装时重新读取 |
+| `variables` | `{}` | 人设模板可用的部署级 `{{name}}` 取值；名称匹配 `[a-z][a-z0-9_]*` |
 | `toolOrder` | — | 显式面向模型工具顺序，含一个 `'<unlisted-tools>'` 其余项标记 |
 
-生成的[配置目录](../../../docs/config-catalog.zh.md#orochi-networkoh-system-prompt)是每个受支持字段的穷尽式真源。没有恰好一个其余项或存在重复项的 `toolOrder` 列表会在加载时失败；已列名称没有对应已注册工具会使每次 `assemble()` 被拒绝。
+生成的[配置目录](../../../docs/config-catalog.zh.md#orochi-networkoh-system-prompt)是每个受支持字段的穷尽式真源。没有恰好一个其余项或存在重复项的 `toolOrder` 列表会在加载时失败；已列名称没有对应已注册工具会使每次 `assemble()` 被拒绝。人设字段与 `variables` 在每次组装时读取当前取值，因此设置写入无需重挂载即可到达下一个请求；系统提示词设置页持有本插件的条目期间，schema 生成的设置页保持关闭（`settings.configure({ auto: false })`）。
 
 ### 贡献提示词段
 
@@ -67,7 +68,7 @@ ctx.systemPrompt.section({
 
 ### 贡献提示词变量
 
-变量在段文本中以 `{{name}}` 引用，并在每次组装时解析；带作用域变量会为该 agent 遮蔽同名全局变量。循环提供 `model` 与 `cwd`；任何插件都可以注册自己拥有的事实。
+变量在段文本中以 `{{name}}` 引用，并在每次组装时解析；带作用域变量会为该 agent 遮蔽同名全局变量。循环提供 `provider`、`model` 与 `cwd`；任何插件都可以注册自己拥有的事实。`variables` 配置为同名空间携带部署级取值；已注册变量保留其名称，只要其提供方能解析出取值，就使用提供方的取值。
 
 ```text
 ctx.systemPrompt.variable('cwd', ({ agent }) => agent?.session.header.cwd)

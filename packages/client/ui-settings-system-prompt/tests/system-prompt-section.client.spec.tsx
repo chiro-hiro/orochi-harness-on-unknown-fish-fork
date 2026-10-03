@@ -132,11 +132,27 @@ describe('SystemPromptSection', () => {
     renderSection({ writable: false })
     expect(screen.getByLabelText(en.prefixLabel)).toHaveProperty('disabled', true)
     expect(screen.getByRole('button', { name: en.addVariable })).toHaveProperty('disabled', true)
+    expect(screen.getByText('{{cwd}}').closest('button')).toHaveProperty('disabled', true)
 
     cleanup()
     renderSection({ saving: true })
     expect(screen.getByLabelText(en.suffixLabel)).toHaveProperty('disabled', true)
     expect(screen.getByRole('button', { name: en.addVariable })).toHaveProperty('disabled', true)
+    expect(screen.getByText('{{cwd}}').closest('button')).toHaveProperty('disabled', true)
+  })
+
+  it('badges the overridden variable map and resets it to the composition layer', () => {
+    const { actions } = renderSection({ variablesOverridden: true })
+
+    expect(screen.getByText(en.overridden)).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: en.reset }))
+    expect(actions.resetVariables).toHaveBeenCalledOnce()
+  })
+
+  it('shows no variable-map override badge when the map is not overridden', () => {
+    renderSection({ variablesOverridden: false })
+    expect(screen.queryByText(en.overridden)).toBeNull()
+    expect(screen.queryByRole('button', { name: en.reset })).toBeNull()
   })
 
   it('inserts a picked reference at the end of the prefix when no editor is active', () => {

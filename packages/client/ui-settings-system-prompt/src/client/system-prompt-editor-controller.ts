@@ -285,7 +285,8 @@ export class SystemPromptEditorController {
   }
 
   private knownNames(): ReadonlySet<string> {
-    return new Set([...HARNESS_VARIABLES.map(variable => variable.name), ...this.draftRows().map(row => row.name)])
+    const custom = this.draftRows().filter(row => VARIABLE_NAME.test(row.name)).map(row => row.name)
+    return new Set([...HARNESS_VARIABLES.map(variable => variable.name), ...custom])
   }
 
   private hasMalformed(text: string): boolean {

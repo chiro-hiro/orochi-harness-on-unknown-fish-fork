@@ -27,6 +27,31 @@
   color: var(--oh-alias-label-primary);
 }
 
+.badges {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reset {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--oh-alias-label-secondary);
+  cursor: pointer;
+}
+
+.reset:hover:not(:disabled) {
+  color: var(--oh-alias-label-primary);
+}
+
+.reset:disabled {
+  cursor: default;
+}
+
 .hint {
   margin: 0 0 8px;
   font-size: 12px;
