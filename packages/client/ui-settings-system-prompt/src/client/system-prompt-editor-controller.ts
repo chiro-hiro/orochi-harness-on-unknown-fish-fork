@@ -242,9 +242,10 @@ export class SystemPromptEditorController {
   /** Release the form's accepted-value subscription. */
   dispose(): void { this.unsubscribe() }
 
-  /** Capture the snapshot every staged edit is fenced against. */
+  /** Capture the snapshot every staged edit is fenced against, dropping the failure marker the next edit clears. */
   private stage(): void {
     this.baseline ??= this.scope.getSnapshot()
+    this.failed = false
   }
 
   private publish(): void {
@@ -313,16 +314,33 @@ export class SystemPromptEditorController {
       else if (staged.text === '') plan.push({ op: { op: 'unset', path: [field] } })
       else plan.push({ op: { op: 'set', path: [field], value: staged.text } })
     }
-    const rows = this.rows
-    if (this.rowsClear) {
-      if (this.userHas('variables')) plan.push({ op: { op: 'unset', path: ['variables'] } })
-    } else if (rows !== undefined && !sameRows(rows, this.effectiveRows())) {
-      const problems = rowProblems(rows)
-      if (problems.some(problem => problem !== undefined)) plan.push({})
-      else if (rows.length === 0) plan.push({ op: { op: 'unset', path: ['variables'] } })
-      else plan.push({ op: { op: 'set', path: ['variables'], value: toMap(rows) } })
-    }
+    const variables = this.variablesPlan()
+    if (variables !== undefined) plan.push(variables)
     return plan
+  }
+
+  /**
+   * The write the variable rows contribute to a save: one map write, one
+   * clear, an empty entry for rows the form refuses, or nothing when a save
+   * would not touch `variables`.
+   */
+  private variablesPlan(): PlanItem | undefined {
+    const rows = this.rows
+    if (this.rowsClear) return this.userHas('variables') ? { op: { op: 'unset', path: ['variables'] } } : undefined
+    if (rows === undefined || sameRows(rows, this.effectiveRows())) return undefined
+    if (rowProblems(rows).some(problem => problem !== undefined)) return {}
+    if (rows.length === 0) return { op: { op: 'unset', path: ['variables'] } }
+    return { op: { op: 'set', path: ['variables'], value: toMap(rows) } }
+  }
+
+  /**
+   * Whether a save would leave a user-layer `variables` entry: a written map
+   * adds one, a written clear removes one, and a refused or absent write
+   * leaves the layer as it stands.
+   */
+  private variablesOverridden(): boolean {
+    const write = this.variablesPlan()
+    return write?.op === undefined ? this.userHas('variables') : write.op.op === 'set'
   }
 
   private project(): SystemPromptEditorState {
@@ -346,9 +364,7 @@ export class SystemPromptEditorController {
         value: row.value,
         ...(problems[index] === undefined ? {} : { problem: problems[index] }),
       })),
-      variablesOverridden: this.rowsClear ? false : this.rows === undefined
-        ? this.userHas('variables')
-        : this.rows.length > 0,
+      variablesOverridden: this.variablesOverridden(),
       prefixIssues,
       suffixIssues,
     }

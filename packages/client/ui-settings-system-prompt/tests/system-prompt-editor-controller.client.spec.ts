@@ -253,6 +253,28 @@ describe('SystemPromptEditorController', () => {
     controller.dispose()
   })
 
+  it('reports no variable override when staged rows revert to the stored map', () => {
+    const host = stubConfigForm<SystemPromptSettings>()
+    acceptWrites(host)
+    host.publish({
+      status: 'ready', writable: true, revision: 1,
+      value: { variables: { keep: '0' } }, base: { variables: { keep: '0' } }, user: {},
+    })
+    const controller = new SystemPromptEditorController(host.scope)
+    const face = controller.inject()
+
+    face.editRow(0, 'value', 'changed')
+    expect(face.hooks.systemPromptEditor.getSnapshot()).toMatchObject({
+      dirty: true, variablesOverridden: true,
+    })
+
+    face.editRow(0, 'value', '0')
+    expect(face.hooks.systemPromptEditor.getSnapshot()).toMatchObject({
+      dirty: false, variablesOverridden: false,
+    })
+    controller.dispose()
+  })
+
   it('clears the variables entry when the last row is removed', async () => {
     const host = servedHost()
     const controller = new SystemPromptEditorController(host.scope)
@@ -392,6 +414,23 @@ describe('SystemPromptEditorController', () => {
       expect(face.hooks.systemPromptEditor.getSnapshot().failed).toBe(true)
     })
     face.discard()
+    expect(face.hooks.systemPromptEditor.getSnapshot().failed).toBe(false)
+    controller.dispose()
+  })
+
+  it('clears the failure marker on the next staged edit', async () => {
+    const host = servedHost()
+    host.mutate.mockRejectedValueOnce(new Error('gateway/internal'))
+    const controller = new SystemPromptEditorController(host.scope)
+    const face = controller.inject()
+
+    face.edit('personaPrefix', 'edited')
+    face.save()
+    await vi.waitFor(() => {
+      expect(face.hooks.systemPromptEditor.getSnapshot().failed).toBe(true)
+    })
+
+    face.edit('personaSuffix', 'typed')
     expect(face.hooks.systemPromptEditor.getSnapshot().failed).toBe(false)
     controller.dispose()
   })
